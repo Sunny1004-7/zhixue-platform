@@ -1,0 +1,3562 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "zhixing-submission-complete-sbom",
+  "documentNamespace": "https://zhixing.local/sbom/20261014T084332Z",
+  "creationInfo": {
+    "created": "2026-10-14T08:43:32Z",
+    "creators": [
+      "Organization: Project team",
+      "Tool: tools/generate_sbom.py"
+    ],
+    "comment": "Complete direct and transitive dependency inventory generated from Python declarations and package-lock.json; no file hashes are calculated."
+  },
+  "packages": [
+    {
+      "name": "zhixing-submission",
+      "SPDXID": "SPDXRef-Zhixing",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "licenseConcluded": "LicenseRef-Zhixing-Competition-Evaluation",
+      "licenseDeclared": "LicenseRef-Zhixing-Competition-Evaluation"
+    },
+    {
+      "name": "alembic",
+      "SPDXID": "SPDXRef-pypi-alembic-1.14.0",
+      "versionInfo": "1.14.0",
+      "downloadLocation": "https://pypi.org/project/alembic/1.14.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/alembic@1.14.0"
+        }
+      ]
+    },
+    {
+      "name": "annotated-types",
+      "SPDXID": "SPDXRef-pypi-annotated-types-0.8.0",
+      "versionInfo": "0.8.0",
+      "downloadLocation": "https://pypi.org/project/annotated-types/0.8.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/annotated-types@0.8.0"
+        }
+      ]
+    },
+    {
+      "name": "anyio",
+      "SPDXID": "SPDXRef-pypi-anyio-4.15.1",
+      "versionInfo": "4.15.1",
+      "downloadLocation": "https://pypi.org/project/anyio/4.15.1/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/anyio@4.15.1"
+        }
+      ]
+    },
+    {
+      "name": "certifi",
+      "SPDXID": "SPDXRef-pypi-certifi-2026.7.22",
+      "versionInfo": "2026.7.22",
+      "downloadLocation": "https://pypi.org/project/certifi/2026.7.22/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MPL-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/certifi@2026.7.22"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "SPDXID": "SPDXRef-pypi-click-8.5.0",
+      "versionInfo": "8.5.0",
+      "downloadLocation": "https://pypi.org/project/click/8.5.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/click@8.5.0"
+        }
+      ]
+    },
+    {
+      "name": "colorama",
+      "SPDXID": "SPDXRef-pypi-colorama-0.4.6",
+      "versionInfo": "0.4.6",
+      "downloadLocation": "https://pypi.org/project/colorama/0.4.6/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/colorama@0.4.6"
+        }
+      ]
+    },
+    {
+      "name": "fastapi",
+      "SPDXID": "SPDXRef-pypi-fastapi-0.115.6",
+      "versionInfo": "0.115.6",
+      "downloadLocation": "https://pypi.org/project/fastapi/0.115.6/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/fastapi@0.115.6"
+        }
+      ]
+    },
+    {
+      "name": "greenlet",
+      "SPDXID": "SPDXRef-pypi-greenlet-3.5.6",
+      "versionInfo": "3.5.6",
+      "downloadLocation": "https://pypi.org/project/greenlet/3.5.6/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT AND PSF-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/greenlet@3.5.6"
+        }
+      ]
+    },
+    {
+      "name": "h11",
+      "SPDXID": "SPDXRef-pypi-h11-0.16.0",
+      "versionInfo": "0.16.0",
+      "downloadLocation": "https://pypi.org/project/h11/0.16.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/h11@0.16.0"
+        }
+      ]
+    },
+    {
+      "name": "httpcore",
+      "SPDXID": "SPDXRef-pypi-httpcore-1.0.9",
+      "versionInfo": "1.0.9",
+      "downloadLocation": "https://pypi.org/project/httpcore/1.0.9/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httpcore@1.0.9"
+        }
+      ]
+    },
+    {
+      "name": "httptools",
+      "SPDXID": "SPDXRef-pypi-httptools-0.9.0",
+      "versionInfo": "0.9.0",
+      "downloadLocation": "https://pypi.org/project/httptools/0.9.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httptools@0.9.0"
+        }
+      ]
+    },
+    {
+      "name": "httpx",
+      "SPDXID": "SPDXRef-pypi-httpx-0.28.1",
+      "versionInfo": "0.28.1",
+      "downloadLocation": "https://pypi.org/project/httpx/0.28.1/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/httpx@0.28.1"
+        }
+      ]
+    },
+    {
+      "name": "idna",
+      "SPDXID": "SPDXRef-pypi-idna-3.20",
+      "versionInfo": "3.20",
+      "downloadLocation": "https://pypi.org/project/idna/3.20/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/idna@3.20"
+        }
+      ]
+    },
+    {
+      "name": "iniconfig",
+      "SPDXID": "SPDXRef-pypi-iniconfig-2.3.1",
+      "versionInfo": "2.3.1",
+      "downloadLocation": "https://pypi.org/project/iniconfig/2.3.1/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/iniconfig@2.3.1"
+        }
+      ]
+    },
+    {
+      "name": "lxml",
+      "SPDXID": "SPDXRef-pypi-lxml-6.1.3",
+      "versionInfo": "6.1.3",
+      "downloadLocation": "https://pypi.org/project/lxml/6.1.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/lxml@6.1.3"
+        }
+      ]
+    },
+    {
+      "name": "Mako",
+      "SPDXID": "SPDXRef-pypi-mako-1.4.3",
+      "versionInfo": "1.4.3",
+      "downloadLocation": "https://pypi.org/project/mako/1.4.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/Mako@1.4.3"
+        }
+      ]
+    },
+    {
+      "name": "MarkupSafe",
+      "SPDXID": "SPDXRef-pypi-markupsafe-3.0.4",
+      "versionInfo": "3.0.4",
+      "downloadLocation": "https://pypi.org/project/markupsafe/3.0.4/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/MarkupSafe@3.0.4"
+        }
+      ]
+    },
+    {
+      "name": "packaging",
+      "SPDXID": "SPDXRef-pypi-packaging-26.3",
+      "versionInfo": "26.3",
+      "downloadLocation": "https://pypi.org/project/packaging/26.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0 OR BSD-2-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/packaging@26.3"
+        }
+      ]
+    },
+    {
+      "name": "pillow",
+      "SPDXID": "SPDXRef-pypi-pillow-12.3.0",
+      "versionInfo": "12.3.0",
+      "downloadLocation": "https://pypi.org/project/pillow/12.3.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT-CMU",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pillow@12.3.0"
+        }
+      ]
+    },
+    {
+      "name": "pluggy",
+      "SPDXID": "SPDXRef-pypi-pluggy-1.6.0",
+      "versionInfo": "1.6.0",
+      "downloadLocation": "https://pypi.org/project/pluggy/1.6.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pluggy@1.6.0"
+        }
+      ]
+    },
+    {
+      "name": "psycopg",
+      "SPDXID": "SPDXRef-pypi-psycopg-3.2.3",
+      "versionInfo": "3.2.3",
+      "downloadLocation": "https://pypi.org/project/psycopg/3.2.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GNU Lesser General Public License v3 (LGPLv3)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/psycopg@3.2.3"
+        }
+      ]
+    },
+    {
+      "name": "psycopg-binary",
+      "SPDXID": "SPDXRef-pypi-psycopg-binary-3.2.3",
+      "versionInfo": "3.2.3",
+      "downloadLocation": "https://pypi.org/project/psycopg-binary/3.2.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GNU Lesser General Public License v3 (LGPLv3)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/psycopg-binary@3.2.3"
+        }
+      ]
+    },
+    {
+      "name": "pydantic",
+      "SPDXID": "SPDXRef-pypi-pydantic-2.10.4",
+      "versionInfo": "2.10.4",
+      "downloadLocation": "https://pypi.org/project/pydantic/2.10.4/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pydantic@2.10.4"
+        }
+      ]
+    },
+    {
+      "name": "pydantic_core",
+      "SPDXID": "SPDXRef-pypi-pydantic-core-2.27.2",
+      "versionInfo": "2.27.2",
+      "downloadLocation": "https://pypi.org/project/pydantic-core/2.27.2/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pydantic_core@2.27.2"
+        }
+      ]
+    },
+    {
+      "name": "pypdf",
+      "SPDXID": "SPDXRef-pypi-pypdf-6.1.1",
+      "versionInfo": "6.1.1",
+      "downloadLocation": "https://pypi.org/project/pypdf/6.1.1/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pypdf@6.1.1"
+        }
+      ]
+    },
+    {
+      "name": "pytest",
+      "SPDXID": "SPDXRef-pypi-pytest-8.3.4",
+      "versionInfo": "8.3.4",
+      "downloadLocation": "https://pypi.org/project/pytest/8.3.4/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pytest@8.3.4"
+        }
+      ]
+    },
+    {
+      "name": "python-docx",
+      "SPDXID": "SPDXRef-pypi-python-docx-1.2.0",
+      "versionInfo": "1.2.0",
+      "downloadLocation": "https://pypi.org/project/python-docx/1.2.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-docx@1.2.0"
+        }
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "SPDXID": "SPDXRef-pypi-python-dotenv-1.2.4",
+      "versionInfo": "1.2.4",
+      "downloadLocation": "https://pypi.org/project/python-dotenv/1.2.4/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-dotenv@1.2.4"
+        }
+      ]
+    },
+    {
+      "name": "python-pptx",
+      "SPDXID": "SPDXRef-pypi-python-pptx-1.0.2",
+      "versionInfo": "1.0.2",
+      "downloadLocation": "https://pypi.org/project/python-pptx/1.0.2/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-pptx@1.0.2"
+        }
+      ]
+    },
+    {
+      "name": "PyYAML",
+      "SPDXID": "SPDXRef-pypi-pyyaml-6.0.2",
+      "versionInfo": "6.0.2",
+      "downloadLocation": "https://pypi.org/project/pyyaml/6.0.2/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/PyYAML@6.0.2"
+        }
+      ]
+    },
+    {
+      "name": "setuptools",
+      "SPDXID": "SPDXRef-pypi-setuptools-75.6.0",
+      "versionInfo": "75.6.0",
+      "downloadLocation": "https://pypi.org/project/setuptools/75.6.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/setuptools@75.6.0"
+        }
+      ]
+    },
+    {
+      "name": "SQLAlchemy",
+      "SPDXID": "SPDXRef-pypi-sqlalchemy-2.0.36",
+      "versionInfo": "2.0.36",
+      "downloadLocation": "https://pypi.org/project/sqlalchemy/2.0.36/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/SQLAlchemy@2.0.36"
+        }
+      ]
+    },
+    {
+      "name": "starlette",
+      "SPDXID": "SPDXRef-pypi-starlette-0.41.3",
+      "versionInfo": "0.41.3",
+      "downloadLocation": "https://pypi.org/project/starlette/0.41.3/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/starlette@0.41.3"
+        }
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "SPDXID": "SPDXRef-pypi-typing-extensions-4.16.0",
+      "versionInfo": "4.16.0",
+      "downloadLocation": "https://pypi.org/project/typing-extensions/4.16.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "PSF-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/typing_extensions@4.16.0"
+        }
+      ]
+    },
+    {
+      "name": "tzdata",
+      "SPDXID": "SPDXRef-pypi-tzdata-2026.5",
+      "versionInfo": "2026.5",
+      "downloadLocation": "https://pypi.org/project/tzdata/2026.5/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/tzdata@2026.5"
+        }
+      ]
+    },
+    {
+      "name": "uvicorn",
+      "SPDXID": "SPDXRef-pypi-uvicorn-0.34.0",
+      "versionInfo": "0.34.0",
+      "downloadLocation": "https://pypi.org/project/uvicorn/0.34.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/uvicorn@0.34.0"
+        }
+      ]
+    },
+    {
+      "name": "watchfiles",
+      "SPDXID": "SPDXRef-pypi-watchfiles-1.3.0",
+      "versionInfo": "1.3.0",
+      "downloadLocation": "https://pypi.org/project/watchfiles/1.3.0/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/watchfiles@1.3.0"
+        }
+      ]
+    },
+    {
+      "name": "websockets",
+      "SPDXID": "SPDXRef-pypi-websockets-17.2",
+      "versionInfo": "17.2",
+      "downloadLocation": "https://pypi.org/project/websockets/17.2/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/websockets@17.2"
+        }
+      ]
+    },
+    {
+      "name": "wheel",
+      "SPDXID": "SPDXRef-pypi-wheel-0.45.1",
+      "versionInfo": "0.45.1",
+      "downloadLocation": "https://pypi.org/project/wheel/0.45.1/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/wheel@0.45.1"
+        }
+      ]
+    },
+    {
+      "name": "xlsxwriter",
+      "SPDXID": "SPDXRef-pypi-xlsxwriter-3.2.9",
+      "versionInfo": "3.2.9",
+      "downloadLocation": "https://pypi.org/project/xlsxwriter/3.2.9/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/xlsxwriter@3.2.9"
+        }
+      ]
+    },
+    {
+      "name": "@babel/code-frame",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/code-frame/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/code-frame@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/compat-data",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-compat-data-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/compat-data/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/compat-data@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/core",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/core/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/core@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/generator",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "versionInfo": "7.29.8",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/generator/v/7.29.8",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/generator@7.29.8"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-compilation-targets",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-compilation-targets/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-compilation-targets@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-globals",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-globals-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-globals/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-globals@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-module-imports",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-module-imports-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-module-imports/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-module-imports@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-module-transforms",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-module-transforms-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-module-transforms/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-module-transforms@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-plugin-utils",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-plugin-utils-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-plugin-utils/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-plugin-utils@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-string-parser",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-string-parser-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-string-parser/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-string-parser@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-validator-identifier",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-validator-identifier-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-validator-identifier/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-validator-identifier@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helper-validator-option",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helper-validator-option-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helper-validator-option/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helper-validator-option@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/helpers",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-helpers-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/helpers/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/helpers@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/parser",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8",
+      "versionInfo": "7.29.8",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/parser/v/7.29.8",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/parser@7.29.8"
+        }
+      ]
+    },
+    {
+      "name": "@babel/plugin-transform-react-jsx-self",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-self-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-self/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/plugin-transform-react-jsx-self@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/plugin-transform-react-jsx-source",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-source-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/plugin-transform-react-jsx-source@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/template",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7",
+      "versionInfo": "7.29.7",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/template/v/7.29.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/template@7.29.7"
+        }
+      ]
+    },
+    {
+      "name": "@babel/traverse",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "versionInfo": "7.29.8",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/traverse/v/7.29.8",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/traverse@7.29.8"
+        }
+      ]
+    },
+    {
+      "name": "@babel/types",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8",
+      "versionInfo": "7.29.8",
+      "downloadLocation": "https://www.npmjs.com/package/@babel/types/v/7.29.8",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@babel/types@7.29.8"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/aix-ppc64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-aix-ppc64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/aix-ppc64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/aix-ppc64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/android-arm",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-android-arm-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/android-arm/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/android-arm@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/android-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-android-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/android-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/android-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/android-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-android-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/android-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/android-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/darwin-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-darwin-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/darwin-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/darwin-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/darwin-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-darwin-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/darwin-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/darwin-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/freebsd-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-freebsd-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/freebsd-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/freebsd-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/freebsd-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-freebsd-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/freebsd-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/freebsd-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-arm",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-arm-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-arm/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-arm@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-ia32",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-ia32-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-ia32/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-ia32@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-loong64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-loong64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-loong64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-loong64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-mips64el",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-mips64el-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-mips64el/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-mips64el@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-ppc64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-ppc64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-ppc64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-ppc64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-riscv64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-riscv64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-riscv64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-riscv64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-s390x",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-s390x-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-s390x/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-s390x@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/linux-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-linux-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/linux-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/linux-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/netbsd-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-netbsd-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/netbsd-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/netbsd-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/netbsd-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-netbsd-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/netbsd-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/netbsd-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/openbsd-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-openbsd-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/openbsd-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/openbsd-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/openbsd-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-openbsd-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/openbsd-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/openbsd-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/openharmony-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-openharmony-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/openharmony-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/openharmony-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/sunos-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-sunos-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/sunos-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/sunos-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/win32-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-win32-arm64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/win32-arm64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/win32-arm64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/win32-ia32",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-win32-ia32-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/win32-ia32/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/win32-ia32@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@esbuild/win32-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-win32-x64-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/@esbuild/win32-x64/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@esbuild/win32-x64@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "@jridgewell/gen-mapping",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jridgewell-gen-mapping-0.3.13",
+      "versionInfo": "0.3.13",
+      "downloadLocation": "https://www.npmjs.com/package/@jridgewell/gen-mapping/v/0.3.13",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@jridgewell/gen-mapping@0.3.13"
+        }
+      ]
+    },
+    {
+      "name": "@jridgewell/remapping",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jridgewell-remapping-2.3.5",
+      "versionInfo": "2.3.5",
+      "downloadLocation": "https://www.npmjs.com/package/@jridgewell/remapping/v/2.3.5",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@jridgewell/remapping@2.3.5"
+        }
+      ]
+    },
+    {
+      "name": "@jridgewell/resolve-uri",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jridgewell-resolve-uri-3.1.2",
+      "versionInfo": "3.1.2",
+      "downloadLocation": "https://www.npmjs.com/package/@jridgewell/resolve-uri/v/3.1.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@jridgewell/resolve-uri@3.1.2"
+        }
+      ]
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jridgewell-sourcemap-codec-1.5.5",
+      "versionInfo": "1.5.5",
+      "downloadLocation": "https://www.npmjs.com/package/@jridgewell/sourcemap-codec/v/1.5.5",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@jridgewell/sourcemap-codec@1.5.5"
+        }
+      ]
+    },
+    {
+      "name": "@jridgewell/trace-mapping",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31",
+      "versionInfo": "0.3.31",
+      "downloadLocation": "https://www.npmjs.com/package/@jridgewell/trace-mapping/v/0.3.31",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@jridgewell/trace-mapping@0.3.31"
+        }
+      ]
+    },
+    {
+      "name": "@napi-rs/lzma-linux-x64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-napi-rs-lzma-linux-x64-gnu-1.5.1",
+      "versionInfo": "1.5.1",
+      "downloadLocation": "https://www.npmjs.com/package/@napi-rs/lzma-linux-x64-gnu/v/1.5.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@napi-rs/lzma-linux-x64-gnu@1.5.1"
+        }
+      ]
+    },
+    {
+      "name": "@rolldown/pluginutils",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rolldown-pluginutils-1.0.0-beta.27",
+      "versionInfo": "1.0.0-beta.27",
+      "downloadLocation": "https://www.npmjs.com/package/@rolldown/pluginutils/v/1.0.0-beta.27",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rolldown/pluginutils@1.0.0-beta.27"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-android-arm-eabi",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-android-arm-eabi-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-android-arm-eabi/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-android-arm-eabi@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-android-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-android-arm64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-android-arm64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-android-arm64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-darwin-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-darwin-arm64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-darwin-arm64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-darwin-arm64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-darwin-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-darwin-x64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-darwin-x64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-darwin-x64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-freebsd-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-freebsd-arm64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-freebsd-arm64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-freebsd-arm64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-freebsd-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-freebsd-x64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-freebsd-x64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-freebsd-x64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-arm-gnueabihf",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-arm-gnueabihf-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-arm-gnueabihf/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-arm-gnueabihf@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-arm-musleabihf",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-arm-musleabihf-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-arm-musleabihf/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-arm-musleabihf@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-arm64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-arm64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-arm64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-arm64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-arm64-musl",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-arm64-musl-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-arm64-musl/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-arm64-musl@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-loong64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-loong64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-loong64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-loong64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-loong64-musl",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-loong64-musl-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-loong64-musl/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-loong64-musl@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-ppc64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-ppc64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-ppc64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-ppc64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-ppc64-musl",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-ppc64-musl-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-ppc64-musl/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-ppc64-musl@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-riscv64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-riscv64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-riscv64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-riscv64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-riscv64-musl",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-riscv64-musl-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-riscv64-musl/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-riscv64-musl@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-s390x-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-s390x-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-s390x-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-s390x-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-x64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-x64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-x64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-x64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-linux-x64-musl",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-linux-x64-musl-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-linux-x64-musl/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-linux-x64-musl@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-openbsd-x64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-openbsd-x64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-openbsd-x64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-openbsd-x64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-openharmony-arm64",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-openharmony-arm64-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-openharmony-arm64/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-openharmony-arm64@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-win32-arm64-msvc",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-win32-arm64-msvc-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-win32-arm64-msvc/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-win32-arm64-msvc@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-win32-ia32-msvc",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-win32-ia32-msvc-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-win32-ia32-msvc/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-win32-ia32-msvc@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-win32-x64-gnu",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-win32-x64-gnu-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-win32-x64-gnu/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-win32-x64-gnu@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@rollup/rollup-win32-x64-msvc",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-rollup-win32-x64-msvc-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/@rollup/rollup-win32-x64-msvc/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@rollup/rollup-win32-x64-msvc@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "@types/babel__core",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "versionInfo": "7.20.5",
+      "downloadLocation": "https://www.npmjs.com/package/@types/babel__core/v/7.20.5",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/babel__core@7.20.5"
+        }
+      ]
+    },
+    {
+      "name": "@types/babel__generator",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-babel-generator-7.27.0",
+      "versionInfo": "7.27.0",
+      "downloadLocation": "https://www.npmjs.com/package/@types/babel__generator/v/7.27.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/babel__generator@7.27.0"
+        }
+      ]
+    },
+    {
+      "name": "@types/babel__template",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-babel-template-7.4.4",
+      "versionInfo": "7.4.4",
+      "downloadLocation": "https://www.npmjs.com/package/@types/babel__template/v/7.4.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/babel__template@7.4.4"
+        }
+      ]
+    },
+    {
+      "name": "@types/babel__traverse",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-babel-traverse-7.28.0",
+      "versionInfo": "7.28.0",
+      "downloadLocation": "https://www.npmjs.com/package/@types/babel__traverse/v/7.28.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/babel__traverse@7.28.0"
+        }
+      ]
+    },
+    {
+      "name": "@types/estree",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-estree-1.0.9",
+      "versionInfo": "1.0.9",
+      "downloadLocation": "https://www.npmjs.com/package/@types/estree/v/1.0.9",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/estree@1.0.9"
+        }
+      ]
+    },
+    {
+      "name": "@types/prop-types",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-prop-types-15.7.15",
+      "versionInfo": "15.7.15",
+      "downloadLocation": "https://www.npmjs.com/package/@types/prop-types/v/15.7.15",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/prop-types@15.7.15"
+        }
+      ]
+    },
+    {
+      "name": "@types/react",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-react-18.3.31",
+      "versionInfo": "18.3.31",
+      "downloadLocation": "https://www.npmjs.com/package/@types/react/v/18.3.31",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/react@18.3.31"
+        }
+      ]
+    },
+    {
+      "name": "@types/react-dom",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-types-react-dom-18.3.7",
+      "versionInfo": "18.3.7",
+      "downloadLocation": "https://www.npmjs.com/package/@types/react-dom/v/18.3.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@types/react-dom@18.3.7"
+        }
+      ]
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "versionInfo": "4.7.0",
+      "downloadLocation": "https://www.npmjs.com/package/@vitejs/plugin-react/v/4.7.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/@vitejs/plugin-react@4.7.0"
+        }
+      ]
+    },
+    {
+      "name": "baseline-browser-mapping",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-baseline-browser-mapping-2.11.10",
+      "versionInfo": "2.11.10",
+      "downloadLocation": "https://www.npmjs.com/package/baseline-browser-mapping/v/2.11.10",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/baseline-browser-mapping@2.11.10"
+        }
+      ]
+    },
+    {
+      "name": "browserslist",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "versionInfo": "4.28.7",
+      "downloadLocation": "https://www.npmjs.com/package/browserslist/v/4.28.7",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/browserslist@4.28.7"
+        }
+      ]
+    },
+    {
+      "name": "caniuse-lite",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-caniuse-lite-1.0.30001806",
+      "versionInfo": "1.0.30001806",
+      "downloadLocation": "https://www.npmjs.com/package/caniuse-lite/v/1.0.30001806",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "CC-BY-4.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/caniuse-lite@1.0.30001806"
+        }
+      ]
+    },
+    {
+      "name": "convert-source-map",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-convert-source-map-2.0.0",
+      "versionInfo": "2.0.0",
+      "downloadLocation": "https://www.npmjs.com/package/convert-source-map/v/2.0.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/convert-source-map@2.0.0"
+        }
+      ]
+    },
+    {
+      "name": "cookie",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-cookie-1.1.1",
+      "versionInfo": "1.1.1",
+      "downloadLocation": "https://www.npmjs.com/package/cookie/v/1.1.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/cookie@1.1.1"
+        }
+      ]
+    },
+    {
+      "name": "csstype",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-csstype-3.2.3",
+      "versionInfo": "3.2.3",
+      "downloadLocation": "https://www.npmjs.com/package/csstype/v/3.2.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/csstype@3.2.3"
+        }
+      ]
+    },
+    {
+      "name": "debug",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-debug-4.4.3",
+      "versionInfo": "4.4.3",
+      "downloadLocation": "https://www.npmjs.com/package/debug/v/4.4.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/debug@4.4.3"
+        }
+      ]
+    },
+    {
+      "name": "electron-to-chromium",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-electron-to-chromium-1.5.399",
+      "versionInfo": "1.5.399",
+      "downloadLocation": "https://www.npmjs.com/package/electron-to-chromium/v/1.5.399",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/electron-to-chromium@1.5.399"
+        }
+      ]
+    },
+    {
+      "name": "esbuild",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-esbuild-0.25.12",
+      "versionInfo": "0.25.12",
+      "downloadLocation": "https://www.npmjs.com/package/esbuild/v/0.25.12",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/esbuild@0.25.12"
+        }
+      ]
+    },
+    {
+      "name": "escalade",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-escalade-3.2.0",
+      "versionInfo": "3.2.0",
+      "downloadLocation": "https://www.npmjs.com/package/escalade/v/3.2.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/escalade@3.2.0"
+        }
+      ]
+    },
+    {
+      "name": "fdir",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-fdir-6.5.0",
+      "versionInfo": "6.5.0",
+      "downloadLocation": "https://www.npmjs.com/package/fdir/v/6.5.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/fdir@6.5.0"
+        }
+      ]
+    },
+    {
+      "name": "fsevents",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-playwright-node-modules-fsevents-2.3.2",
+      "versionInfo": "2.3.2",
+      "downloadLocation": "https://www.npmjs.com/package/fsevents/v/2.3.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/fsevents@2.3.2"
+        }
+      ]
+    },
+    {
+      "name": "fsevents",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-fsevents-2.3.3",
+      "versionInfo": "2.3.3",
+      "downloadLocation": "https://www.npmjs.com/package/fsevents/v/2.3.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/fsevents@2.3.3"
+        }
+      ]
+    },
+    {
+      "name": "gensync",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-gensync-1.0.0-beta.2",
+      "versionInfo": "1.0.0-beta.2",
+      "downloadLocation": "https://www.npmjs.com/package/gensync/v/1.0.0-beta.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/gensync@1.0.0-beta.2"
+        }
+      ]
+    },
+    {
+      "name": "js-tokens",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-js-tokens-4.0.0",
+      "versionInfo": "4.0.0",
+      "downloadLocation": "https://www.npmjs.com/package/js-tokens/v/4.0.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/js-tokens@4.0.0"
+        }
+      ]
+    },
+    {
+      "name": "jsesc",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-jsesc-3.1.0",
+      "versionInfo": "3.1.0",
+      "downloadLocation": "https://www.npmjs.com/package/jsesc/v/3.1.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/jsesc@3.1.0"
+        }
+      ]
+    },
+    {
+      "name": "json5",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-json5-2.2.3",
+      "versionInfo": "2.2.3",
+      "downloadLocation": "https://www.npmjs.com/package/json5/v/2.2.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/json5@2.2.3"
+        }
+      ]
+    },
+    {
+      "name": "loose-envify",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-loose-envify-1.4.0",
+      "versionInfo": "1.4.0",
+      "downloadLocation": "https://www.npmjs.com/package/loose-envify/v/1.4.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/loose-envify@1.4.0"
+        }
+      ]
+    },
+    {
+      "name": "lru-cache",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-lru-cache-5.1.1",
+      "versionInfo": "5.1.1",
+      "downloadLocation": "https://www.npmjs.com/package/lru-cache/v/5.1.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/lru-cache@5.1.1"
+        }
+      ]
+    },
+    {
+      "name": "lucide-react",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-lucide-react-0.468.0",
+      "versionInfo": "0.468.0",
+      "downloadLocation": "https://www.npmjs.com/package/lucide-react/v/0.468.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/lucide-react@0.468.0"
+        }
+      ]
+    },
+    {
+      "name": "ms",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-ms-2.1.3",
+      "versionInfo": "2.1.3",
+      "downloadLocation": "https://www.npmjs.com/package/ms/v/2.1.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/ms@2.1.3"
+        }
+      ]
+    },
+    {
+      "name": "nanoid",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-nanoid-3.3.16",
+      "versionInfo": "3.3.16",
+      "downloadLocation": "https://www.npmjs.com/package/nanoid/v/3.3.16",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/nanoid@3.3.16"
+        }
+      ]
+    },
+    {
+      "name": "node-releases",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-node-releases-2.0.51",
+      "versionInfo": "2.0.51",
+      "downloadLocation": "https://www.npmjs.com/package/node-releases/v/2.0.51",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/node-releases@2.0.51"
+        }
+      ]
+    },
+    {
+      "name": "picocolors",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-picocolors-1.1.1",
+      "versionInfo": "1.1.1",
+      "downloadLocation": "https://www.npmjs.com/package/picocolors/v/1.1.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/picocolors@1.1.1"
+        }
+      ]
+    },
+    {
+      "name": "picomatch",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-picomatch-4.0.5",
+      "versionInfo": "4.0.5",
+      "downloadLocation": "https://www.npmjs.com/package/picomatch/v/4.0.5",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/picomatch@4.0.5"
+        }
+      ]
+    },
+    {
+      "name": "playwright",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-playwright-1.55.0",
+      "versionInfo": "1.55.0",
+      "downloadLocation": "https://www.npmjs.com/package/playwright/v/1.55.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/playwright@1.55.0"
+        }
+      ]
+    },
+    {
+      "name": "playwright-core",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-playwright-core-1.55.0",
+      "versionInfo": "1.55.0",
+      "downloadLocation": "https://www.npmjs.com/package/playwright-core/v/1.55.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/playwright-core@1.55.0"
+        }
+      ]
+    },
+    {
+      "name": "postcss",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-postcss-8.5.25",
+      "versionInfo": "8.5.25",
+      "downloadLocation": "https://www.npmjs.com/package/postcss/v/8.5.25",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/postcss@8.5.25"
+        }
+      ]
+    },
+    {
+      "name": "react",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-react-18.3.1",
+      "versionInfo": "18.3.1",
+      "downloadLocation": "https://www.npmjs.com/package/react/v/18.3.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react@18.3.1"
+        }
+      ]
+    },
+    {
+      "name": "react-dom",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-react-dom-18.3.1",
+      "versionInfo": "18.3.1",
+      "downloadLocation": "https://www.npmjs.com/package/react-dom/v/18.3.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react-dom@18.3.1"
+        }
+      ]
+    },
+    {
+      "name": "react-refresh",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-react-refresh-0.17.0",
+      "versionInfo": "0.17.0",
+      "downloadLocation": "https://www.npmjs.com/package/react-refresh/v/0.17.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react-refresh@0.17.0"
+        }
+      ]
+    },
+    {
+      "name": "react-router",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-react-router-7.18.2",
+      "versionInfo": "7.18.2",
+      "downloadLocation": "https://www.npmjs.com/package/react-router/v/7.18.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react-router@7.18.2"
+        }
+      ]
+    },
+    {
+      "name": "react-router-dom",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-react-router-dom-7.18.2",
+      "versionInfo": "7.18.2",
+      "downloadLocation": "https://www.npmjs.com/package/react-router-dom/v/7.18.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react-router-dom@7.18.2"
+        }
+      ]
+    },
+    {
+      "name": "rollup",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-rollup-4.62.4",
+      "versionInfo": "4.62.4",
+      "downloadLocation": "https://www.npmjs.com/package/rollup/v/4.62.4",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/rollup@4.62.4"
+        }
+      ]
+    },
+    {
+      "name": "scheduler",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-scheduler-0.23.2",
+      "versionInfo": "0.23.2",
+      "downloadLocation": "https://www.npmjs.com/package/scheduler/v/0.23.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/scheduler@0.23.2"
+        }
+      ]
+    },
+    {
+      "name": "semver",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-semver-6.3.1",
+      "versionInfo": "6.3.1",
+      "downloadLocation": "https://www.npmjs.com/package/semver/v/6.3.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/semver@6.3.1"
+        }
+      ]
+    },
+    {
+      "name": "set-cookie-parser",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-set-cookie-parser-2.7.2",
+      "versionInfo": "2.7.2",
+      "downloadLocation": "https://www.npmjs.com/package/set-cookie-parser/v/2.7.2",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/set-cookie-parser@2.7.2"
+        }
+      ]
+    },
+    {
+      "name": "source-map-js",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-source-map-js-1.2.1",
+      "versionInfo": "1.2.1",
+      "downloadLocation": "https://www.npmjs.com/package/source-map-js/v/1.2.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/source-map-js@1.2.1"
+        }
+      ]
+    },
+    {
+      "name": "tinyglobby",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-tinyglobby-0.2.17",
+      "versionInfo": "0.2.17",
+      "downloadLocation": "https://www.npmjs.com/package/tinyglobby/v/0.2.17",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/tinyglobby@0.2.17"
+        }
+      ]
+    },
+    {
+      "name": "typescript",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-typescript-5.9.3",
+      "versionInfo": "5.9.3",
+      "downloadLocation": "https://www.npmjs.com/package/typescript/v/5.9.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/typescript@5.9.3"
+        }
+      ]
+    },
+    {
+      "name": "update-browserslist-db",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-update-browserslist-db-1.2.3",
+      "versionInfo": "1.2.3",
+      "downloadLocation": "https://www.npmjs.com/package/update-browserslist-db/v/1.2.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/update-browserslist-db@1.2.3"
+        }
+      ]
+    },
+    {
+      "name": "vite",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "versionInfo": "6.4.3",
+      "downloadLocation": "https://www.npmjs.com/package/vite/v/6.4.3",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/vite@6.4.3"
+        }
+      ]
+    },
+    {
+      "name": "yallist",
+      "SPDXID": "SPDXRef-npm-npm-node-modules-yallist-3.1.1",
+      "versionInfo": "3.1.1",
+      "downloadLocation": "https://www.npmjs.com/package/yallist/v/3.1.1",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/yallist@3.1.1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Zhixing"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-mako-1.4.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.0.36"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.10.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-starlette-0.41.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.34.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-annotated-types-0.8.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-core-2.27.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.7.22"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httpcore-1.0.9"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-idna-3.20"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pypdf-6.1.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pillow-12.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pypdf-6.1.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-binary-3.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pillow-12.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-xlsxwriter-3.2.9"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-greenlet-3.5.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httptools-0.9.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-python-dotenv-1.2.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-watchfiles-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-websockets-17.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-iniconfig-2.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pluggy-1.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-wheel-0.45.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-wheel-0.45.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-core-2.27.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.7.22"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pluggy-1.6.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-idna-3.20"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-greenlet-3.5.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-idna-3.20",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-dotenv-1.2.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-watchfiles-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-mako-1.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-markupsafe-3.0.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-mako-1.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-validator-identifier-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-js-tokens-4.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-picocolors-1.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-module-transforms-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helpers-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-remapping-2.3.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-convert-source-map-2.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-debug-4.4.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-gensync-1.0.0-beta.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-json5-2.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-semver-6.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-gen-mapping-0.3.13"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jsesc-3.1.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-compat-data-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-validator-option-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-lru-cache-5.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-compilation-targets-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-semver-6.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-module-imports-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-module-imports-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-module-transforms-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-module-imports-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-module-transforms-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-validator-identifier-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helper-module-transforms-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helpers-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-helpers-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-self-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-plugin-utils-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-source-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-plugin-utils-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-generator-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-globals-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-template-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-traverse-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-debug-4.4.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-string-parser-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-helper-validator-identifier-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-gen-mapping-0.3.13",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-sourcemap-codec-1.5.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-gen-mapping-0.3.13",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-remapping-2.3.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-gen-mapping-0.3.13"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-remapping-2.3.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-resolve-uri-3.1.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-jridgewell-trace-mapping-0.3.31",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-jridgewell-sourcemap-codec-1.5.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-babel-generator-7.27.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-babel-template-7.4.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-babel-traverse-7.28.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-generator-7.27.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-template-7.4.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-parser-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-template-7.4.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-babel-traverse-7.28.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-types-7.29.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-react-18.3.31",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-prop-types-15.7.15"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-types-react-18.3.31",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-csstype-3.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-core-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-self-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-babel-plugin-transform-react-jsx-source-7.29.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-rolldown-pluginutils-1.0.0-beta.27"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-babel-core-7.20.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-react-refresh-0.17.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-baseline-browser-mapping-2.11.10"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-caniuse-lite-1.0.30001806"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-electron-to-chromium-1.5.399"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-node-releases-2.0.51"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-browserslist-4.28.7",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-update-browserslist-db-1.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-debug-4.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-ms-2.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-loose-envify-1.4.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-js-tokens-4.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-lru-cache-5.1.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-yallist-3.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-playwright-1.55.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-playwright-core-1.55.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-postcss-8.5.25",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-nanoid-3.3.16"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-postcss-8.5.25",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-picocolors-1.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-postcss-8.5.25",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-source-map-js-1.2.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-18.3.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-loose-envify-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-dom-18.3.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-loose-envify-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-dom-18.3.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-scheduler-0.23.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-router-7.18.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-cookie-1.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-router-7.18.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-set-cookie-parser-2.7.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-react-router-dom-7.18.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-react-router-7.18.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-rollup-4.62.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-estree-1.0.9"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-scheduler-0.23.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-loose-envify-1.4.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-tinyglobby-0.2.17",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-fdir-6.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-tinyglobby-0.2.17",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-picomatch-4.0.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-update-browserslist-db-1.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-escalade-3.2.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-update-browserslist-db-1.2.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-picocolors-1.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-esbuild-0.25.12"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-fdir-6.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-picomatch-4.0.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-postcss-8.5.25"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-rollup-4.62.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-npm-npm-node-modules-vite-6.4.3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-tinyglobby-0.2.17"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-alembic-1.14.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-fastapi-0.115.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.2.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.10.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pypdf-6.1.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-python-docx-1.2.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-python-pptx-1.0.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.0.36"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.34.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-react-18.3.31"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-types-react-dom-18.3.7"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-vitejs-plugin-react-4.7.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-lucide-react-0.468.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-playwright-1.55.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-react-18.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-react-dom-18.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-react-router-dom-7.18.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-typescript-5.9.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Zhixing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-npm-npm-node-modules-vite-6.4.3"
+    }
+  ]
+}

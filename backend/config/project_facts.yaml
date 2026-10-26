@@ -1,0 +1,99 @@
+project:
+  name: "知学智教——大模型驱动的个性化教学平台"
+  brand: "知学智教"
+  track: "AI WEB网页开发挑战赛"
+  domain: "智慧教育"
+
+demo_context:
+  term: "2026 秋季"
+  class:
+    name: "智能工程2402班"
+    size: 48
+  student:
+    name: "林知夏"
+    major: "数据科学与大数据技术"
+  teacher:
+    name: "顾明川"
+    title: "智能课程群 · 课程负责人"
+
+courses:
+  - id: "machine-learning"
+    code: "ML-2026"
+    title: "机器学习基础"
+    recorded_knowledge_topics:
+      - {name: "矩阵运算", correct_rate: 87}
+      - {name: "矩阵求导", correct_rate: 79}
+      - {name: "线性回归", correct_rate: 76}
+      - {name: "损失函数", correct_rate: 67}
+      - {name: "梯度下降", correct_rate: 63}
+      - {name: "学习率", correct_rate: 62}
+      - {name: "模型评价", correct_rate: 82}
+      - {name: "特征工程", correct_rate: 71}
+      - {name: "模型假设", correct_rate: 69}
+      - {name: "正则化", correct_rate: 69}
+  - id: "ai-intro"
+    code: "AI-2026"
+    title: "人工智能导论"
+    recorded_knowledge_topics:
+      - {name: "智能体基础", correct_rate: 91}
+      - {name: "知识表示", correct_rate: 84}
+      - {name: "知识图谱", correct_rate: 79}
+      - {name: "规则推理", correct_rate: 73}
+      - {name: "状态空间", correct_rate: 85}
+      - {name: "检索策略", correct_rate: 75}
+      - {name: "规划与决策", correct_rate: 68}
+      - {name: "工具调用", correct_rate: 64}
+      - {name: "多智能体协作", correct_rate: 60}
+      - {name: "可解释性", correct_rate: 72}
+  - id: "data-intelligence"
+    code: "DI-2026"
+    title: "数据智能实践"
+    recorded_knowledge_topics:
+      - {name: "数据理解", correct_rate: 78}
+      - {name: "数据清洗", correct_rate: 71}
+      - {name: "缺失值处理", correct_rate: 65}
+      - {name: "异常检测", correct_rate: 60}
+      - {name: "特征工程", correct_rate: 58}
+      - {name: "时间窗口", correct_rate: 64}
+      - {name: "数据泄漏", correct_rate: 53}
+      - {name: "基线建模", correct_rate: 68}
+      - {name: "指标选择", correct_rate: 75}
+      - {name: "结果诊断", correct_rate: 62}
+
+models:
+  - "GPT-5"
+  - "DeepSeek-V3"
+  - "Qwen3-235B-A22B"
+  - "GLM-4.5"
+
+tutor_strategies:
+  - {id: "adaptive", label: "自适应选择"}
+  - {id: "coach", label: "启发引导"}
+  - {id: "visualize", label: "可视化解释"}
+  - {id: "practice", label: "即时练习"}
+  - {id: "research", label: "联网研证"}
+  - {id: "explain", label: "类比拆解"}
+
+attention_score:
+  practice_weight: 0.25
+  accuracy_weight: 0.30
+  resource_progress_weight: 0.25
+  effective_tutor_weight: 0.20
+  practice_normalizer: 40
+  tutor_normalizer: 6
+  priority_student_count: 3
+
+knowledge_states:
+  weak: "有有效证据且掌握度 < 50%"
+  mastered: "有有效证据且掌握度 >= 50%"
+  unseen: "有效证据不足"
+
+resource_types:
+  - "knowledge_graph"
+  - "question_set"
+  - "learning_video"
+
+default_adaptive_practice_question_count: 8
+default_graph_display:
+  node_count: 11
+  edge_count: 14

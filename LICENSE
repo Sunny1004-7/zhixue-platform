@@ -1,0 +1,10 @@
+Copyright (c) 2026 Zhixing Zhijiao contributors. All rights reserved.
+
+This source package is provided for competition review, evaluation and
+reproducibility inspection. Reviewers may read and execute the software for
+those purposes. No permission is granted to redistribute, sublicense, publish,
+sell, or use the project source or project-specific assets in a production
+service without prior written authorization from the copyright holder.
+
+Third-party components remain subject to their own licenses. See
+THIRD_PARTY_NOTICES.md and sbom.spdx.json.

@@ -1,0 +1,30 @@
+{
+  "name": "zhixing-platform-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "qa:login": "node qa/verify-login.cjs",
+    "qa:a1-a2": "node qa/verify-a1-a2.cjs",
+    "qa:a3": "node qa/verify-a3.cjs",
+    "qa:a4-a6": "node qa/verify-a4-a6.cjs",
+    "typecheck": "tsc -b --pretty false",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.55.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}

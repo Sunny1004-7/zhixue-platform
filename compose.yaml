@@ -1,0 +1,74 @@
+name: zhixing
+
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: zhixing
+      POSTGRES_USER: zhixing
+      POSTGRES_PASSWORD: ${ZHIXING_POSTGRES_PASSWORD:?set ZHIXING_POSTGRES_PASSWORD}
+    volumes:
+      - zhixing-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhixing -d zhixing"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      ZHIXING_ENVIRONMENT: production
+      ZHIXING_DATABASE_URL: postgresql+psycopg://zhixing:${ZHIXING_POSTGRES_PASSWORD}@database:5432/zhixing
+      ZHIXING_CORS_ORIGINS: http://127.0.0.1:8080,http://localhost:8080
+      ZHIXING_SESSION_TTL_HOURS: ${ZHIXING_SESSION_TTL_HOURS:-8}
+      ZHIXING_MODEL_ALLOWED_DATA_REGIONS: ${ZHIXING_MODEL_ALLOWED_DATA_REGIONS:-}
+      ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES: ${ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_API_BASE: ${OPENAI_API_BASE:-}
+      OPENAI_MODEL_ID: ${OPENAI_MODEL_ID:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_API_BASE: ${DEEPSEEK_API_BASE:-}
+      DEEPSEEK_MODEL_ID: ${DEEPSEEK_MODEL_ID:-deepseek-v3}
+      QWEN_API_KEY: ${QWEN_API_KEY:-}
+      QWEN_API_BASE: ${QWEN_API_BASE:-}
+      QWEN_MODEL_ID: ${QWEN_MODEL_ID:-}
+      GLM_API_KEY: ${GLM_API_KEY:-}
+      GLM_API_BASE: ${GLM_API_BASE:-}
+      GLM_MODEL_ID: ${GLM_MODEL_ID:-}
+    volumes:
+      - zhixing-assets:/app/.data/assets
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_API_BASE_URL: /api/v1
+    ports:
+      - "8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:8080/"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+volumes:
+  zhixing-postgres:
+  zhixing-assets:
