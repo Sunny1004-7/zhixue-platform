@@ -93,7 +93,7 @@ function VisualExplanation({ visual }: { visual: Record<string, unknown> }) {
           {edges
             .map(
               (edge) =>
-                `${edge.source ?? ""} → ${edge.target ?? ""}${edge.label ? `（${edge.label}）` : ""}`,
+                `${nodes.find((node) => node.id === edge.source)?.label ?? "知识节点"} → ${nodes.find((node) => node.id === edge.target)?.label ?? "知识节点"}${edge.label ? `（${edge.label}）` : ""}`,
             )
             .join(" · ")}
         </p>
@@ -112,7 +112,17 @@ function ChatMessage({ message }: { message: TutorMessage }) {
       </span>
       <div>
         {message.title && <h3>{message.title}</h3>}
-        <p>{message.body}</p>
+        <p>
+          {message.body
+            .split(/(\*\*[^*]+\*\*)/g)
+            .map((part, index) =>
+              part.startsWith("**") && part.endsWith("**") ? (
+                <strong key={index}>{part.slice(2, -2)}</strong>
+              ) : (
+                part
+              ),
+            )}
+        </p>
         {message.visual && <VisualExplanation visual={message.visual} />}
         {message.inline_practice && (
           <section className="tutor-inline-practice">

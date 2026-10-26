@@ -58,8 +58,8 @@
 cd backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements-complete.lock.txt
-python -m pip install -e ".[dev]" --no-deps
+python -m pip install --index-url https://pypi.org/simple -r requirements-complete.lock.txt
+python -m pip install --index-url https://pypi.org/simple -e ".[dev]" --no-deps
 Copy-Item .env.example .env
 python -m dotenv -f .env run -- alembic upgrade head
 python -m uvicorn app.main:app --env-file .env --port 8000
@@ -130,7 +130,7 @@ ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES=provider_account_policy
 
 重新启动后端后，学生或教师登录，访问`/api/v1/model-profiles?task_kind=a5.tutor_reply`，携带当前会话的Bearer令牌即可检查任务配置的可用性。未提供模型凭据、服务地址、模型ID或策略授权时，生成入口显示服务不可用；已有课程资源和常规业务仍可使用。前端环境变量只保存API地址，模型密钥始终保留在后端运行环境。
 
-初始化会建立独立的Flash Profile及配置修订，既有模型运行记录继续保留。任务记录包括所选Profile、实际请求model、配置与提示词版本，以及供应商返回的model和可获得的token用量。空内容、截断、限流、超时、供应商拒绝和结构/质量不合格结果分别反馈；教师仍需复核并确认发布。
+初始化会建立独立的Flash Profile及配置修订，既有模型运行记录继续保留。任务记录包括所选Profile、实际请求model、配置与提示词版本，以及供应商返回的model和可获得的token用量。空内容、截断、限流、超时、供应商拒绝和结构/质量不合格结果分别反馈。图谱与题组等教学资源由教师复核并确认发布，辅导答复保留依据与继续提问入口。
 
 ### 自动检查
 
@@ -146,7 +146,7 @@ GitHub Actions在推送和Pull Request时执行前端`npm ci`、类型检查、�
 - 单个材料文件默认不超过20MB，可通过 `ZHIXING_ASSET_MAX_BYTES` 调整。
 - 项目随包提供的示例课程配置位于 `backend/config/project_facts.yaml`。如需使用其他课程配置，可通过 `ZHIXING_FACT_SOURCE` 指定文件。
 
-已有数据库升级前先备份数据库及教学材料，在后端目录执行`alembic upgrade head`。第12个迁移将两处模型版本字段从40字符扩展至128字符，保留原有学习状态、证据及其关联关系。升级后的检查命令为`alembic check`。若数据库已保存超过40字符的组合版本标识，回退至第11个迁移会被阻止，以保护完整版本记录。
+已有数据库升级前先备份数据库及教学材料，在后端目录执行`python -m dotenv -f .env run -- alembic upgrade head`。第12个迁移将两处模型版本字段从40字符扩展至128字符，保留原有学习状态、证据及其关联关系。升级后的检查命令为`python -m dotenv -f .env run -- alembic check`。若数据库已保存超过40字符的组合版本标识，回退至第11个迁移会被阻止，以保护完整版本记录。
 
 ## 账号与模型配置
 

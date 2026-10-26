@@ -458,7 +458,22 @@ def seed_database(session: Session, fact_source: Path) -> None:
             system_template=tutor_reply_system,
             user_template=tutor_reply_user,
             template_hash=tutor_reply_hash,
-            active=True,
+            active=False,
+        ))
+    previous_tutor_prompt = session.get(PromptTemplate, "a5-tutor-reply-prompt-1")
+    if previous_tutor_prompt is not None:
+        previous_tutor_prompt.active = False
+    tutor_reply_system_v2 = tutor_reply_system + (
+        "title、body及图示标签必须使用面向学生的教学语言，不提JSON、Schema、字段名或内部对象ID。"
+        "正文需要引用图示时可写‘下面的对比图’，图示结构由界面呈现。"
+        "正文使用清楚的自然段，不加入Markdown格式标记。"
+        "准确区分概念的一般定义与特定算法的适用条件，不把某种优化方法的条件表述为所有概念的必要条件。"
+    )
+    if session.get(PromptTemplate, "a5-tutor-reply-prompt-2") is None:
+        session.add(PromptTemplate(
+            id="a5-tutor-reply-prompt-2", task_kind="a5.tutor_reply", version="1.1.0",
+            system_template=tutor_reply_system_v2, user_template=tutor_reply_user,
+            template_hash=sha256(f"{tutor_reply_system_v2}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=True,
         ))
     if session.get(TaskPolicy, "a5-tutor-reply-policy-1") is None:
         session.add(TaskPolicy(
