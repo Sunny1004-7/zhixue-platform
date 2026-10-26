@@ -797,7 +797,9 @@ def test_model_gateway_generation_teacher_review_publish_and_idempotency(
         run = db.scalar(select(ModelRun).where(ModelRun.idempotency_key == payload["idempotency_key"]))
         assert run.status == "validated"
         assert run.output_hash and run.audit_hash and run.prompt_hash
-        assert run.usage_json == {"input_tokens": 640, "output_tokens": 420}
+        assert run.usage_json["input_tokens"] == 640
+        assert run.usage_json["output_tokens"] == 420
+        assert run.usage_json["profile_revision_id"] == "gpt-5:rev:1"
         assert db.scalar(select(func.count()).select_from(ModelAttempt).where(
             ModelAttempt.run_id == run.id
         )) == 1

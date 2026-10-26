@@ -22,7 +22,7 @@ from ...models import (
 )
 from ..model_gateway.adapters.openai_compatible import OpenAICompatibleAdapter
 from ..model_gateway.contracts import ModelAdapter, ProviderError, ProviderRequest
-from ..model_gateway.profile_catalog import active_policy, resolve_profile
+from ..model_gateway.profile_catalog import active_policy, resolve_profile, response_usage
 from ..model_gateway.service import GatewayFailure, stable_hash, stable_json, utcnow
 
 
@@ -193,6 +193,8 @@ def run_structured_task(
                 endpoint=resolved.endpoint or "",
                 api_key=resolved.api_key or "",
                 model_id=resolved.provider_model_id or "",
+                provider_kind=resolved.revision.provider_kind,
+                thinking_mode=settings.deepseek_thinking_mode,
                 system_prompt=prompt.system_template,
                 user_prompt=user_prompt,
                 connect_timeout_seconds=settings.model_connect_timeout_seconds,
@@ -204,11 +206,12 @@ def run_structured_task(
             attempt.input_tokens = response.input_tokens
             attempt.output_tokens = response.output_tokens
             attempt.response_hash = sha256(raw_content.encode("utf-8")).hexdigest()
-            run.usage_json = {
-                "input_tokens": response.input_tokens,
-                "output_tokens": response.output_tokens,
-            }
+            run.usage_json = response_usage(response, resolved)
         except ProviderError as error:
+            if error.metadata:
+                run.usage_json = error.metadata
+                attempt.input_tokens = error.metadata.get("input_tokens")
+                attempt.output_tokens = error.metadata.get("output_tokens")
             attempt.status = "failed"
             attempt.error_code = error.code
             attempt.completed_at = utcnow()

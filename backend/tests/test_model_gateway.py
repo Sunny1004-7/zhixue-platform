@@ -258,7 +258,9 @@ def test_graph_extract_validates_reviews_and_applies_once(
     assert artifact["model_run"]["actual_profile_id"] == "gpt-5"
     assert artifact["model_run"]["provider_model_id"] == "provider/test-model"
     assert artifact["model_run"]["attempt_count"] == 1
-    assert artifact["model_run"]["usage"] == {"input_tokens": 420, "output_tokens": 128}
+    assert artifact["model_run"]["usage"]["input_tokens"] == 420
+    assert artifact["model_run"]["usage"]["output_tokens"] == 128
+    assert artifact["model_run"]["usage"]["profile_revision_id"] == "gpt-5:rev:1"
     assert artifact["model_run"]["audit_hash"]
 
     repeated = client.post(

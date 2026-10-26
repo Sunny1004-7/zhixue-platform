@@ -15,6 +15,8 @@ class ProviderRequest:
     timeout_seconds: float
     temperature: float = 0.1
     max_output_tokens: int = 3000
+    provider_kind: str | None = None
+    thinking_mode: str = "disabled"
 
 
 @dataclass(frozen=True)
@@ -34,12 +36,14 @@ class ProviderError(RuntimeError):
         *,
         retryable: bool,
         retry_after_seconds: float | None = None,
+        metadata: dict | None = None,
     ):
         super().__init__(safe_message)
         self.code = code
         self.safe_message = safe_message
         self.retryable = retryable
         self.retry_after_seconds = retry_after_seconds
+        self.metadata = metadata or {}
 
 
 class ModelAdapter(Protocol):

@@ -6,10 +6,10 @@ def test_profile_catalog_keeps_display_and_provider_identity_separate(client, st
     assert response.status_code == 200
     profiles = response.json()
     assert {item["display_name"] for item in profiles} == {
-        "GPT-5", "DeepSeek-V3", "Qwen3-235B-A22B", "GLM-4.5",
+        "GPT-5", "DeepSeek-V4.1-Flash-1017", "Qwen3-235B-A22B", "GLM-4.5",
     }
     assert all("provider_model_id" not in item for item in profiles)
-    assert all(item["config_revision"] == "profile-catalog-2026-08-02" for item in profiles)
+    assert all(item["config_revision"] == ("deepseek-flash-2026-10-26" if item["id"] == "deepseek-flash" else "profile-catalog-2026-08-02") for item in profiles)
 
 
 def test_deepseek_profile_is_explicitly_unavailable_without_runtime_authorization(
@@ -29,7 +29,7 @@ def test_deepseek_profile_is_explicitly_unavailable_without_runtime_authorizatio
         headers=student_headers,
     )
     assert response.status_code == 200
-    deepseek = next(item for item in response.json() if item["id"] == "deepseek-v3")
+    deepseek = next(item for item in response.json() if item["id"] == "deepseek-flash")
     assert deepseek["available"] is False
     assert deepseek["unavailable_reason"]
     assert "provider_model_id" not in deepseek

@@ -268,23 +268,26 @@ def seed_database(session: Session, fact_source: Path) -> None:
     ]
     profile_ids = {
         "GPT-5": "gpt-5",
-        "DeepSeek-V3": "deepseek-v3",
+        "DeepSeek-V4.1-Flash-1017": "deepseek-flash",
         "Qwen3-235B-A22B": "qwen3-235b-a22b",
         "GLM-4.5": "glm-4.5",
     }
     profile_configs = {
         "gpt-5": ("openai", "OPENAI_API_KEY", "OPENAI_API_BASE", "OPENAI_MODEL_ID"),
-        "deepseek-v3": ("deepseek", "DEEPSEEK_API_KEY", "DEEPSEEK_API_BASE", "DEEPSEEK_MODEL_ID"),
+        "deepseek-flash": ("deepseek", "DEEPSEEK_API_KEY", "DEEPSEEK_API_BASE", "DEEPSEEK_MODEL_ID"),
         "qwen3-235b-a22b": ("qwen", "QWEN_API_KEY", "QWEN_API_BASE", "QWEN_MODEL_ID"),
         "glm-4.5": ("glm", "GLM_API_KEY", "GLM_API_BASE", "GLM_MODEL_ID"),
     }
+    legacy_deepseek = session.get(ModelProfile, "deepseek-v3")
+    if legacy_deepseek is not None:
+        legacy_deepseek.enabled = False
     for display_name in facts["models"]:
         profile_id = profile_ids[display_name]
         profile = session.get(ModelProfile, profile_id)
         if profile is None:
             profile = ModelProfile(
                 id=profile_id, display_name=display_name, enabled=True,
-                task_kinds=task_kinds, config_revision="profile-catalog-2026-08-02",
+                task_kinds=task_kinds, config_revision=("deepseek-flash-2026-10-26" if profile_id == "deepseek-flash" else "profile-catalog-2026-08-02"),
             )
             session.add(profile)
         else:

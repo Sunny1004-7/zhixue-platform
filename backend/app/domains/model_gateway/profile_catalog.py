@@ -8,6 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ...models import ModelProfile, ModelProfileRevision, TaskPolicy
+from .contracts import ProviderResponse
 
 
 @dataclass(frozen=True)
@@ -19,6 +20,18 @@ class ResolvedProfile:
     endpoint: str | None
     api_key: str | None
     provider_model_id: str | None
+
+
+def response_usage(response: ProviderResponse, resolved: ResolvedProfile) -> dict:
+    return {
+        "input_tokens": response.input_tokens,
+        "output_tokens": response.output_tokens,
+        "profile_config_revision": resolved.profile.config_revision,
+        "profile_revision_id": resolved.revision.id if resolved.revision else None,
+        "profile_revision_no": resolved.revision.revision_no if resolved.revision else None,
+        "provider_request_id": response.provider_request_id,
+        "provider_metadata": response.metadata,
+    }
 
 
 def active_revision(db: Session, profile_id: str) -> ModelProfileRevision | None:

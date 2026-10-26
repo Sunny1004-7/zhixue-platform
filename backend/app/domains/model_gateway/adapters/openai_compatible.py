@@ -45,6 +45,22 @@ class OpenAICompatibleAdapter:
             write=min(15.0, request.timeout_seconds),
             pool=min(10.0, request.timeout_seconds),
         )
+        body = {
+            "model": request.model_id,
+            "messages": [
+                {"role": "system", "content": request.system_prompt},
+                {"role": "user", "content": request.user_prompt},
+            ],
+            "temperature": request.temperature,
+            "max_tokens": request.max_output_tokens,
+            "response_format": {"type": "json_object"},
+        }
+        if request.provider_kind == "deepseek":
+            if request.thinking_mode not in {"enabled", "disabled"}:
+                raise ProviderError("MODEL_PROVIDER_CONFIGURATION_INVALID", "模型参数配置无效，请联系课程教师", retryable=False)
+            body["thinking"] = {"type": request.thinking_mode}
+            if request.thinking_mode == "enabled":
+                body.pop("temperature")
         try:
             response = httpx.post(
                 url,
@@ -52,16 +68,7 @@ class OpenAICompatibleAdapter:
                     "Authorization": f"Bearer {request.api_key}",
                     "Content-Type": "application/json",
                 },
-                json={
-                    "model": request.model_id,
-                    "messages": [
-                        {"role": "system", "content": request.system_prompt},
-                        {"role": "user", "content": request.user_prompt},
-                    ],
-                    "temperature": request.temperature,
-                    "max_tokens": request.max_output_tokens,
-                    "response_format": {"type": "json_object"},
-                },
+                json=body,
                 timeout=timeout,
             )
         except httpx.TimeoutException as exc:
@@ -84,21 +91,39 @@ class OpenAICompatibleAdapter:
             raise ProviderError("MODEL_PROVIDER_REJECTED", "模型服务拒绝了当前请求", retryable=False)
         try:
             payload = response.json()
-            content = payload["choices"][0]["message"]["content"]
+            choice = payload["choices"][0]
+            message = choice["message"]
+            content = message.get("content")
             usage = payload.get("usage") or {}
-        except (ValueError, KeyError, IndexError, TypeError) as exc:
+            if not isinstance(message, dict) or not isinstance(usage, dict):
+                raise TypeError("Invalid message or usage object")
+        except (ValueError, KeyError, IndexError, TypeError, AttributeError) as exc:
             raise ProviderError(
                 "MODEL_PROVIDER_PROTOCOL_INVALID", "模型服务返回格式无法识别", retryable=False
             ) from exc
+        metadata = {
+            "response_model": payload.get("model") if isinstance(payload.get("model"), str) else None,
+            "response_id": payload.get("id") if isinstance(payload.get("id"), str) else None,
+            "finish_reason": choice.get("finish_reason"),
+            "input_tokens": usage.get("prompt_tokens"),
+            "output_tokens": usage.get("completion_tokens"),
+        }
+        if message.get("refusal") or choice.get("finish_reason") == "content_filter":
+            raise ProviderError("MODEL_PROVIDER_REJECTED", "模型服务未接受当前教学请求，请调整内容后重试", retryable=False, metadata=metadata)
+        if choice.get("finish_reason") == "length":
+            raise ProviderError("MODEL_PROVIDER_TRUNCATED", "模型输出未完整返回，请缩小本次任务范围后重试", retryable=False, metadata=metadata)
         if not isinstance(content, str):
             raise ProviderError(
-                "MODEL_PROVIDER_PROTOCOL_INVALID", "模型服务未返回文本结果", retryable=False
+                "MODEL_PROVIDER_PROTOCOL_INVALID", "模型服务未返回文本结果", retryable=False, metadata=metadata
             )
+        if not content.strip():
+            raise ProviderError("MODEL_PROVIDER_EMPTY", "模型服务返回空内容，请稍后重试", retryable=True, metadata=metadata)
         if len(content.encode("utf-8")) > 256 * 1024:
             raise ProviderError(
                 "MODEL_PROVIDER_RESPONSE_TOO_LARGE",
                 "模型服务返回内容超过当前任务上限",
                 retryable=False,
+                metadata=metadata,
             )
         return ProviderResponse(
             content=_normalize_json_object(content),
@@ -108,4 +133,5 @@ class OpenAICompatibleAdapter:
             ),
             input_tokens=usage.get("prompt_tokens"),
             output_tokens=usage.get("completion_tokens"),
+            metadata={key: value for key, value in metadata.items() if isinstance(value, str)},
         )

@@ -23,9 +23,13 @@ class Settings:
     model_connect_timeout_seconds: float = 5.0
     model_read_timeout_seconds: float = 45.0
     model_max_attempts: int = 2
+    deepseek_thinking_mode: str = "disabled"
 
     @classmethod
     def from_env(cls) -> "Settings":
+        thinking_mode = os.getenv("DEEPSEEK_THINKING_MODE", "disabled").strip().lower()
+        if thinking_mode not in {"enabled", "disabled"}:
+            raise ValueError("DEEPSEEK_THINKING_MODE must be enabled or disabled")
         origins = tuple(
             item.strip()
             for item in os.getenv(
@@ -54,4 +58,5 @@ class Settings:
                 os.getenv("ZHIXING_MODEL_READ_TIMEOUT_SECONDS", "45")
             ),
             model_max_attempts=max(1, min(3, int(os.getenv("ZHIXING_MODEL_MAX_ATTEMPTS", "2")))),
+            deepseek_thinking_mode=thinking_mode,
         )

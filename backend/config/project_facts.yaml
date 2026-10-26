@@ -62,7 +62,7 @@ courses:
 
 models:
   - "GPT-5"
-  - "DeepSeek-V3"
+  - "DeepSeek-V4.1-Flash-1017"
   - "Qwen3-235B-A22B"
   - "GLM-4.5"
 
