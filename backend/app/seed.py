@@ -407,7 +407,22 @@ def seed_database(session: Session, fact_source: Path) -> None:
             system_template=question_generation_system,
             user_template=question_generation_user,
             template_hash=question_generation_hash,
-            active=True,
+            active=False,
+        ))
+    previous_question_prompt = session.get(PromptTemplate, "a3-question-generation-prompt-1")
+    if previous_question_prompt is not None:
+        previous_question_prompt.active = False
+    question_generation_system_v2 = question_generation_system + (
+        "三级提示均不得包含规范答案、可接受答案别名、正确选项全文或直接指出选项编号。"
+        "第三级仍只提供求解框架、检查方法或中间步骤，不给最终概念名、数值或结论。"
+        "例如答案是某个方法名称时，提示可以说明如何判断适用条件，但不能在解释句中写出该名称。"
+        "输出前逐题逐级检查提示是否包含答案文字，发现时改写提示，保留题面与答案的正确性。"
+    )
+    if session.get(PromptTemplate, "a3-question-generation-prompt-2") is None:
+        session.add(PromptTemplate(
+            id="a3-question-generation-prompt-2", task_kind="a3.question_generation", version="1.1.0",
+            system_template=question_generation_system_v2, user_template=question_generation_user,
+            template_hash=sha256(f"{question_generation_system_v2}\n{question_generation_user}".encode("utf-8")).hexdigest(), active=True,
         ))
     if session.get(TaskPolicy, "a3-question-generation-policy-1") is None:
         session.add(TaskPolicy(
