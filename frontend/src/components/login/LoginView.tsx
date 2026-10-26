@@ -1,4 +1,4 @@
-import { useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -160,6 +160,9 @@ export default function LoginView({
   const id = useId();
   const active = roleContent[role];
   const busy = submitting || restoringSession;
+  useEffect(() => {
+    if (errors.form) formErrorRef.current?.focus();
+  }, [errors.form]);
 
   const chooseRole = (next: LoginRole) => {
     setRole(next);
@@ -188,7 +191,6 @@ export default function LoginView({
             ? reason.message
             : "登录暂时不可用，请稍后重试。",
       });
-      window.requestAnimationFrame(() => formErrorRef.current?.focus());
     } finally {
       inFlight.current = false;
       setSubmitting(false);

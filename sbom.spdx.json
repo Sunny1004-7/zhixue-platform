@@ -3,9 +3,9 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "zhixing-submission-complete-sbom",
-  "documentNamespace": "https://zhixing.local/sbom/20261014T084332Z",
+  "documentNamespace": "https://zhixing.local/sbom/20261026T110902Z",
   "creationInfo": {
-    "created": "2026-10-14T08:43:32Z",
+    "created": "2026-10-26T11:09:02Z",
     "creators": [
       "Organization: Project team",
       "Tool: tools/generate_sbom.py"
@@ -23,16 +23,31 @@
     },
     {
       "name": "alembic",
-      "SPDXID": "SPDXRef-pypi-alembic-1.14.0",
-      "versionInfo": "1.14.0",
-      "downloadLocation": "https://pypi.org/project/alembic/1.14.0/",
+      "SPDXID": "SPDXRef-pypi-alembic-1.20.1",
+      "versionInfo": "1.20.1",
+      "downloadLocation": "https://pypi.org/project/alembic/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/alembic@1.14.0"
+          "referenceLocator": "pkg:pypi/alembic@1.20.1"
+        }
+      ]
+    },
+    {
+      "name": "annotated-doc",
+      "SPDXID": "SPDXRef-pypi-annotated-doc-0.0.5",
+      "versionInfo": "0.0.5",
+      "downloadLocation": "https://pypi.org/project/annotated-doc/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/annotated-doc@0.0.5"
         }
       ]
     },
@@ -40,7 +55,7 @@
       "name": "annotated-types",
       "SPDXID": "SPDXRef-pypi-annotated-types-0.8.0",
       "versionInfo": "0.8.0",
-      "downloadLocation": "https://pypi.org/project/annotated-types/0.8.0/",
+      "downloadLocation": "https://pypi.org/project/annotated-types/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -55,7 +70,7 @@
       "name": "anyio",
       "SPDXID": "SPDXRef-pypi-anyio-4.15.1",
       "versionInfo": "4.15.1",
-      "downloadLocation": "https://pypi.org/project/anyio/4.15.1/",
+      "downloadLocation": "https://pypi.org/project/anyio/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -68,16 +83,16 @@
     },
     {
       "name": "certifi",
-      "SPDXID": "SPDXRef-pypi-certifi-2026.7.22",
-      "versionInfo": "2026.7.22",
-      "downloadLocation": "https://pypi.org/project/certifi/2026.7.22/",
+      "SPDXID": "SPDXRef-pypi-certifi-2026.10.23",
+      "versionInfo": "2026.10.23",
+      "downloadLocation": "https://pypi.org/project/certifi/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MPL-2.0",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/certifi@2026.7.22"
+          "referenceLocator": "pkg:pypi/certifi@2026.10.23"
         }
       ]
     },
@@ -85,7 +100,7 @@
       "name": "click",
       "SPDXID": "SPDXRef-pypi-click-8.5.0",
       "versionInfo": "8.5.0",
-      "downloadLocation": "https://pypi.org/project/click/8.5.0/",
+      "downloadLocation": "https://pypi.org/project/click/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -100,7 +115,7 @@
       "name": "colorama",
       "SPDXID": "SPDXRef-pypi-colorama-0.4.6",
       "versionInfo": "0.4.6",
-      "downloadLocation": "https://pypi.org/project/colorama/0.4.6/",
+      "downloadLocation": "https://pypi.org/project/colorama/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -113,31 +128,16 @@
     },
     {
       "name": "fastapi",
-      "SPDXID": "SPDXRef-pypi-fastapi-0.115.6",
-      "versionInfo": "0.115.6",
-      "downloadLocation": "https://pypi.org/project/fastapi/0.115.6/",
+      "SPDXID": "SPDXRef-pypi-fastapi-0.162.0",
+      "versionInfo": "0.162.0",
+      "downloadLocation": "https://pypi.org/project/fastapi/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/fastapi@0.115.6"
-        }
-      ]
-    },
-    {
-      "name": "greenlet",
-      "SPDXID": "SPDXRef-pypi-greenlet-3.5.6",
-      "versionInfo": "3.5.6",
-      "downloadLocation": "https://pypi.org/project/greenlet/3.5.6/",
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "MIT AND PSF-2.0",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/greenlet@3.5.6"
+          "referenceLocator": "pkg:pypi/fastapi@0.162.0"
         }
       ]
     },
@@ -145,7 +145,7 @@
       "name": "h11",
       "SPDXID": "SPDXRef-pypi-h11-0.16.0",
       "versionInfo": "0.16.0",
-      "downloadLocation": "https://pypi.org/project/h11/0.16.0/",
+      "downloadLocation": "https://pypi.org/project/h11/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -160,7 +160,7 @@
       "name": "httpcore",
       "SPDXID": "SPDXRef-pypi-httpcore-1.0.9",
       "versionInfo": "1.0.9",
-      "downloadLocation": "https://pypi.org/project/httpcore/1.0.9/",
+      "downloadLocation": "https://pypi.org/project/httpcore/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -175,7 +175,7 @@
       "name": "httptools",
       "SPDXID": "SPDXRef-pypi-httptools-0.9.0",
       "versionInfo": "0.9.0",
-      "downloadLocation": "https://pypi.org/project/httptools/0.9.0/",
+      "downloadLocation": "https://pypi.org/project/httptools/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -190,7 +190,7 @@
       "name": "httpx",
       "SPDXID": "SPDXRef-pypi-httpx-0.28.1",
       "versionInfo": "0.28.1",
-      "downloadLocation": "https://pypi.org/project/httpx/0.28.1/",
+      "downloadLocation": "https://pypi.org/project/httpx/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -205,7 +205,7 @@
       "name": "idna",
       "SPDXID": "SPDXRef-pypi-idna-3.20",
       "versionInfo": "3.20",
-      "downloadLocation": "https://pypi.org/project/idna/3.20/",
+      "downloadLocation": "https://pypi.org/project/idna/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -220,7 +220,7 @@
       "name": "iniconfig",
       "SPDXID": "SPDXRef-pypi-iniconfig-2.3.1",
       "versionInfo": "2.3.1",
-      "downloadLocation": "https://pypi.org/project/iniconfig/2.3.1/",
+      "downloadLocation": "https://pypi.org/project/iniconfig/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -235,7 +235,7 @@
       "name": "lxml",
       "SPDXID": "SPDXRef-pypi-lxml-6.1.3",
       "versionInfo": "6.1.3",
-      "downloadLocation": "https://pypi.org/project/lxml/6.1.3/",
+      "downloadLocation": "https://pypi.org/project/lxml/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -250,7 +250,7 @@
       "name": "Mako",
       "SPDXID": "SPDXRef-pypi-mako-1.4.3",
       "versionInfo": "1.4.3",
-      "downloadLocation": "https://pypi.org/project/mako/1.4.3/",
+      "downloadLocation": "https://pypi.org/project/Mako/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -265,7 +265,7 @@
       "name": "MarkupSafe",
       "SPDXID": "SPDXRef-pypi-markupsafe-3.0.4",
       "versionInfo": "3.0.4",
-      "downloadLocation": "https://pypi.org/project/markupsafe/3.0.4/",
+      "downloadLocation": "https://pypi.org/project/MarkupSafe/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -277,10 +277,25 @@
       ]
     },
     {
+      "name": "opentelemetry-api",
+      "SPDXID": "SPDXRef-pypi-opentelemetry-api-1.45.1",
+      "versionInfo": "1.45.1",
+      "downloadLocation": "https://pypi.org/project/opentelemetry-api/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/opentelemetry-api@1.45.1"
+        }
+      ]
+    },
+    {
       "name": "packaging",
       "SPDXID": "SPDXRef-pypi-packaging-26.3",
       "versionInfo": "26.3",
-      "downloadLocation": "https://pypi.org/project/packaging/26.3/",
+      "downloadLocation": "https://pypi.org/project/packaging/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "Apache-2.0 OR BSD-2-Clause",
       "externalRefs": [
@@ -293,121 +308,136 @@
     },
     {
       "name": "pillow",
-      "SPDXID": "SPDXRef-pypi-pillow-12.3.0",
-      "versionInfo": "12.3.0",
-      "downloadLocation": "https://pypi.org/project/pillow/12.3.0/",
+      "SPDXID": "SPDXRef-pypi-pillow-13.0.0",
+      "versionInfo": "13.0.0",
+      "downloadLocation": "https://pypi.org/project/pillow/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT-CMU",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pillow@12.3.0"
+          "referenceLocator": "pkg:pypi/pillow@13.0.0"
         }
       ]
     },
     {
       "name": "pluggy",
-      "SPDXID": "SPDXRef-pypi-pluggy-1.6.0",
-      "versionInfo": "1.6.0",
-      "downloadLocation": "https://pypi.org/project/pluggy/1.6.0/",
+      "SPDXID": "SPDXRef-pypi-pluggy-1.7.0",
+      "versionInfo": "1.7.0",
+      "downloadLocation": "https://pypi.org/project/pluggy/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pluggy@1.6.0"
+          "referenceLocator": "pkg:pypi/pluggy@1.7.0"
         }
       ]
     },
     {
       "name": "psycopg",
-      "SPDXID": "SPDXRef-pypi-psycopg-3.2.3",
-      "versionInfo": "3.2.3",
-      "downloadLocation": "https://pypi.org/project/psycopg/3.2.3/",
+      "SPDXID": "SPDXRef-pypi-psycopg-3.3.6",
+      "versionInfo": "3.3.6",
+      "downloadLocation": "https://pypi.org/project/psycopg/",
       "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "GNU Lesser General Public License v3 (LGPLv3)",
+      "licenseDeclared": "LGPL-3.0-only",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/psycopg@3.2.3"
+          "referenceLocator": "pkg:pypi/psycopg@3.3.6"
         }
       ]
     },
     {
       "name": "psycopg-binary",
-      "SPDXID": "SPDXRef-pypi-psycopg-binary-3.2.3",
-      "versionInfo": "3.2.3",
-      "downloadLocation": "https://pypi.org/project/psycopg-binary/3.2.3/",
+      "SPDXID": "SPDXRef-pypi-psycopg-binary-3.3.6",
+      "versionInfo": "3.3.6",
+      "downloadLocation": "https://pypi.org/project/psycopg-binary/",
       "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "GNU Lesser General Public License v3 (LGPLv3)",
+      "licenseDeclared": "LGPL-3.0-only",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/psycopg-binary@3.2.3"
+          "referenceLocator": "pkg:pypi/psycopg-binary@3.3.6"
         }
       ]
     },
     {
       "name": "pydantic",
-      "SPDXID": "SPDXRef-pypi-pydantic-2.10.4",
-      "versionInfo": "2.10.4",
-      "downloadLocation": "https://pypi.org/project/pydantic/2.10.4/",
+      "SPDXID": "SPDXRef-pypi-pydantic-2.14.1",
+      "versionInfo": "2.14.1",
+      "downloadLocation": "https://pypi.org/project/pydantic/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pydantic@2.10.4"
+          "referenceLocator": "pkg:pypi/pydantic@2.14.1"
         }
       ]
     },
     {
       "name": "pydantic_core",
-      "SPDXID": "SPDXRef-pypi-pydantic-core-2.27.2",
-      "versionInfo": "2.27.2",
-      "downloadLocation": "https://pypi.org/project/pydantic-core/2.27.2/",
+      "SPDXID": "SPDXRef-pypi-pydantic-core-2.50.1",
+      "versionInfo": "2.50.1",
+      "downloadLocation": "https://pypi.org/project/pydantic_core/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pydantic_core@2.27.2"
+          "referenceLocator": "pkg:pypi/pydantic_core@2.50.1"
+        }
+      ]
+    },
+    {
+      "name": "Pygments",
+      "SPDXID": "SPDXRef-pypi-pygments-2.21.0",
+      "versionInfo": "2.21.0",
+      "downloadLocation": "https://pypi.org/project/Pygments/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "BSD-2-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/Pygments@2.21.0"
         }
       ]
     },
     {
       "name": "pypdf",
-      "SPDXID": "SPDXRef-pypi-pypdf-6.1.1",
-      "versionInfo": "6.1.1",
-      "downloadLocation": "https://pypi.org/project/pypdf/6.1.1/",
+      "SPDXID": "SPDXRef-pypi-pypdf-6.21.2",
+      "versionInfo": "6.21.2",
+      "downloadLocation": "https://pypi.org/project/pypdf/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pypdf@6.1.1"
+          "referenceLocator": "pkg:pypi/pypdf@6.21.2"
         }
       ]
     },
     {
       "name": "pytest",
-      "SPDXID": "SPDXRef-pypi-pytest-8.3.4",
-      "versionInfo": "8.3.4",
-      "downloadLocation": "https://pypi.org/project/pytest/8.3.4/",
+      "SPDXID": "SPDXRef-pypi-pytest-8.4.2",
+      "versionInfo": "8.4.2",
+      "downloadLocation": "https://pypi.org/project/pytest/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/pytest@8.3.4"
+          "referenceLocator": "pkg:pypi/pytest@8.4.2"
         }
       ]
     },
@@ -415,7 +445,7 @@
       "name": "python-docx",
       "SPDXID": "SPDXRef-pypi-python-docx-1.2.0",
       "versionInfo": "1.2.0",
-      "downloadLocation": "https://pypi.org/project/python-docx/1.2.0/",
+      "downloadLocation": "https://pypi.org/project/python-docx/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -430,7 +460,7 @@
       "name": "python-dotenv",
       "SPDXID": "SPDXRef-pypi-python-dotenv-1.2.4",
       "versionInfo": "1.2.4",
-      "downloadLocation": "https://pypi.org/project/python-dotenv/1.2.4/",
+      "downloadLocation": "https://pypi.org/project/python-dotenv/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
@@ -445,7 +475,7 @@
       "name": "python-pptx",
       "SPDXID": "SPDXRef-pypi-python-pptx-1.0.2",
       "versionInfo": "1.0.2",
-      "downloadLocation": "https://pypi.org/project/python-pptx/1.0.2/",
+      "downloadLocation": "https://pypi.org/project/python-pptx/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -458,76 +488,76 @@
     },
     {
       "name": "PyYAML",
-      "SPDXID": "SPDXRef-pypi-pyyaml-6.0.2",
-      "versionInfo": "6.0.2",
-      "downloadLocation": "https://pypi.org/project/pyyaml/6.0.2/",
+      "SPDXID": "SPDXRef-pypi-pyyaml-6.0.3",
+      "versionInfo": "6.0.3",
+      "downloadLocation": "https://pypi.org/project/PyYAML/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/PyYAML@6.0.2"
-        }
-      ]
-    },
-    {
-      "name": "setuptools",
-      "SPDXID": "SPDXRef-pypi-setuptools-75.6.0",
-      "versionInfo": "75.6.0",
-      "downloadLocation": "https://pypi.org/project/setuptools/75.6.0/",
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "MIT",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/setuptools@75.6.0"
+          "referenceLocator": "pkg:pypi/PyYAML@6.0.3"
         }
       ]
     },
     {
       "name": "SQLAlchemy",
-      "SPDXID": "SPDXRef-pypi-sqlalchemy-2.0.36",
-      "versionInfo": "2.0.36",
-      "downloadLocation": "https://pypi.org/project/sqlalchemy/2.0.36/",
+      "SPDXID": "SPDXRef-pypi-sqlalchemy-2.1.6",
+      "versionInfo": "2.1.6",
+      "downloadLocation": "https://pypi.org/project/SQLAlchemy/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/SQLAlchemy@2.0.36"
+          "referenceLocator": "pkg:pypi/SQLAlchemy@2.1.6"
         }
       ]
     },
     {
       "name": "starlette",
-      "SPDXID": "SPDXRef-pypi-starlette-0.41.3",
-      "versionInfo": "0.41.3",
-      "downloadLocation": "https://pypi.org/project/starlette/0.41.3/",
+      "SPDXID": "SPDXRef-pypi-starlette-1.10.0",
+      "versionInfo": "1.10.0",
+      "downloadLocation": "https://pypi.org/project/starlette/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/starlette@0.41.3"
+          "referenceLocator": "pkg:pypi/starlette@1.10.0"
         }
       ]
     },
     {
-      "name": "typing_extensions",
+      "name": "typing-extensions",
       "SPDXID": "SPDXRef-pypi-typing-extensions-4.16.0",
       "versionInfo": "4.16.0",
-      "downloadLocation": "https://pypi.org/project/typing-extensions/4.16.0/",
+      "downloadLocation": "https://pypi.org/project/typing-extensions/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "PSF-2.0",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/typing_extensions@4.16.0"
+          "referenceLocator": "pkg:pypi/typing-extensions@4.16.0"
+        }
+      ]
+    },
+    {
+      "name": "typing-inspection",
+      "SPDXID": "SPDXRef-pypi-typing-inspection-0.4.4",
+      "versionInfo": "0.4.4",
+      "downloadLocation": "https://pypi.org/project/typing-inspection/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/typing-inspection@0.4.4"
         }
       ]
     },
@@ -535,7 +565,7 @@
       "name": "tzdata",
       "SPDXID": "SPDXRef-pypi-tzdata-2026.5",
       "versionInfo": "2026.5",
-      "downloadLocation": "https://pypi.org/project/tzdata/2026.5/",
+      "downloadLocation": "https://pypi.org/project/tzdata/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "Apache-2.0",
       "externalRefs": [
@@ -548,16 +578,16 @@
     },
     {
       "name": "uvicorn",
-      "SPDXID": "SPDXRef-pypi-uvicorn-0.34.0",
-      "versionInfo": "0.34.0",
-      "downloadLocation": "https://pypi.org/project/uvicorn/0.34.0/",
+      "SPDXID": "SPDXRef-pypi-uvicorn-0.54.0",
+      "versionInfo": "0.54.0",
+      "downloadLocation": "https://pypi.org/project/uvicorn/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/uvicorn@0.34.0"
+          "referenceLocator": "pkg:pypi/uvicorn@0.54.0"
         }
       ]
     },
@@ -565,7 +595,7 @@
       "name": "watchfiles",
       "SPDXID": "SPDXRef-pypi-watchfiles-1.3.0",
       "versionInfo": "1.3.0",
-      "downloadLocation": "https://pypi.org/project/watchfiles/1.3.0/",
+      "downloadLocation": "https://pypi.org/project/watchfiles/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "MIT",
       "externalRefs": [
@@ -578,46 +608,31 @@
     },
     {
       "name": "websockets",
-      "SPDXID": "SPDXRef-pypi-websockets-17.2",
-      "versionInfo": "17.2",
-      "downloadLocation": "https://pypi.org/project/websockets/17.2/",
+      "SPDXID": "SPDXRef-pypi-websockets-17.3",
+      "versionInfo": "17.3",
+      "downloadLocation": "https://pypi.org/project/websockets/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-3-Clause",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/websockets@17.2"
-        }
-      ]
-    },
-    {
-      "name": "wheel",
-      "SPDXID": "SPDXRef-pypi-wheel-0.45.1",
-      "versionInfo": "0.45.1",
-      "downloadLocation": "https://pypi.org/project/wheel/0.45.1/",
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "MIT",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/wheel@0.45.1"
+          "referenceLocator": "pkg:pypi/websockets@17.3"
         }
       ]
     },
     {
       "name": "xlsxwriter",
-      "SPDXID": "SPDXRef-pypi-xlsxwriter-3.2.9",
-      "versionInfo": "3.2.9",
-      "downloadLocation": "https://pypi.org/project/xlsxwriter/3.2.9/",
+      "SPDXID": "SPDXRef-pypi-xlsxwriter-3.3.0",
+      "versionInfo": "3.3.0",
+      "downloadLocation": "https://pypi.org/project/xlsxwriter/",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "BSD-2-Clause",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/xlsxwriter@3.2.9"
+          "referenceLocator": "pkg:pypi/xlsxwriter@3.3.0"
         }
       ]
     },
@@ -2564,69 +2579,94 @@
       "relatedSpdxElement": "SPDXRef-Zhixing"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "spdxElementId": "SPDXRef-pypi-alembic-1.20.1",
       "relationshipType": "DEPENDS_ON",
       "relatedSpdxElement": "SPDXRef-pypi-mako-1.4.3"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "spdxElementId": "SPDXRef-pypi-alembic-1.20.1",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.0.36"
+      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.1.6"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-alembic-1.14.0",
+      "spdxElementId": "SPDXRef-pypi-alembic-1.20.1",
       "relationshipType": "DEPENDS_ON",
       "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-alembic-1.20.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-idna-3.20"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-annotated-doc-0.0.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
       "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.10.4"
+      "relatedSpdxElement": "SPDXRef-pypi-opentelemetry-api-1.45.1"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.14.1"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-starlette-0.41.3"
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.3"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-starlette-1.10.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
       "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-fastapi-0.115.6",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.34.0"
+      "relatedSpdxElement": "SPDXRef-pypi-typing-inspection-0.4.4"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "spdxElementId": "SPDXRef-pypi-fastapi-0.162.0",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-annotated-types-0.8.0"
+      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.54.0"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pydantic-core-2.27.2"
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.10.23"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-pydantic-2.10.4",
+      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
     },
     {
       "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
@@ -2636,7 +2676,7 @@
     {
       "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.7.22"
+      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.10.23"
     },
     {
       "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
@@ -2654,264 +2694,14 @@
       "relatedSpdxElement": "SPDXRef-pypi-idna-3.20"
     },
     {
-      "spdxElementId": "SPDXRef-pypi-pypdf-6.1.1",
+      "spdxElementId": "SPDXRef-pypi-httpx-0.28.1",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pillow-12.3.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pypdf-6.1.1",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-psycopg-binary-3.2.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-psycopg-3.2.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pillow-12.3.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-xlsxwriter-3.2.9"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-greenlet-3.5.6"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.2.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.0.36",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-httptools-0.9.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-python-dotenv-1.2.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-watchfiles-1.3.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-uvicorn-0.34.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-websockets-17.2"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-iniconfig-2.3.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pluggy-1.6.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pytest-8.3.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-setuptools-75.6.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-wheel-0.45.1",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-wheel-0.45.1",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pydantic-core-2.27.2",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-certifi-2026.7.22"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-httpcore-1.0.9",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pluggy-1.6.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-starlette-0.41.3",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-idna-3.20"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-anyio-4.15.1",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-greenlet-3.5.6",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+      "relatedSpdxElement": "SPDXRef-pypi-pygments-2.21.0"
     },
     {
       "spdxElementId": "SPDXRef-pypi-idna-3.20",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-pillow-12.3.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-python-dotenv-1.2.4",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-pypi-watchfiles-1.3.0",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.4.2"
     },
     {
       "spdxElementId": "SPDXRef-pypi-mako-1.4.3",
@@ -2921,7 +2711,232 @@
     {
       "spdxElementId": "SPDXRef-pypi-mako-1.4.3",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.4.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-opentelemetry-api-1.45.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pillow-13.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pillow-13.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.4.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.3.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.3.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-binary-3.3.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.3.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.4.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.3.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-psycopg-3.3.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.14.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-annotated-types-0.8.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.14.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-core-2.50.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.14.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.14.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-inspection-0.4.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-2.14.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-tzdata-2026.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pydantic-core-2.50.1",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pygments-2.21.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pypdf-6.21.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pillow-13.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.4.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-colorama-0.4.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.4.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-iniconfig-2.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.4.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-packaging-26.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.4.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pluggy-1.7.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-pytest-8.4.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pygments-2.21.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-docx-1.2.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-dotenv-1.2.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-lxml-6.1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pillow-13.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-python-pptx-1.0.2",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-xlsxwriter-3.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.1.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.3.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.1.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.1.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-sqlalchemy-2.1.6",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-1.10.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-1.10.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httpx-0.28.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-1.10.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-opentelemetry-api-1.45.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-1.10.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-starlette-1.10.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-typing-inspection-0.4.4",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-typing-extensions-4.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-click-8.5.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-h11-0.16.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-httptools-0.9.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-python-dotenv-1.2.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-watchfiles-1.3.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-uvicorn-0.54.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-websockets-17.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-pypi-watchfiles-1.3.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-pypi-anyio-4.15.1"
     },
     {
       "spdxElementId": "SPDXRef-npm-npm-node-modules-babel-code-frame-7.29.7",
@@ -3441,12 +3456,12 @@
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-alembic-1.14.0"
+      "relatedSpdxElement": "SPDXRef-pypi-alembic-1.20.1"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-fastapi-0.115.6"
+      "relatedSpdxElement": "SPDXRef-pypi-fastapi-0.162.0"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
@@ -3456,22 +3471,22 @@
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.2.3"
+      "relatedSpdxElement": "SPDXRef-pypi-psycopg-3.3.6"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.10.4"
+      "relatedSpdxElement": "SPDXRef-pypi-pydantic-2.14.1"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pypdf-6.1.1"
+      "relatedSpdxElement": "SPDXRef-pypi-pypdf-6.21.2"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.3.4"
+      "relatedSpdxElement": "SPDXRef-pypi-pytest-8.4.2"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
@@ -3486,27 +3501,17 @@
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.2"
+      "relatedSpdxElement": "SPDXRef-pypi-pyyaml-6.0.3"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-setuptools-75.6.0"
+      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.1.6"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",
       "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-sqlalchemy-2.0.36"
-    },
-    {
-      "spdxElementId": "SPDXRef-Zhixing",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.34.0"
-    },
-    {
-      "spdxElementId": "SPDXRef-Zhixing",
-      "relationshipType": "DEPENDS_ON",
-      "relatedSpdxElement": "SPDXRef-pypi-wheel-0.45.1"
+      "relatedSpdxElement": "SPDXRef-pypi-uvicorn-0.54.0"
     },
     {
       "spdxElementId": "SPDXRef-Zhixing",

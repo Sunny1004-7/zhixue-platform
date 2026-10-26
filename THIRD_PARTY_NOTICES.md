@@ -133,14 +133,14 @@
 | npm | update-browserslist-db | 1.2.3 | MIT | 传递依赖 |
 | npm | vite | 6.4.3 | MIT | 直接依赖 |
 | npm | yallist | 3.1.1 | ISC | 传递依赖 |
-| pypi | alembic | 1.14.0 | MIT | 直接依赖 |
+| pypi | alembic | 1.20.1 | MIT | 直接依赖 |
+| pypi | annotated-doc | 0.0.5 | MIT | 传递依赖 |
 | pypi | annotated-types | 0.8.0 | MIT | 传递依赖 |
 | pypi | anyio | 4.15.1 | MIT | 传递依赖 |
-| pypi | certifi | 2026.7.22 | MPL-2.0 | 传递依赖 |
+| pypi | certifi | 2026.10.23 | MPL-2.0 | 传递依赖 |
 | pypi | click | 8.5.0 | BSD-3-Clause | 传递依赖 |
 | pypi | colorama | 0.4.6 | BSD-3-Clause | 传递依赖 |
-| pypi | fastapi | 0.115.6 | MIT | 直接依赖 |
-| pypi | greenlet | 3.5.6 | MIT AND PSF-2.0 | 传递依赖 |
+| pypi | fastapi | 0.162.0 | MIT | 直接依赖 |
 | pypi | h11 | 0.16.0 | MIT | 传递依赖 |
 | pypi | httpcore | 1.0.9 | BSD-3-Clause | 传递依赖 |
 | pypi | httptools | 0.9.0 | MIT | 传递依赖 |
@@ -150,28 +150,29 @@
 | pypi | lxml | 6.1.3 | BSD-3-Clause | 传递依赖 |
 | pypi | Mako | 1.4.3 | MIT | 传递依赖 |
 | pypi | MarkupSafe | 3.0.4 | BSD-3-Clause | 传递依赖 |
+| pypi | opentelemetry-api | 1.45.1 | Apache-2.0 | 传递依赖 |
 | pypi | packaging | 26.3 | Apache-2.0 OR BSD-2-Clause | 传递依赖 |
-| pypi | pillow | 12.3.0 | MIT-CMU | 传递依赖 |
-| pypi | pluggy | 1.6.0 | MIT | 传递依赖 |
-| pypi | psycopg | 3.2.3 | GNU Lesser General Public License v3 (LGPLv3) | 直接依赖 |
-| pypi | psycopg-binary | 3.2.3 | GNU Lesser General Public License v3 (LGPLv3) | 传递依赖 |
-| pypi | pydantic | 2.10.4 | MIT | 直接依赖 |
-| pypi | pydantic_core | 2.27.2 | MIT | 传递依赖 |
-| pypi | pypdf | 6.1.1 | BSD-3-Clause | 直接依赖 |
-| pypi | pytest | 8.3.4 | MIT | 直接依赖 |
+| pypi | pillow | 13.0.0 | MIT-CMU | 传递依赖 |
+| pypi | pluggy | 1.7.0 | MIT | 传递依赖 |
+| pypi | psycopg | 3.3.6 | LGPL-3.0-only | 直接依赖 |
+| pypi | psycopg-binary | 3.3.6 | LGPL-3.0-only | 传递依赖 |
+| pypi | pydantic | 2.14.1 | MIT | 直接依赖 |
+| pypi | pydantic_core | 2.50.1 | MIT | 传递依赖 |
+| pypi | Pygments | 2.21.0 | BSD-2-Clause | 传递依赖 |
+| pypi | pypdf | 6.21.2 | BSD-3-Clause | 直接依赖 |
+| pypi | pytest | 8.4.2 | MIT | 直接依赖 |
 | pypi | python-docx | 1.2.0 | MIT | 直接依赖 |
 | pypi | python-dotenv | 1.2.4 | BSD-3-Clause | 传递依赖 |
 | pypi | python-pptx | 1.0.2 | MIT | 直接依赖 |
-| pypi | PyYAML | 6.0.2 | MIT | 直接依赖 |
-| pypi | setuptools | 75.6.0 | MIT | 直接依赖 |
-| pypi | SQLAlchemy | 2.0.36 | MIT | 直接依赖 |
-| pypi | starlette | 0.41.3 | BSD-3-Clause | 传递依赖 |
-| pypi | typing_extensions | 4.16.0 | PSF-2.0 | 传递依赖 |
+| pypi | PyYAML | 6.0.3 | MIT | 直接依赖 |
+| pypi | SQLAlchemy | 2.1.6 | MIT | 直接依赖 |
+| pypi | starlette | 1.10.0 | BSD-3-Clause | 传递依赖 |
+| pypi | typing-extensions | 4.16.0 | PSF-2.0 | 传递依赖 |
+| pypi | typing-inspection | 0.4.4 | MIT | 传递依赖 |
 | pypi | tzdata | 2026.5 | Apache-2.0 | 传递依赖 |
-| pypi | uvicorn | 0.34.0 | BSD-3-Clause | 直接依赖 |
+| pypi | uvicorn | 0.54.0 | BSD-3-Clause | 直接依赖 |
 | pypi | watchfiles | 1.3.0 | MIT | 传递依赖 |
-| pypi | websockets | 17.2 | BSD-3-Clause | 传递依赖 |
-| pypi | wheel | 0.45.1 | MIT | 直接依赖 |
-| pypi | xlsxwriter | 3.2.9 | BSD-2-Clause | 传递依赖 |
+| pypi | websockets | 17.3 | BSD-3-Clause | 传递依赖 |
+| pypi | xlsxwriter | 3.3.0 | BSD-2-Clause | 传递依赖 |
 
 模型权重不随提交包再分发。使用者应依据所选模型的许可证和服务条款配置模型文件或授权接口。

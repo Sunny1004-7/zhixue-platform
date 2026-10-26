@@ -109,6 +109,7 @@ async function verifyLogin(
       );
       await page.getByRole("button", { name: `进入${label}空间` }).click();
       await page.getByRole("alert").waitFor();
+      await page.waitForFunction(() => document.querySelector('[role="alert"]') === document.activeElement);
       check(
         `${role}:wrong-credentials`,
         (await page.getByRole("alert").textContent()).includes("不匹配"),
