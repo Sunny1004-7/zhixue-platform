@@ -54,11 +54,23 @@ export default function AppShell() {
   const location = useLocation();
   const [courses, setCourses] = useState<Course[]>([]);
   const [drawer, setDrawer] = useState(false);
+  const [mobile, setMobile] = useState(
+    () => window.matchMedia("(max-width: 820px)").matches,
+  );
   const [menu, setMenu] = useState(false);
   const [error, setError] = useState("");
   const role = user!.role;
   const active = navByRole[role].find((x) => x[1] === location.pathname);
   const course = courses.find((x) => x.id === courseId);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 820px)");
+    const change = () => {
+      setMobile(media.matches);
+      if (!media.matches) setDrawer(false);
+    };
+    media.addEventListener("change", change);
+    return () => media.removeEventListener("change", change);
+  }, []);
   useEffect(() => {
     let live = true;
     api
@@ -97,11 +109,20 @@ export default function AppShell() {
   };
   return (
     <>
-      <a className="skip-link" href="#main-content">
+      <a
+        className="skip-link"
+        href="#main-content"
+        onClick={(event) => {
+          event.preventDefault();
+          const main = document.getElementById("main-content");
+          main?.focus();
+          main?.scrollIntoView({ block: "start" });
+        }}
+      >
         跳转到主要内容
       </a>
       <div className={"app-shell app-shell--" + role}>
-        {drawer && (
+        {mobile && drawer && (
           <button
             className="nav-scrim"
             aria-label="关闭导航"
@@ -109,8 +130,12 @@ export default function AppShell() {
           />
         )}
         <aside
-          role={drawer ? "dialog" : undefined}
-          aria-modal={drawer ? true : undefined}
+          ref={(element) => {
+            if (element) element.inert = mobile && !drawer;
+          }}
+          aria-hidden={mobile && !drawer ? true : undefined}
+          role={mobile && drawer ? "dialog" : undefined}
+          aria-modal={mobile && drawer ? true : undefined}
           className={"sidebar" + (drawer ? " is-open" : "")}
           aria-label={role === "student" ? "学生导航" : "教师导航"}
         >
@@ -150,7 +175,14 @@ export default function AppShell() {
               className="all-courses"
               to="/student/courses"
               onClick={async (e) => {
-                if(e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+                if (
+                  e.button !== 0 ||
+                  e.ctrlKey ||
+                  e.metaKey ||
+                  e.shiftKey ||
+                  e.altKey
+                )
+                  return;
                 e.preventDefault();
                 if (await dialogs.canLeave()) navigate("/student/courses");
               }}
@@ -165,8 +197,15 @@ export default function AppShell() {
                 key={to}
                 to={to}
                 onClick={async (e) => {
-                  if(e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
-                e.preventDefault();
+                  if (
+                    e.button !== 0 ||
+                    e.ctrlKey ||
+                    e.metaKey ||
+                    e.shiftKey ||
+                    e.altKey
+                  )
+                    return;
+                  e.preventDefault();
                   if (await dialogs.canLeave()) navigate(to);
                 }}
                 className={({ isActive }) => (isActive ? "active" : "")}

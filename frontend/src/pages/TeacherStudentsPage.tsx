@@ -41,17 +41,22 @@ export default function TeacherStudentsPage() {
     (location.state as { studentId?: string } | null)?.studentId ?? "",
   );
   const loadEpoch = useRef(0);
+  const snapshotEpoch = useRef(0);
   const jobEpoch = useRef(0);
   const [detail, setDetail] = useState<StudentLearningState | null>(null);
   const [sort, setSort] = useState<SortMode>("score_asc");
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("");
+  const [composing, setComposing] = useState(false);
+  const [rosterLoading, setRosterLoading] = useState(false);
+  const [rosterError, setRosterError] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [jobMessage, setJobMessage] = useState("");
 
   const load = useCallback(
     async (refresh = false) => {
-      const epoch = ++loadEpoch.current;
+      const epoch = ++snapshotEpoch.current;
       setError("");
       if (refresh) setBusy(true);
       else setStudents(null);
@@ -67,35 +72,64 @@ export default function TeacherStudentsPage() {
             throw reason;
           }
         }
-        const list = await api.courseStudents(courseId, sort, query);
-        if (epoch !== loadEpoch.current) return;
+        if (epoch !== snapshotEpoch.current) return;
         setSnapshot(nextSnapshot);
-        setStudents(list.items);
-        setSelectedId((current) =>
-          list.items.some((item) => item.student_id === current)
-            ? current
-            : (list.items[0]?.student_id ?? ""),
-        );
       } catch (reason) {
-        if (epoch === loadEpoch.current)
+        if (epoch === snapshotEpoch.current)
           setError(
             reason instanceof ApiError
               ? reason.message
               : "无法读取当前课程学情",
           );
       } finally {
-        if (epoch === loadEpoch.current) setBusy(false);
+        if (epoch === snapshotEpoch.current) setBusy(false);
       }
     },
-    [courseId, query, sort],
+    [api, courseId],
   );
 
   useEffect(() => {
     void load();
     return () => {
-      loadEpoch.current++;
+      snapshotEpoch.current++;
     };
   }, [load]);
+  useEffect(() => {
+    if (composing) return;
+    const timer = window.setTimeout(() => setFilter(query), 180);
+    return () => window.clearTimeout(timer);
+  }, [query, composing]);
+  const loadRoster = useCallback(async () => {
+    if (!snapshot) return;
+    const epoch = ++loadEpoch.current;
+    setRosterLoading(true);
+    setRosterError("");
+    try {
+      const list = await api.courseStudents(courseId, sort, filter);
+      if (epoch !== loadEpoch.current) return;
+      setStudents(list.items);
+      setSelectedId((current) =>
+        list.items.some((item) => item.student_id === current)
+          ? current
+          : (list.items[0]?.student_id ?? current),
+      );
+    } catch (reason) {
+      if (epoch === loadEpoch.current)
+        setRosterError(
+          reason instanceof ApiError
+            ? reason.message
+            : "学生名单读取失败，请重试。",
+        );
+    } finally {
+      if (epoch === loadEpoch.current) setRosterLoading(false);
+    }
+  }, [api, courseId, snapshot, sort, filter]);
+  useEffect(() => {
+    void loadRoster();
+    return () => {
+      loadEpoch.current++;
+    };
+  }, [loadRoster]);
   useEffect(() => {
     if (!selectedId) {
       setDetail(null);
@@ -164,8 +198,7 @@ export default function TeacherStudentsPage() {
 
   if (error && !students)
     return <ErrorState message={error} retry={() => void load()} />;
-  if (!students || !snapshot)
-    return <LoadingState label="正在计算课程学情快照…" />;
+  if (!snapshot) return <LoadingState label="正在计算课程学情快照…" />;
 
   return (
     <div className="teacher-students-page">
@@ -205,6 +238,8 @@ export default function TeacherStudentsPage() {
                 aria-label="搜索学生"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
+                onCompositionStart={() => setComposing(true)}
+                onCompositionEnd={() => setComposing(false)}
                 placeholder="搜索学生"
               />
             </label>
@@ -232,8 +267,12 @@ export default function TeacherStudentsPage() {
               </button>
             </div>
           </div>
-          <div className="student-roster" role="list">
-            {students.map((student) => (
+          {rosterError && (
+            <ErrorState message={rosterError} retry={() => void loadRoster()} />
+          )}
+          {rosterLoading && <LoadingState label="正在读取学生名单…" />}
+          <div className="student-roster" role="list" aria-busy={rosterLoading}>
+            {(students ?? []).map((student) => (
               <button
                 key={student.student_id}
                 role="listitem"
@@ -261,7 +300,7 @@ export default function TeacherStudentsPage() {
         </Surface>
 
         <Surface className="student-detail-panel">
-          {!students.length ? (
+          {!students?.length ? (
             <div className="empty-result">
               <h3>当前筛选没有学生</h3>
               <p>请调整姓名或排序条件。</p>
