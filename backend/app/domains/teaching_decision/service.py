@@ -7,6 +7,7 @@ from uuid import uuid4
 
 from fastapi import HTTPException
 from sqlalchemy import func, select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from ...resource_metrics import resource_completion
@@ -201,15 +202,27 @@ def create_snapshot(
         "priority_student_ids": [item.student_id for item in priority_order[:3]],
         "window_days": WINDOW_DAYS,
     }
+    snapshot_hash = stable_snapshot_hash(snapshot_payload)
+    existing = db.scalar(select(DecisionSnapshot).where(DecisionSnapshot.snapshot_hash == snapshot_hash))
+    if existing is not None:
+        return existing
     snapshot = DecisionSnapshot(
         id=str(uuid4()), course_id=course_id, created_by=teacher_id,
         as_of=timestamp, source_state_hash=source_hash,
-        snapshot_hash=stable_snapshot_hash(snapshot_payload),
+        snapshot_hash=snapshot_hash,
         student_count=len(evaluated), aggregate_json=aggregate,
         algorithm_version=ALGORITHM_VERSION,
     )
     db.add(snapshot)
-    db.flush()
+    try:
+        db.flush()
+    except IntegrityError:
+        # Another request may have committed this exact input while it was scored.
+        db.rollback()
+        existing = db.scalar(select(DecisionSnapshot).where(DecisionSnapshot.snapshot_hash == snapshot_hash))
+        if existing is None:
+            raise
+        return existing
     for result, raw in evaluated:
         db.add(AttentionScoreSnapshot(
             id=str(uuid4()), snapshot_id=snapshot.id,

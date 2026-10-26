@@ -162,6 +162,10 @@ async function verifyNavigation(
           ),
         );
         if (size[0] === 2560) await shot(page, role + "-main-focused-2k");
+      } catch (error) {
+        await shot(page, `${role}-${size[0]}-failure`);
+        if (outputDir) fs.writeFileSync(path.join(outputDir, prefix+"-failure.json"), JSON.stringify({url:page.url(),role,viewport:size,body:(await page.locator('body').innerText()).slice(0,6000),pageErrors:errors},null,2));
+        throw error;
       } finally {
         await ctx.close();
       }
