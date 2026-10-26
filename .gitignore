@@ -8,6 +8,8 @@ frontend/vite.config.js
 frontend/vite.config.d.ts
 *.pyc
 .env
+.env.*
+!.env.example
 *.tsbuildinfo
 frontend/.qa-artifacts/
 frontend/.env.local
