@@ -1,4 +1,4 @@
-export type Role = 'student' | 'teacher';
+export type Role = "student" | "teacher";
 
 export type User = {
   id: string;
@@ -15,7 +15,7 @@ export type Course = {
   title: string;
   short_title: string;
   term: string;
-  accent: 'indigo' | 'cyan' | 'amber';
+  accent: "indigo" | "cyan" | "amber";
   teacher: string;
   mastery: number | null;
   progress: number | null;
@@ -50,7 +50,7 @@ export type KnowledgeState = {
   correct_rate: number;
   evidence_count: number;
   confidence: number;
-  state: 'weak' | 'mastered' | 'unseen';
+  state: "weak" | "mastered" | "unseen";
   uncertainty: number;
   effective_evidence: number;
   trend_30d: number;
@@ -61,7 +61,7 @@ export type KnowledgeState = {
 
 export type LearningResource = {
   id: string;
-  resource_type: 'knowledge_graph' | 'question_set' | 'learning_video';
+  resource_type: "knowledge_graph" | "question_set" | "learning_video";
   title: string;
   detail: string;
   progress_completed: number | null;
@@ -73,7 +73,7 @@ export type LearningActivity = {
   id: string;
   title: string;
   detail: string;
-  activity_type: 'result' | 'learn' | 'practice';
+  activity_type: "result" | "learn" | "practice";
   occurred_at: string;
 };
 
@@ -106,7 +106,7 @@ export type GraphNode = {
   id: string;
   concept_id: string;
   label: string;
-  node_type: 'foundation' | 'core' | 'application';
+  node_type: "foundation" | "core" | "application";
   definition: string;
   key_point: string;
   misconception: string;
@@ -116,14 +116,14 @@ export type GraphNode = {
   position_y: number;
   evidence_count: number;
   mastery: number | null;
-  mastery_state: 'weak' | 'mastered' | 'unseen' | null;
+  mastery_state: "weak" | "mastered" | "unseen" | null;
 };
 
 export type GraphEdge = {
   id: string;
   from_node_id: string;
   to_node_id: string;
-  relation: 'prerequisite' | 'contains' | 'application' | 'contrast';
+  relation: "prerequisite" | "contains" | "application" | "contrast";
   origin: string;
   confidence: number;
   evidence_count: number;
@@ -133,7 +133,12 @@ export type GraphQuality = {
   hard_pass: boolean;
   quality_score: number;
   metrics: Record<string, number>;
-  issues: Array<{ code: string; message: string; target_id: string | null; severity: string }>;
+  issues: Array<{
+    code: string;
+    message: string;
+    target_id: string | null;
+    severity: string;
+  }>;
   validator_version: string;
   created_at: string;
 };
@@ -142,7 +147,7 @@ export type GraphListItem = {
   id: string;
   course_id: string;
   title: string;
-  status: 'draft' | 'published';
+  status: "draft" | "published";
   working_revision_id: string | null;
   published_revision_id: string | null;
   revision_no: number | null;
@@ -155,12 +160,12 @@ export type KnowledgeGraph = {
   id: string;
   course_id: string;
   title: string;
-  status: 'draft' | 'published';
+  status: "draft" | "published";
   revision_id: string;
   revision_no: number;
-  revision_status: 'draft' | 'published';
-  review_status: 'pending' | 'passed' | 'failed' | 'teacher_validated';
-  mode: 'new' | 'update' | 'curated_seed';
+  revision_status: "draft" | "published";
+  review_status: "pending" | "passed" | "failed" | "teacher_validated";
+  mode: "new" | "update" | "curated_seed";
   source_type: string;
   source_summary: string;
   version: number;
@@ -171,9 +176,9 @@ export type KnowledgeGraph = {
 
 export type GraphEvidenceSource = {
   id: string;
-  target_type: 'node' | 'edge';
+  target_type: "node" | "edge";
   target_id: string;
-  source_kind: 'material_span' | 'teacher_statement' | 'curated_seed';
+  source_kind: "material_span" | "teacher_statement" | "curated_seed";
   evidence_span_id: string | null;
   source_name: string | null;
   quote: string | null;
@@ -188,12 +193,17 @@ export type GraphEvidenceBundle = {
   graph_id: string;
   revision_id: string;
   revision_version: number;
-  target_type: 'node' | 'edge';
+  target_type: "node" | "edge";
   target_id: string;
   links: GraphEvidenceSource[];
 };
 
-export type AssetPurpose = 'graph_build' | 'graph_update' | 'question_generation' | 'video_search' | 'tutor_attachment';
+export type AssetPurpose =
+  | "graph_build"
+  | "graph_update"
+  | "question_generation"
+  | "video_search"
+  | "tutor_attachment";
 
 export type SourceAsset = {
   id: string;
@@ -206,8 +216,8 @@ export type SourceAsset = {
   expected_size: number;
   byte_size: number | null;
   sha256: string | null;
-  status: 'prepared' | 'uploaded' | 'parsed' | 'rejected' | 'deleted';
-  security_status: 'pending' | 'accepted' | 'rejected' | 'deleted';
+  status: "prepared" | "uploaded" | "parsed" | "rejected" | "deleted";
+  security_status: "pending" | "accepted" | "rejected" | "deleted";
   rejection_code: string | null;
   rejection_reason: string | null;
   created_at: string;
@@ -221,7 +231,7 @@ export type ParsedDocument = {
   asset_id: string;
   parser_name: string;
   parser_version: string;
-  status: 'parsed' | 'invalidated';
+  status: "parsed" | "invalidated";
   title: string;
   segment_count: number;
   page_count: number;
@@ -248,13 +258,13 @@ export type AlignmentMention = {
   raw_text: string;
   normalized_text: string;
   context: string;
-  status: 'matched' | 'ambiguous' | 'abstained';
+  status: "matched" | "ambiguous" | "abstained";
   evidence_span_id: string | null;
   candidates: AlignmentCandidate[];
   review: {
     id: string;
-    status: 'pending' | 'decided';
-    decision: 'matched' | 'created' | 'abstained' | null;
+    status: "pending" | "decided";
+    decision: "matched" | "created" | "abstained" | null;
     selected_concept_id: string | null;
     note: string;
     decided_at: string | null;
@@ -264,11 +274,11 @@ export type AlignmentMention = {
 export type AlignmentRun = {
   id: string;
   course_id: string;
-  source_type: 'asset' | 'manual';
+  source_type: "asset" | "manual";
   source_asset_id: string | null;
   purpose: AssetPurpose;
-  mode: 'concept_alignment';
-  status: 'completed' | 'needs_review' | 'invalidated' | 'failed';
+  mode: "concept_alignment";
+  status: "completed" | "needs_review" | "invalidated" | "failed";
   parser_version: string | null;
   ontology_version: string;
   aligner_version: string;
@@ -310,18 +320,18 @@ export type ModelRun = {
 
 export type GraphExtractionProposal = {
   id: string;
-  proposal_kind: 'concept' | 'relation';
+  proposal_kind: "concept" | "relation";
   concept_id: string | null;
   concept_label: string | null;
   from_concept_id: string | null;
   from_label: string | null;
   to_concept_id: string | null;
   to_label: string | null;
-  relation: GraphEdge['relation'] | null;
+  relation: GraphEdge["relation"] | null;
   evidence_span_ids: string[];
   confidence: number;
   rationale: string;
-  status: 'pending' | 'accepted' | 'rejected';
+  status: "pending" | "accepted" | "rejected";
   review_note: string;
 };
 
@@ -332,7 +342,12 @@ export type GraphExtractionArtifact = {
   revision_id: string;
   alignment_run_id: string;
   base_revision_version: number;
-  status: 'awaiting_review' | 'ready_to_apply' | 'rejected' | 'applied' | 'invalidated';
+  status:
+    | "awaiting_review"
+    | "ready_to_apply"
+    | "rejected"
+    | "applied"
+    | "invalidated";
   version: number;
   model_run: ModelRun;
   proposals: GraphExtractionProposal[];
@@ -343,15 +358,15 @@ export type GraphExtractionArtifact = {
 export type GraphSemanticReviewIssue = {
   id: string;
   issue_code: string;
-  severity: 'info' | 'warning' | 'error';
-  target_type: 'graph' | 'node' | 'edge';
+  severity: "info" | "warning" | "error";
+  target_type: "graph" | "node" | "edge";
   target_id: string;
   target_label: string | null;
   evidence_span_ids: string[];
   claim: string;
   suggestion: string;
   confidence: number;
-  status: 'pending' | 'confirmed' | 'ignored';
+  status: "pending" | "confirmed" | "ignored";
   review_note: string;
 };
 
@@ -362,7 +377,12 @@ export type GraphSemanticReviewArtifact = {
   revision_id: string;
   base_revision_version: number;
   independence_status: string;
-  status: 'awaiting_review' | 'reviewed' | 'changes_required' | 'passed' | 'superseded';
+  status:
+    | "awaiting_review"
+    | "reviewed"
+    | "changes_required"
+    | "passed"
+    | "superseded";
   summary: Record<string, unknown>;
   version: number;
   model_run: ModelRun;
@@ -371,7 +391,13 @@ export type GraphSemanticReviewArtifact = {
   completed_at: string | null;
 };
 
-export type QuestionType = 'single' | 'multiple' | 'judgment' | 'fill' | 'short' | 'scenario';
+export type QuestionType =
+  | "single"
+  | "multiple"
+  | "judgment"
+  | "fill"
+  | "short"
+  | "scenario";
 
 export type QuestionConceptRef = {
   concept_id: string;
@@ -392,7 +418,7 @@ export type PracticeScore = {
   is_correct: boolean | null;
   confidence: number;
   grading_mode: string;
-  review_status: 'graded' | 'needs_review' | 'reviewed' | string;
+  review_status: "graded" | "needs_review" | "reviewed" | string;
   feedback: Record<string, unknown>;
   graded_at: string;
 };
@@ -427,8 +453,8 @@ export type PracticeQuestion = {
 export type QuestionSetSummary = {
   id: string;
   title: string;
-  status: 'draft' | 'validated' | 'published' | string;
-  visibility: 'private' | 'course' | string;
+  status: "draft" | "validated" | "published" | string;
+  visibility: "private" | "course" | string;
   revision_id: string;
   revision_no: number;
   revision_version: number;
@@ -477,8 +503,13 @@ export type PracticeBlueprint = {
 };
 
 export type CompilePracticeBlueprintPayload = {
-  source_method: 'history' | 'recorded' | 'graph' | 'alignment';
-  difficulty_mode: 'personalized' | 'basic' | 'standard' | 'balanced' | 'challenge';
+  source_method: "history" | "recorded" | "graph" | "alignment";
+  difficulty_mode:
+    | "personalized"
+    | "basic"
+    | "standard"
+    | "balanced"
+    | "challenge";
   graph_id?: string;
   alignment_run_id?: string;
   requested_profile_id?: string;
@@ -556,19 +587,36 @@ export type VideoSourceTopic = {
 export type VideoSearchSources = {
   course_id: string;
   recorded_topics: VideoSourceTopic[];
-  graphs: Array<{ graph_id: string; title: string; published_revision_id: string; topics: VideoSourceTopic[] }>;
-  parsed_assets: Array<{ asset_id: string; original_name: string; parsed_title: string; accepted_at: string | null }>;
+  graphs: Array<{
+    graph_id: string;
+    title: string;
+    published_revision_id: string;
+    topics: VideoSourceTopic[];
+  }>;
+  parsed_assets: Array<{
+    asset_id: string;
+    original_name: string;
+    parsed_title: string;
+    accepted_at: string | null;
+  }>;
 };
 
 export type VideoSearchJob = {
   id: string;
   course_id: string;
-  source_mode: 'graph' | 'records' | 'files' | 'manual';
+  source_mode: "graph" | "records" | "files" | "manual";
   requested_profile_id: string | null;
   actual_profile_id: string | null;
   deterministic_degrade: boolean;
-  status: 'created' | 'retrieving' | 'completed' | 'partial' | 'failed';
-  provider_statuses: Array<{ provider: string; status: string; discovered_count: number; accepted_count: number; error_code: string | null; safe_message: string | null }>;
+  status: "created" | "retrieving" | "completed" | "partial" | "failed";
+  provider_statuses: Array<{
+    provider: string;
+    status: string;
+    discovered_count: number;
+    accepted_count: number;
+    error_code: string | null;
+    safe_message: string | null;
+  }>;
   warnings: Array<Record<string, unknown>>;
   candidate_count: number;
   safe_error_code: string | null;
@@ -593,9 +641,15 @@ export type VideoCandidate = {
   content_kind: string;
   license_name: string | null;
   license_url: string | null;
-  scores: { match: number; completeness: number; trust: number; clarity: number | null; final: number };
+  scores: {
+    match: number;
+    completeness: number;
+    trust: number;
+    clarity: number | null;
+    final: number;
+  };
   matched_topic_ids: string[];
-  evidence_level: 'E0' | 'E1' | 'E2' | 'E3';
+  evidence_level: "E0" | "E1" | "E2" | "E3";
   verified_scope: string[];
   uncertainty_reason: string | null;
   verification_status: string;
@@ -619,16 +673,22 @@ export type VideoPublication = {
   duplicate: boolean;
 };
 
-export type TutorMode = 'adaptive' | 'coach' | 'visualize' | 'practice' | 'research' | 'explain';
+export type TutorMode =
+  | "adaptive"
+  | "coach"
+  | "visualize"
+  | "practice"
+  | "research"
+  | "explain";
 
 export type TutorMessage = {
   id: string;
   turn_id: string | null;
   ordinal: number;
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   title: string | null;
   body: string;
-  strategy: Exclude<TutorMode, 'adaptive'> | null;
+  strategy: Exclude<TutorMode, "adaptive"> | null;
   checkpoint: Record<string, unknown>;
   visual: Record<string, unknown> | null;
   citations: Array<{ label?: string; url?: string; claim?: string }>;
@@ -642,7 +702,7 @@ export type TutorConversationItem = {
   title: string;
   selected_mode: TutorMode;
   requested_profile_id: string;
-  experience_mode: 'manual' | 'automatic';
+  experience_mode: "manual" | "automatic";
   version: number;
   preview: string;
   message_count: number;
@@ -650,7 +710,9 @@ export type TutorConversationItem = {
   updated_at: string;
 };
 
-export type TutorConversation = TutorConversationItem & { messages: TutorMessage[] };
+export type TutorConversation = TutorConversationItem & {
+  messages: TutorMessage[];
+};
 
 export type TutorTurn = {
   turn_id: string;
@@ -666,67 +728,165 @@ export type TutorTurn = {
 };
 
 export type TutorMemory = {
-  id: string; course_id: string; memory_kind: string; content: string; confidence: number;
-  status: string; conflict_group: string | null; expires_at: string | null;
-  created_at: string; updated_at: string; source_count: number;
+  id: string;
+  course_id: string;
+  memory_kind: string;
+  content: string;
+  confidence: number;
+  status: string;
+  conflict_group: string | null;
+  expires_at: string | null;
+  created_at: string;
+  updated_at: string;
+  source_count: number;
 };
 
 export type TutorExperience = {
-  id: string; course_id: string; title: string; context: string; method: string;
-  evidence_summary: string; confidence: number; generation_mode: string; status: string;
-  created_at: string; updated_at: string;
+  id: string;
+  course_id: string;
+  title: string;
+  context: string;
+  method: string;
+  evidence_summary: string;
+  confidence: number;
+  generation_mode: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
 };
 
 export type AttentionComponents = {
-  practice_count: number; accuracy: number; resource_completion: number; effective_tutoring_count: number;
-  practice_score: number; accuracy_score: number; resource_score: number; tutoring_score: number;
+  practice_count: number;
+  accuracy: number;
+  resource_completion: number;
+  effective_tutoring_count: number;
+  practice_score: number;
+  accuracy_score: number;
+  resource_score: number;
+  tutoring_score: number;
 };
 
 export type StudentAttention = {
-  student_id: string; student_name: string; initials: string; rank: number; score: number; confidence: number;
-  components: AttentionComponents; last_activity_at: string | null; priority: boolean;
+  student_id: string;
+  student_name: string;
+  initials: string;
+  rank: number;
+  score: number;
+  confidence: number;
+  components: AttentionComponents;
+  last_activity_at: string | null;
+  priority: boolean;
 };
 
 export type DecisionSnapshot = {
-  snapshot_id: string; course_id: string; as_of: string; snapshot_hash: string; student_count: number;
-  aggregate: Record<string, unknown>; algorithm_version: string; priority_students: StudentAttention[]; created_at: string;
+  snapshot_id: string;
+  course_id: string;
+  as_of: string;
+  snapshot_hash: string;
+  student_count: number;
+  aggregate: Record<string, unknown>;
+  algorithm_version: string;
+  priority_students: StudentAttention[];
+  created_at: string;
 };
 
 export type StudentAttentionList = {
-  snapshot_id: string; snapshot_hash: string; page: number; page_size: number; total: number; items: StudentAttention[];
+  snapshot_id: string;
+  snapshot_hash: string;
+  page: number;
+  page_size: number;
+  total: number;
+  items: StudentAttention[];
 };
 
 export type StudentLearningState = {
-  snapshot_id: string; course_id: string; student_id: string; student_name: string; rank: number; score: number;
-  confidence: number; components: AttentionComponents;
-  concepts: Array<{ concept_id: string; label: string; state: 'weak' | 'mastered' | 'unseen'; mastery: number; accuracy: number; evidence_count: number; confidence: number; low_evidence: boolean; trend_30d: number; last_evidence_at: string | null }>;
-  weak_concept_ids: string[]; privacy_boundary: string;
+  snapshot_id: string;
+  course_id: string;
+  student_id: string;
+  student_name: string;
+  rank: number;
+  score: number;
+  confidence: number;
+  components: AttentionComponents;
+  concepts: Array<{
+    concept_id: string;
+    label: string;
+    state: "weak" | "mastered" | "unseen";
+    mastery: number;
+    accuracy: number;
+    evidence_count: number;
+    confidence: number;
+    low_evidence: boolean;
+    trend_30d: number;
+    last_evidence_at: string | null;
+  }>;
+  weak_concept_ids: string[];
+  privacy_boundary: string;
 };
 
 export type AudienceDraft = {
-  id: string; course_id: string; resource: Record<string, unknown>; audience_mode: 'class' | 'concept_directed' | 'single';
-  selected_concept_ids: string[]; selected_states: Array<'weak' | 'mastered' | 'unseen'>;
-  suggested_student_ids: string[]; final_student_ids: string[];
-  candidates: Array<{ student_id: string; student_name: string; suggested: boolean; selected: boolean; override_action: string | null; matched_concept_ids: string[]; matched_states: string[]; reason_codes: string[]; warnings: Array<Record<string, unknown>> }>;
-  status: string; snapshot_hash: string; version: number; expires_at: string; warnings_require_confirmation: boolean;
+  id: string;
+  course_id: string;
+  resource: Record<string, unknown>;
+  audience_mode: "class" | "concept_directed" | "single";
+  selected_concept_ids: string[];
+  selected_states: Array<"weak" | "mastered" | "unseen">;
+  suggested_student_ids: string[];
+  final_student_ids: string[];
+  candidates: Array<{
+    student_id: string;
+    student_name: string;
+    suggested: boolean;
+    selected: boolean;
+    override_action: string | null;
+    matched_concept_ids: string[];
+    matched_states: string[];
+    reason_codes: string[];
+    warnings: Array<Record<string, unknown>>;
+  }>;
+  status: string;
+  snapshot_hash: string;
+  version: number;
+  expires_at: string;
+  warnings_require_confirmation: boolean;
 };
 
 export type AudiencePublication = {
-  id: string; draft_id: string; course_id: string; resource: Record<string, unknown>;
-  audience_mode: 'class' | 'concept_directed' | 'single'; recipient_count: number;
-  status: string; snapshot_hash: string; algorithm_version: string;
-  published_at: string; withdrawn_at: string | null;
+  id: string;
+  draft_id: string;
+  course_id: string;
+  resource: Record<string, unknown>;
+  audience_mode: "class" | "concept_directed" | "single";
+  recipient_count: number;
+  status: string;
+  snapshot_hash: string;
+  algorithm_version: string;
+  published_at: string;
+  withdrawn_at: string | null;
 };
 
 export type PersonalizedResourceJob = {
-  id: string; student_id: string; course_id: string;
-  resource_type: 'graph' | 'question_set' | 'video'; concept_ids: string[];
-  upstream_job_id: string; upstream_status: Record<string, unknown>;
-  status: string; created_at: string; updated_at: string;
+  id: string;
+  student_id: string;
+  course_id: string;
+  resource_type: "graph" | "question_set" | "video";
+  concept_ids: string[];
+  upstream_job_id: string;
+  upstream_status: Record<string, unknown>;
+  status: string;
+  created_at: string;
+  updated_at: string;
 };
 
 export type ResourceInboxItem = {
-  exposure_id: string; publication_id: string; course_id: string; resource_type: 'graph' | 'question_set' | 'video';
-  resource: Record<string, unknown>; personalized: boolean; delivery_status: string;
-  delivered_at: string; opened_at: string | null; completed_at: string | null;
+  exposure_id: string;
+  publication_id: string;
+  course_id: string;
+  resource_type: "graph" | "question_set" | "video";
+  resource: Record<string, unknown>;
+  personalized: boolean;
+  delivery_status: string;
+  delivered_at: string;
+  opened_at: string | null;
+  completed_at: string | null;
 };

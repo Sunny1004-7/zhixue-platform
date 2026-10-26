@@ -9,6 +9,7 @@ from fastapi import HTTPException
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from ...resource_metrics import resource_completion
 from ...learning_support_models import AttentionScoreSnapshot, DecisionSnapshot
 from ...models import (
     AuditEvent,
@@ -24,7 +25,7 @@ from .audience import StudentConceptState, classify_state
 from .snapshots import stable_snapshot_hash
 
 
-ALGORITHM_VERSION = "tides-attention-1.0.0"
+ALGORITHM_VERSION = "tides-attention-1.1.0"
 WINDOW_DAYS = 28
 
 
@@ -103,11 +104,12 @@ def _metric_inputs(
         sum(float(item) for item in state_confidences) / len(state_confidences)
         if state_confidences else 0.0
     )
+    completion = resource_completion(db, enrollment.student_id, enrollment.course_id).percent
     attention_input = AttentionInput(
         student_id=enrollment.student_id,
         practice_count=practice_count,
         accuracy=float(enrollment.recent_accuracy),
-        resource_completion=float(enrollment.resource_completion),
+        resource_completion=completion,
         effective_tutoring_count=effective_tutoring_count,
         practice_confidence=1.0,
         accuracy_confidence=accuracy_confidence,
@@ -119,7 +121,7 @@ def _metric_inputs(
         "window_days": WINDOW_DAYS,
         "practice_count": practice_count,
         "accuracy": round(float(enrollment.recent_accuracy), 4),
-        "resource_completion": round(float(enrollment.resource_completion), 4),
+        "resource_completion": round(completion, 4),
         "effective_tutoring_count": effective_tutoring_count,
         "practice_confidence": 1.0,
         "accuracy_confidence": round(accuracy_confidence, 4),
@@ -151,8 +153,6 @@ def create_snapshot(
         )
         .order_by(CourseEnrollment.student_id)
     ).all())
-    if not enrollments:
-        raise HTTPException(status_code=422, detail="当前课程没有在籍学生")
     evaluated: list[tuple[AttentionResult, dict[str, Any]]] = []
     for enrollment in enrollments:
         metric_input, raw = _metric_inputs(db, enrollment=enrollment, as_of=timestamp)
@@ -184,19 +184,19 @@ def create_snapshot(
         item.student_id: index for index, item in enumerate(priority_order, start=1)
     }
     aggregate = {
-        "average_score": round(sum(item.score for item in scores) / len(scores), 2),
-        "average_confidence": round(sum(item.confidence for item in scores) / len(scores), 4),
+        "average_score": round(sum(item.score for item in scores) / max(1, len(scores)), 2),
+        "average_confidence": round(sum(item.confidence for item in scores) / max(1, len(scores)), 4),
         "average_practice_count": round(
-            sum(raw["practice_count"] for _, raw in evaluated) / len(evaluated), 2
+            sum(raw["practice_count"] for _, raw in evaluated) / max(1, len(evaluated)), 2
         ),
         "average_accuracy": round(
-            sum(raw["accuracy"] for _, raw in evaluated) / len(evaluated), 2
+            sum(raw["accuracy"] for _, raw in evaluated) / max(1, len(evaluated)), 2
         ),
         "average_resource_completion": round(
-            sum(raw["resource_completion"] for _, raw in evaluated) / len(evaluated), 2
+            sum(raw["resource_completion"] for _, raw in evaluated) / max(1, len(evaluated)), 2
         ),
         "average_effective_tutoring_count": round(
-            sum(raw["effective_tutoring_count"] for _, raw in evaluated) / len(evaluated), 2
+            sum(raw["effective_tutoring_count"] for _, raw in evaluated) / max(1, len(evaluated)), 2
         ),
         "priority_student_ids": [item.student_id for item in priority_order[:3]],
         "window_days": WINDOW_DAYS,

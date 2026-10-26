@@ -6,6 +6,7 @@ from uuid import uuid4
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy import func, or_, select
 
+from .resource_metrics import resource_completion
 from .config import Settings
 from .dependencies import (
     CurrentUser,
@@ -161,7 +162,7 @@ def legacy_auth_me(user: CurrentUser) -> UserView:
 def list_courses(user: CurrentUser, db: DbSession) -> list[CourseListItem]:
     repository = CourseRepository(db)
     if user.role == "student":
-        result = [course_item(course, teacher, enrollment) for course, enrollment, teacher in repository.list_student_courses(user.id)]
+        result = [course_item(course, teacher, enrollment).model_copy(update={"progress": resource_completion(db, user.id, course.id).percent}) for course, enrollment, teacher in repository.list_student_courses(user.id)]
     else:
         result = [course_item(course, teacher) for course, teacher in repository.list_teacher_courses(user.id)]
     return result
@@ -171,7 +172,10 @@ def list_courses(user: CurrentUser, db: DbSession) -> list[CourseListItem]:
 def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSummary:
     rows = CourseRepository(db).list_student_courses(user.id)
     if not rows:
-        raise HTTPException(status_code=404, detail="尚未加入课程")
+        return CrossCourseSummary(active_courses=0, weekly_minutes=0, pending_resources=0,
+            overall_mastery=0, mastery_delta=0, strong_topics=[], weak_topics=[], daily_minutes=[0]*7,
+            daily_average=0, peak_day="暂无记录", streak_days=0, resource_completion=0,
+            preferred_pattern="尚无足够行为证据，暂不生成学习偏好结论")
     enrollments = [row[1] for row in rows]
     all_states = []
     repository = CourseRepository(db)
@@ -198,6 +202,8 @@ def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSumma
             ),
         )
     ) or 0
+    completion_rows = [resource_completion(db, user.id, course_id) for course_id in course_ids]
+    pending_resources = sum(row.total-row.completed for row in completion_rows)
     trend_deltas = [
         float(enrollment.mastery_trend[-1] - enrollment.mastery_trend[0])
         for enrollment in enrollments
@@ -244,7 +250,7 @@ def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSumma
         daily_average=round(sum(daily) / 7),
         peak_day=["周一", "周二", "周三", "周四", "周五", "周六", "周日"][daily.index(max(daily))],
         streak_days=max(item.streak_days for item in enrollments),
-        resource_completion=round(sum(item.resource_completion for item in enrollments) / len(enrollments)),
+        resource_completion=round(sum(item.percent for item in completion_rows) / len(completion_rows)),
         preferred_pattern=preferred_pattern,
     )
 
@@ -256,6 +262,7 @@ def student_overview(course_id: str, user: StudentUser, db: DbSession) -> Studen
     if row is None:
         raise HTTPException(status_code=404, detail="课程不存在或无权访问")
     course, enrollment, teacher = row
+    completion = resource_completion(db, user.id, course_id)
     states = [knowledge_state_view(db, concept, state) for concept, state in repository.knowledge_states(user.id, course_id)]
     resources = [ResourceView(
         id=item.id, resource_type=item.resource_type, title=item.title, detail=item.detail,
@@ -268,9 +275,9 @@ def student_overview(course_id: str, user: StudentUser, db: DbSession) -> Studen
     audit(db, actor_id=user.id, action="student.overview.read", object_type="course", object_id=course_id, course_id=course_id)
     db.commit()
     return StudentCourseOverview(
-        course=course_item(course, teacher, enrollment), focus_summary=enrollment.focus_summary,
+        course=course_item(course, teacher, enrollment).model_copy(update={"progress": completion.percent}), focus_summary=enrollment.focus_summary,
         mastery=TrendMetric(value=enrollment.mastery, delta=enrollment.mastery_delta, trend=enrollment.mastery_trend),
-        resource_completion=TrendMetric(value=enrollment.resource_completion, delta=enrollment.resource_delta, trend=enrollment.resource_trend),
+        resource_completion=TrendMetric(value=completion.percent, delta="当前可用资源完成比例", trend=[]),
         recent_accuracy=TrendMetric(value=enrollment.recent_accuracy, delta=enrollment.accuracy_delta, trend=enrollment.accuracy_trend),
         streak=TrendMetric(value=enrollment.streak_days, delta=enrollment.streak_delta, trend=enrollment.streak_trend),
         weekly_activity=enrollment.weekly_activity, daily_average=enrollment.daily_average,
@@ -317,7 +324,9 @@ def teacher_overview(course_id: str, user: TeacherUser, db: DbSession) -> Teache
     enrollment_count = db.scalar(select(func.count()).select_from(CourseEnrollment).where(CourseEnrollment.course_id == course_id)) or 0
     average_mastery = db.scalar(select(func.avg(CourseEnrollment.mastery)).where(CourseEnrollment.course_id == course_id)) or 0
     average_accuracy = db.scalar(select(func.avg(CourseEnrollment.recent_accuracy)).where(CourseEnrollment.course_id == course_id)) or 0
-    average_resource = db.scalar(select(func.avg(CourseEnrollment.resource_completion)).where(CourseEnrollment.course_id == course_id)) or 0
+    student_ids = list(db.scalars(select(CourseEnrollment.student_id).where(CourseEnrollment.course_id == course_id)))
+    rates = [resource_completion(db, student_id, course_id).percent for student_id in student_ids]
+    average_resource = sum(rates)/len(rates) if rates else 0
     snapshot = db.scalar(
         select(DecisionSnapshot)
         .where(DecisionSnapshot.course_id == course_id)

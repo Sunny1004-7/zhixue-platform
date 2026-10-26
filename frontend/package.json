@@ -11,7 +11,8 @@
     "qa:a3": "node qa/verify-a3.cjs",
     "qa:a4-a6": "node qa/verify-a4-a6.cjs",
     "typecheck": "tsc -b --pretty false",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "qa:interactions": "node qa/verify-interactions.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

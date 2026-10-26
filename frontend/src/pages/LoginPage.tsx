@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { ApiError } from "../api";
+import { ApiError } from "../errors";
 import LoginView, {
   type LoginCredentials,
 } from "../components/login/LoginView";
@@ -39,5 +39,14 @@ export default function LoginPage() {
       throw new Error("暂时无法连接登录服务，请检查网络后重试。");
     }
   };
-  return <LoginView onLogin={authenticate} restoringSession={loading} />;
+  return (
+    <>
+      {sessionStorage.getItem("zhixue-exit-message") && (
+        <div className="session-notice" role="status">
+          {sessionStorage.getItem("zhixue-exit-message")}
+        </div>
+      )}
+      <LoginView onLogin={authenticate} restoringSession={loading} />
+    </>
+  );
 }
