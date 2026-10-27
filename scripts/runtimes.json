@@ -1,0 +1,17 @@
+{
+  "python": {
+    "version": "3.12.7",
+    "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.7/python.3.12.7.nupkg",
+    "sha256": "149dd298e0b7a82250ca019471770fff079874088a4e8501ca20922d7df3a6ac",
+    "publisher": "Python Software Foundation",
+    "verification": "https://www.nuget.org/api/v2/Packages(Id='python',Version='3.12.7')",
+    "sha512_base64": "bVysMpgI4x1NjVk9pu6qnqTsApZnkzXnt4EfbG+my7lpSNL3hFBxeYxvc/g4Ut1zHcKw/aSMUgub7IqGzFYTTg=="
+  },
+  "node": {
+    "version": "20.18.0",
+    "url": "https://nodejs.org/dist/v20.18.0/node-v20.18.0-win-x64.zip",
+    "sha256": "f5cea43414cc33024bbe5867f208d1c9c915d6a38e92abeee07ed9e563662297",
+    "publisher": "Node.js",
+    "verification": "https://nodejs.org/dist/v20.18.0/SHASUMS256.txt"
+  }
+}
