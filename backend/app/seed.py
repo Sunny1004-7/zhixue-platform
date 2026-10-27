@@ -473,7 +473,21 @@ def seed_database(session: Session, fact_source: Path) -> None:
         session.add(PromptTemplate(
             id="a5-tutor-reply-prompt-2", task_kind="a5.tutor_reply", version="1.1.0",
             system_template=tutor_reply_system_v2, user_template=tutor_reply_user,
-            template_hash=sha256(f"{tutor_reply_system_v2}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=True,
+            template_hash=sha256(f"{tutor_reply_system_v2}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=False,
+        ))
+    session.flush()
+    session.get(PromptTemplate, "a5-tutor-reply-prompt-2").active = False
+    tutor_reply_system_v3 = tutor_reply_system_v2 + (
+        "涉及数学概念时，逐项核对定义、必要条件与充分条件；普通梯度更新需在实际迭代点有相应梯度，"
+        "不能以几乎处处可微代替逐点条件。区分普通导数、左右导数与次梯度，明确不可微点的处理方法。"
+        "复合函数应说明自变量、残差与模型参数的关系，不能混用对不同变量的导数。"
+        "可微替代损失与次梯度方法分别说明；正文、图示节点、连线和理解检查必须使用一致且准确的条件。"
+    )
+    if session.get(PromptTemplate, "a5-tutor-reply-prompt-3") is None:
+        session.add(PromptTemplate(
+            id="a5-tutor-reply-prompt-3", task_kind="a5.tutor_reply", version="1.2.0",
+            system_template=tutor_reply_system_v3, user_template=tutor_reply_user,
+            template_hash=sha256(f"{tutor_reply_system_v3}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=True,
         ))
     if session.get(TaskPolicy, "a5-tutor-reply-policy-1") is None:
         session.add(TaskPolicy(
