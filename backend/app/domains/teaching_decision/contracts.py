@@ -20,6 +20,7 @@ class SnapshotRefresh(StrictModel):
 
 
 class AttentionComponents(StrictModel):
+    accuracy_samples: int | None = None
     practice_count: int
     accuracy: float
     resource_completion: float

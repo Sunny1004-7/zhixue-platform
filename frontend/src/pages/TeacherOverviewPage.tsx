@@ -46,7 +46,7 @@ export default function TeacherOverviewPage() {
   const a = snapshot.aggregate;
   const metrics = [
     ["平均掌握度", data.average_mastery],
-    ["近28天正确率", a.average_accuracy ?? data.average_accuracy],
+    ["近期平均得分率", data.average_accuracy],
     ["资源完成率", a.average_resource_completion ?? data.resource_completion],
   ] as const;
   return (
@@ -159,7 +159,7 @@ export default function TeacherOverviewPage() {
                 <div>
                   <b>{s.student_name}</b>
                   <small>
-                    正确率 {percent(s.components.accuracy)} · 有效辅导{" "}
+                    近期得分率 {s.components.accuracy_samples === 0 ? "—" : percent(s.components.accuracy)} · 有效辅导{" "}
                     {number(s.components.effective_tutoring_count)} 次
                   </small>
                 </div>

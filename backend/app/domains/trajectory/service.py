@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .metrics import recent_score_rate
+
 import math
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -359,20 +361,12 @@ class TrajectoryService:
         ))
         if enrollment is not None:
             enrollment.mastery = composite * 100.0
-            answers = self.db.scalars(select(LearningEvent).where(
-                LearningEvent.student_id == student_id,
-                LearningEvent.course_id == course_id,
-                LearningEvent.event_type == "answer_scored",
-                LearningEvent.processing_status == "accepted",
-                LearningEvent.outcome.is_not(None),
-            ).order_by(LearningEvent.occurred_at.desc())).all()
-            corrected = self._corrected_event_ids(student_id, course_id)
-            active_outcomes = [
-                float(event.outcome) for event in answers
-                if event.id not in corrected and event.outcome is not None
-            ][:30]
-            if active_outcomes:
-                enrollment.recent_accuracy = 100.0 * sum(active_outcomes) / len(active_outcomes)
+            accuracy, count = recent_score_rate(self.db, student_id, course_id)
+            enrollment.recent_accuracy = accuracy if accuracy is not None else 0.0
+            enrollment.mastery_delta = "当前估计，暂无可比历史"
+            enrollment.accuracy_delta = f"最近30次有效评分，现有{count}次" if count else "尚无有效评分"
+            enrollment.mastery_trend = []
+            enrollment.accuracy_trend = []
             enrollment.updated_at = datetime.now(timezone.utc)
 
     def _refresh_correct_rate(self, student_id: str, course_id: str, concept_id: str) -> None:

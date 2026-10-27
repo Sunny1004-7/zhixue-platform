@@ -30,7 +30,7 @@ export type CrossCourseSummary = {
   weekly_minutes: number;
   pending_resources: number;
   overall_mastery: number;
-  mastery_delta: number;
+  mastery_delta: number | null;
   strong_topics: string[];
   weak_topics: string[];
   daily_minutes: number[];
@@ -41,7 +41,7 @@ export type CrossCourseSummary = {
   preferred_pattern: string;
 };
 
-export type TrendMetric = { value: number; delta: string; trend: number[] };
+export type TrendMetric = { value: number | null; delta: string; trend: number[] };
 
 export type KnowledgeState = {
   concept_id: string;
@@ -97,7 +97,7 @@ export type TeacherCourseOverview = {
   class_name: string;
   student_count: number;
   average_mastery: number;
-  average_accuracy: number;
+  average_accuracy: number | null;
   resource_completion: number;
   priority_student_count: number;
 };
@@ -756,6 +756,7 @@ export type TutorExperience = {
 };
 
 export type AttentionComponents = {
+  accuracy_samples?: number | null;
   practice_count: number;
   accuracy: number;
   resource_completion: number;

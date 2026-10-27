@@ -63,6 +63,7 @@ def _components(row: AttentionScoreSnapshot) -> AttentionComponents:
     return AttentionComponents(
         practice_count=int(raw["practice_count"]),
         accuracy=float(raw["accuracy"]),
+        accuracy_samples=raw.get("accuracy_samples", 0),
         resource_completion=float(raw["resource_completion"]),
         effective_tutoring_count=int(raw["effective_tutoring_count"]),
         practice_score=float(normalized["practice_score"]),

@@ -54,7 +54,7 @@ class CrossCourseSummary(BaseModel):
     weekly_minutes: int
     pending_resources: int
     overall_mastery: float
-    mastery_delta: float
+    mastery_delta: float | None
     strong_topics: list[str]
     weak_topics: list[str]
     daily_minutes: list[int]
@@ -66,7 +66,7 @@ class CrossCourseSummary(BaseModel):
 
 
 class TrendMetric(BaseModel):
-    value: float
+    value: float | None
     delta: str
     trend: list[int]
 
@@ -125,7 +125,7 @@ class TeacherCourseOverview(BaseModel):
     class_name: str
     student_count: int
     average_mastery: float
-    average_accuracy: float
+    average_accuracy: float | None
     resource_completion: float
     priority_student_count: int
 

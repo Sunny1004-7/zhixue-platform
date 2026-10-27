@@ -47,7 +47,7 @@ export default function StudentOverviewPage() {
   const metrics = [
     ["知识掌握度", data.mastery, "%"],
     ["资源完成率", data.resource_completion, "%"],
-    ["近30题正确率", data.recent_accuracy, "%"],
+    ["近期得分率", data.recent_accuracy, "%"],
     ["连续学习", data.streak, "天"],
   ] as const;
   return (
@@ -77,15 +77,7 @@ export default function StudentOverviewPage() {
             key={label}
             label={label}
             value={unit === "天" ? number(m.value) + " 天" : percent(m.value)}
-            note={
-              label === "知识掌握度"
-                ? "当前有效学习证据"
-                : label === "资源完成率"
-                  ? "当前课程资源记录"
-                  : label === "近30题正确率"
-                    ? "按最近作答统计"
-                    : "按学习日期统计"
-            }
+            note={m.delta}
           />
         ))}
       </section>

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from ..trajectory.metrics import recent_score_rate, active_scores
+
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -86,10 +88,9 @@ def _metric_inputs(
         LearningEvent.occurred_at >= since,
         LearningEvent.occurred_at <= as_of,
     )).all())
-    practice_count = sum(
-        1 for item in events
-        if item.event_type == "answer_scored" and item.processing_status == "accepted"
-    )
+    effective_scores = active_scores(db, enrollment.student_id, enrollment.course_id, as_of)
+    practice_count = sum(1 for item in effective_scores if as_utc(item.occurred_at) >= since)
+    accuracy, score_count = recent_score_rate(db, enrollment.student_id, enrollment.course_id, as_of)
     effective_tutoring_count = sum(
         1 for item in events
         if item.event_type == "tutor_message_received"
@@ -109,11 +110,11 @@ def _metric_inputs(
     attention_input = AttentionInput(
         student_id=enrollment.student_id,
         practice_count=practice_count,
-        accuracy=float(enrollment.recent_accuracy),
+        accuracy=accuracy if accuracy is not None else 0.0,
         resource_completion=completion,
         effective_tutoring_count=effective_tutoring_count,
         practice_confidence=1.0,
-        accuracy_confidence=accuracy_confidence,
+        accuracy_confidence=accuracy_confidence if score_count else 0.0,
         resource_confidence=1.0,
         tutoring_confidence=1.0,
         last_activity_at=last_activity,
@@ -121,11 +122,13 @@ def _metric_inputs(
     raw = {
         "window_days": WINDOW_DAYS,
         "practice_count": practice_count,
-        "accuracy": round(float(enrollment.recent_accuracy), 4),
+        "accuracy": round(accuracy, 4) if accuracy is not None else 0.0,
+        "accuracy_samples": score_count,
         "resource_completion": round(completion, 4),
         "effective_tutoring_count": effective_tutoring_count,
         "practice_confidence": 1.0,
-        "accuracy_confidence": round(accuracy_confidence, 4),
+        "accuracy_confidence": round(accuracy_confidence, 4) if score_count else 0.0,
+        "accuracy_window": "latest_30_effective_scores",
         "resource_confidence": 1.0,
         "tutoring_confidence": 1.0,
         "last_activity_at": last_activity.isoformat() if last_activity else None,
@@ -190,8 +193,8 @@ def create_snapshot(
         "average_practice_count": round(
             sum(raw["practice_count"] for _, raw in evaluated) / max(1, len(evaluated)), 2
         ),
-        "average_accuracy": round(
-            sum(raw["accuracy"] for _, raw in evaluated) / max(1, len(evaluated)), 2
+        "average_accuracy": None if not any(raw["accuracy_samples"] for _, raw in evaluated) else round(
+            sum(raw["accuracy"] for _, raw in evaluated if raw["accuracy_samples"]) / max(1, sum(bool(raw["accuracy_samples"]) for _, raw in evaluated)), 2
         ),
         "average_resource_completion": round(
             sum(raw["resource_completion"] for _, raw in evaluated) / max(1, len(evaluated)), 2

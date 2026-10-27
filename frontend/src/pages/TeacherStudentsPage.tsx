@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { knowledgeLabel } from "../format";
+import { knowledgeLabel, percent } from "../format";
 import { ApiError } from "../errors";
 import { useApi } from "../RuntimeContext";
 import { ErrorState, LoadingState, Surface } from "../components/Primitives";
@@ -287,8 +287,8 @@ export default function TeacherStudentsPage() {
                 <span>
                   <b>{student.student_name}</b>
                   <small>
-                    练习 {student.components.practice_count} 次 · 正确率{" "}
-                    {Math.round(student.components.accuracy)}%
+                    练习 {student.components.practice_count} 次 · 得分率{" "}
+                    {student.components.accuracy_samples === 0 ? "—" : percent(student.components.accuracy)}
                   </small>
                 </span>
                 <em className={student.priority ? "priority" : ""}>
@@ -331,7 +331,7 @@ export default function TeacherStudentsPage() {
               <div className="attention-formula" aria-label="重点关注得分构成">
                 {[
                   ["练习量", detail.components.practice_score, "25%"],
-                  ["正确率", detail.components.accuracy_score, "30%"],
+                  ["得分率", detail.components.accuracy_score, "30%"],
                   ["资源完成", detail.components.resource_score, "25%"],
                   ["有效辅导", detail.components.tutoring_score, "20%"],
                 ].map(([label, value, weight]) => (

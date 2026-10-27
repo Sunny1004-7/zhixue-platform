@@ -15,6 +15,7 @@ from .dependencies import (
     TeacherUser,
     current_session_and_user,
 )
+from .domains.trajectory.metrics import recent_score_rate
 from .domains.trajectory.service import TrajectoryService
 from .domains.trajectory.evidence import classify_state
 from .domains.trajectory.client_events import client_observation_command
@@ -173,7 +174,7 @@ def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSumma
     rows = CourseRepository(db).list_student_courses(user.id)
     if not rows:
         return CrossCourseSummary(active_courses=0, weekly_minutes=0, pending_resources=0,
-            overall_mastery=0, mastery_delta=0, strong_topics=[], weak_topics=[], daily_minutes=[0]*7,
+            overall_mastery=0, mastery_delta=None, strong_topics=[], weak_topics=[], daily_minutes=[0]*7,
             daily_average=0, peak_day="暂无记录", streak_days=0, resource_completion=0,
             preferred_pattern="尚无足够行为证据，暂不生成学习偏好结论")
     enrollments = [row[1] for row in rows]
@@ -204,11 +205,6 @@ def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSumma
     ) or 0
     completion_rows = [resource_completion(db, user.id, course_id) for course_id in course_ids]
     pending_resources = sum(row.total-row.completed for row in completion_rows)
-    trend_deltas = [
-        float(enrollment.mastery_trend[-1] - enrollment.mastery_trend[0])
-        for enrollment in enrollments
-        if len(enrollment.mastery_trend) >= 2
-    ]
     event_counts = dict(db.execute(
         select(LearningEvent.event_type, func.count())
         .where(
@@ -243,7 +239,7 @@ def student_course_summary(user: StudentUser, db: DbSession) -> CrossCourseSumma
         weekly_minutes=sum(item.weekly_minutes for item in enrollments),
         pending_resources=pending_resources,
         overall_mastery=round(sum(item.mastery for item in enrollments) / len(enrollments)),
-        mastery_delta=round(sum(trend_deltas) / len(trend_deltas), 1) if trend_deltas else 0,
+        mastery_delta=None,
         strong_topics=strong_topics,
         weak_topics=weak_topics,
         daily_minutes=daily,
@@ -274,11 +270,12 @@ def student_overview(course_id: str, user: StudentUser, db: DbSession) -> Studen
     ) for item in repository.activities(user.id, course_id)]
     audit(db, actor_id=user.id, action="student.overview.read", object_type="course", object_id=course_id, course_id=course_id)
     db.commit()
+    accuracy, score_count = recent_score_rate(db, user.id, course_id)
     return StudentCourseOverview(
         course=course_item(course, teacher, enrollment).model_copy(update={"progress": completion.percent}), focus_summary=enrollment.focus_summary,
-        mastery=TrendMetric(value=enrollment.mastery, delta=enrollment.mastery_delta, trend=enrollment.mastery_trend),
+        mastery=TrendMetric(value=enrollment.mastery, delta="当前估计，暂无可比历史", trend=[]),
         resource_completion=TrendMetric(value=completion.percent, delta="当前可用资源完成比例", trend=[]),
-        recent_accuracy=TrendMetric(value=enrollment.recent_accuracy, delta=enrollment.accuracy_delta, trend=enrollment.accuracy_trend),
+        recent_accuracy=TrendMetric(value=accuracy, delta=(f"最近30次有效评分，现有{score_count}次" if score_count else "尚无有效评分"), trend=[]),
         streak=TrendMetric(value=enrollment.streak_days, delta=enrollment.streak_delta, trend=enrollment.streak_trend),
         weekly_activity=enrollment.weekly_activity, daily_average=enrollment.daily_average,
         efficient_sessions=enrollment.efficient_sessions, knowledge_states=states,
@@ -323,8 +320,10 @@ def teacher_overview(course_id: str, user: TeacherUser, db: DbSession) -> Teache
     course, teacher = row
     enrollment_count = db.scalar(select(func.count()).select_from(CourseEnrollment).where(CourseEnrollment.course_id == course_id)) or 0
     average_mastery = db.scalar(select(func.avg(CourseEnrollment.mastery)).where(CourseEnrollment.course_id == course_id)) or 0
-    average_accuracy = db.scalar(select(func.avg(CourseEnrollment.recent_accuracy)).where(CourseEnrollment.course_id == course_id)) or 0
     student_ids = list(db.scalars(select(CourseEnrollment.student_id).where(CourseEnrollment.course_id == course_id)))
+    score_rates = [value for student_id in student_ids
+                   if (value := recent_score_rate(db, student_id, course_id)[0]) is not None]
+    average_accuracy = sum(score_rates) / len(score_rates) if score_rates else None
     rates = [resource_completion(db, student_id, course_id).percent for student_id in student_ids]
     average_resource = sum(rates)/len(rates) if rates else 0
     snapshot = db.scalar(
@@ -340,7 +339,7 @@ def teacher_overview(course_id: str, user: TeacherUser, db: DbSession) -> Teache
     return TeacherCourseOverview(
         course=course_item(course, teacher), class_name=f"{course.code} · {course.term}教学班",
         student_count=enrollment_count, average_mastery=round(float(average_mastery)),
-        average_accuracy=round(float(average_accuracy)), resource_completion=round(float(average_resource)),
+        average_accuracy=round(average_accuracy, 2) if average_accuracy is not None else None, resource_completion=round(float(average_resource)),
         priority_student_count=priority_student_count,
     )
 
