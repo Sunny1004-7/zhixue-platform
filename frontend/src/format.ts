@@ -19,3 +19,17 @@ export function delta(value: unknown, unit = "个百分点") {
     ? `${value > 0 ? "+" : ""}${number(value, 1)} ${unit}`
     : "暂无可比较记录";
 }
+
+export function masteryChange30d(
+  value: number,
+  lastEvidence: string | null,
+  now = Date.now(),
+) {
+  const at = lastEvidence ? Date.parse(lastEvidence) : NaN;
+  return finite(value) &&
+    Number.isFinite(at) &&
+    at <= now &&
+    now - at <= 30 * 86400000
+    ? `${value > 0 ? "+" : ""}${(value * 100).toFixed(1)}`
+    : "—";
+}

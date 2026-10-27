@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { knowledgeLabel, percent } from "../format";
+import { knowledgeLabel, percent, masteryChange30d } from "../format";
 import { ApiError } from "../errors";
 import { useApi } from "../RuntimeContext";
 import { ErrorState, LoadingState, Surface } from "../components/Primitives";
@@ -372,7 +372,7 @@ export default function TeacherStudentsPage() {
                       <span>状态</span>
                       <span>掌握度</span>
                       <span>证据</span>
-                      <span>30天趋势</span>
+                      <span>30天变化（百分点）</span>
                     </div>
                     {detail.concepts.map((concept) => (
                       <div
@@ -407,8 +407,10 @@ export default function TeacherStudentsPage() {
                             concept.trend_30d >= 0 ? "trend-up" : "trend-down"
                           }
                         >
-                          {concept.trend_30d >= 0 ? "+" : ""}
-                          {concept.trend_30d.toFixed(1)}
+                          {masteryChange30d(
+                            concept.trend_30d,
+                            concept.last_evidence_at,
+                          )}
                         </span>
                       </div>
                     ))}
