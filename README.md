@@ -157,7 +157,7 @@ GitHub Actions在推送和Pull Request时执行前端`npm ci`、类型检查、�
 - DeepSeek Flash Profile使用官方OpenAI兼容接口`https://api.deepseek.com`，请求模型为`deepseek-flash`，访问凭证由后端运行环境提供。
 - 模型服务需要支持 `response_format=json_object`。返回结果仍会经过JSON结构检查。
 
-系统解析教学材料时不会运行Office宏、嵌入对象或外部链接，也不会把文档中的文字当作程序命令执行。
+
 
 ## 开源依赖说明
 
@@ -167,6 +167,6 @@ GitHub Actions在推送和Pull Request时执行前端`npm ci`、类型检查、�
 
 作品名称：**知学智教——大模型驱动的个性化教学平台**。本次参赛团队为“码力全开”（39139），参赛成员刘嘉程，西安交通大学研究生组，指导教师庞善民。
 
-项目建立在前期智慧教学研究和课程应用的基础上。刘嘉程参与了2024年生成式人工智能赋能课程教学改革（“智课”）专题研究项目“AI驱动下的课程考核与质量评价”，面向机器学习相关课程开展教学应用，项目于2026年通过结题验收。前期合作研究形成了NeurIPS 2025论文“Knowledge Starts with Practice: Knowledge-Aware Exercise Generative Recommendation with Adaptive Multi-Agent Cooperation”，为知识状态分析和个性化习题设计提供研究基础。相关论文、教学实践及创新实践成果由原参与团队共同完成。
+项目建立在前期智慧教学研究和课程应用的基础上。刘嘉程参与了2024年生成式人工智能赋能课程教学改革（“智课”）专题研究项目“AI驱动下的课程考核与质量评价”，面向机器学习相关课程开展教学应用，项目于2026年通过结题验收。前期合作研究形成了NeurIPS 2025论文“Knowledge Starts with Practice: Knowledge-Aware Exercise Generative Recommendation with Adaptive Multi-Agent Cooperation”，为知识状态分析和多智能体写作提供研究基础。
 
 平台将课程知识图谱、学习证据、习题、视频、辅导和资源发布整合为师生协作流程。当前Web入口采用统一的师生登录组件，支持键盘操作、字段校验、密码显隐和明确的登录反馈。
