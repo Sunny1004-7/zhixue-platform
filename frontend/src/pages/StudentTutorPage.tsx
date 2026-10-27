@@ -124,6 +124,14 @@ function ChatMessage({ message }: { message: TutorMessage }) {
             )}
         </p>
         {message.visual && <VisualExplanation visual={message.visual} />}
+        {message.role === "assistant" &&
+          typeof message.checkpoint?.criterion === "string" &&
+          message.checkpoint.criterion.trim() && (
+            <section className="tutor-inline-practice tutor-checkpoint">
+              <b>理解检查</b>
+              <p>{message.checkpoint.criterion}</p>
+            </section>
+          )}
         {message.inline_practice && (
           <section className="tutor-inline-practice">
             <b>即时练习</b>
