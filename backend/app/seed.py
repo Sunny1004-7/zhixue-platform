@@ -487,7 +487,20 @@ def seed_database(session: Session, fact_source: Path) -> None:
         session.add(PromptTemplate(
             id="a5-tutor-reply-prompt-3", task_kind="a5.tutor_reply", version="1.2.0",
             system_template=tutor_reply_system_v3, user_template=tutor_reply_user,
-            template_hash=sha256(f"{tutor_reply_system_v3}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=True,
+            template_hash=sha256(f"{tutor_reply_system_v3}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=False,
+        ))
+    session.flush()
+    session.get(PromptTemplate, "a5-tutor-reply-prompt-3").active = False
+    tutor_reply_system_v4 = tutor_reply_system_v3 + (
+        "不可只因外函数在某点不可微就断言复合函数不可微；应按定义检查内函数的局部行为、导数退化情形与反例。"
+        "区分单个次梯度与全部次梯度构成的次微分集合，链式法则等式必须满足所需条件。"
+        "对关键判断先核对左右极限或可微定义，再组织正文、图示与理解检查，不输出核对过程或内部推理字段。"
+    )
+    if session.get(PromptTemplate, "a5-tutor-reply-prompt-4") is None:
+        session.add(PromptTemplate(
+            id="a5-tutor-reply-prompt-4", task_kind="a5.tutor_reply", version="1.3.0",
+            system_template=tutor_reply_system_v4, user_template=tutor_reply_user,
+            template_hash=sha256(f"{tutor_reply_system_v4}\n{tutor_reply_user}".encode("utf-8")).hexdigest(), active=True,
         ))
     if session.get(TaskPolicy, "a5-tutor-reply-policy-1") is None:
         session.add(TaskPolicy(
