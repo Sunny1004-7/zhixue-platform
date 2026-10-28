@@ -126,7 +126,7 @@ h3 {
   color: var(--ink);
 }
 h1 {
-  font-size: 27px;
+  font-size: 30px;
 }
 h2 {
   font-size: 22px;
@@ -144,7 +144,7 @@ em {
   font-style: normal;
 }
 small {
-  font-size: 12px;
+  font-size: 14px;
 }
 strong,
 b {
@@ -177,10 +177,10 @@ b {
 }
 .muted {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
 }
 .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: var(--accent);
   font-weight: 650;
@@ -212,7 +212,7 @@ b {
   color: var(--muted);
 }
 .loading-state span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .error-state h2,
 .empty-result h3 {
@@ -287,7 +287,7 @@ b {
   font-size: 21px;
 }
 .product-brand small {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   letter-spacing: 0.09em;
 }
@@ -298,7 +298,7 @@ b {
   margin-bottom: 30px;
 }
 .role-label {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   padding: 0 12px;
   margin-bottom: 12px;
@@ -312,7 +312,7 @@ b {
   border-bottom: 1px solid var(--line);
 }
 .course-picker span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .course-picker select {
@@ -331,7 +331,7 @@ b {
   gap: 8px;
   padding: 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 .sidebar nav {
@@ -347,7 +347,7 @@ b {
   min-height: 47px;
   padding: 12px;
   color: #566c7f;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   border-radius: 7px;
   border: 1px solid transparent;
@@ -378,7 +378,7 @@ b {
   border-radius: 9px;
   color: var(--accent);
   background: var(--accent-soft);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 .sidebar-foot > div {
@@ -388,11 +388,11 @@ b {
   min-width: 0;
 }
 .sidebar-foot b {
-  font-size: 13px;
+  font-size: 15px;
 }
 .sidebar-foot small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .sidebar-foot button {
   border: 0;
@@ -425,7 +425,7 @@ b {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .page-location h1 {
@@ -439,7 +439,7 @@ b {
   gap: 22px;
 }
 .term-label {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .profile-button {
@@ -448,7 +448,7 @@ b {
   background: transparent;
 }
 .profile-button b {
-  font-size: 13px;
+  font-size: 15px;
 }
 .profile-menu {
   position: absolute;
@@ -462,7 +462,7 @@ b {
   box-shadow: var(--shadow);
 }
 .profile-menu p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   overflow-wrap: anywhere;
 }
@@ -470,7 +470,7 @@ b {
   width: 100%;
 }
 .workspace-main {
-  max-width: 2000px;
+  max-width: 1880px;
   margin: 0 auto;
   padding: 26px 36px 48px;
   min-width: 0;
@@ -488,7 +488,7 @@ b {
 }
 .page-intro p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 .intro-actions {
@@ -497,7 +497,7 @@ b {
   flex: none;
 }
 .snapshot-date {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .metrics-row {
@@ -520,16 +520,16 @@ b {
 }
 .metric > span {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
 }
 .metric > strong {
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 650;
   line-height: 1.3;
 }
 .metric > small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .dashboard-columns {
   display: grid;
@@ -558,11 +558,11 @@ b {
 .section-heading p {
   margin: 4px 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .section-heading > span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .section-heading button {
   min-height: 30px;
@@ -570,7 +570,7 @@ b {
   background: none;
   padding: 0;
   color: var(--accent);
-  font-size: 12px;
+  font-size: 14px;
 }
 .knowledge-list {
   display: flex;
@@ -593,10 +593,10 @@ b {
   gap: 3px;
 }
 .knowledge-list b {
-  font-size: 14px;
+  font-size: 16px;
 }
 .knowledge-list small {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .knowledge-list i,
@@ -614,7 +614,7 @@ b {
   border-radius: inherit;
 }
 .knowledge-list strong {
-  font-size: 14px;
+  font-size: 16px;
 }
 .state-weak {
   color: #ad6036 !important;
@@ -630,20 +630,20 @@ b {
   margin-top: 22px;
   padding: 20px;
   background: #f4f8fc;
-  border-left: 3px solid var(--accent);
+  border-left: 1px solid var(--line);
 }
 .next-step h3 {
   font-size: 16px;
   margin: 5px 0;
 }
 .next-step p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
   color: var(--muted);
 }
 .next-step button {
   flex: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 .week-chart {
   padding-top: 24px;
@@ -673,17 +673,17 @@ b {
   min-height: 0;
 }
 .week-chart span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .week-chart small {
   position: absolute;
   bottom: -26px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .week-chart > p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   text-align: center;
   margin: 12px 0 0;
@@ -695,7 +695,7 @@ b {
   padding-top: 18px;
   margin-top: 18px;
   border-top: 1px solid var(--line);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .summary-pairs b {
@@ -727,11 +727,11 @@ b {
   gap: 4px;
 }
 .activity-list b {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
 }
 .activity-list small {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .recent-resource-list {
@@ -759,12 +759,12 @@ b {
   gap: 5px;
 }
 .recent-resource-list b {
-  font-size: 14px;
+  font-size: 16px;
   overflow-wrap: anywhere;
 }
 .recent-resource-list small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .indicator-list {
   display: flex;
@@ -777,7 +777,7 @@ b {
   grid-template-columns: 120px minmax(0, 1fr) 50px;
   gap: 15px;
   align-items: center;
-  font-size: 13px;
+  font-size: 15px;
 }
 .teaching-actions {
   border-top: 1px solid var(--line);
@@ -800,11 +800,11 @@ b {
   gap: 4px;
 }
 .teaching-actions b {
-  font-size: 14px;
+  font-size: 16px;
 }
 .teaching-actions small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .attention-list > button {
   width: 100%;
@@ -824,10 +824,10 @@ b {
 }
 .attention-list small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .attention-list em {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--accent);
 }
 .course-hub {
@@ -847,10 +847,10 @@ b {
   display: flex;
   gap: 18px;
   align-items: center;
-  font-size: 13px;
+  font-size: 15px;
 }
 .hub-profile button {
-  font-size: 12px;
+  font-size: 14px;
 }
 .hub-intro {
   display: flex;
@@ -864,7 +864,7 @@ b {
 }
 .hub-intro p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
 }
 .hub-intro > svg {
   color: #8faec9;
@@ -899,7 +899,7 @@ b {
   min-width: 0;
 }
 .course-card-top span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .course-card h2 {
@@ -907,7 +907,7 @@ b {
   margin: 8px 0;
 }
 .course-card p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   margin: 5px 0;
 }
@@ -926,7 +926,7 @@ b {
 .course-progress > span {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 14px;
 }
 .course-progress > i {
   display: block;
@@ -947,7 +947,7 @@ b {
   gap: 12px;
   margin: 16px 0 24px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .course-card > button {
   width: 100%;
@@ -974,7 +974,7 @@ b {
   font-size: 21px;
 }
 .progress-ring span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .hub-bottom {
@@ -989,7 +989,7 @@ b {
   margin: 8px 0;
 }
 .hub-bottom p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 .dialog-backdrop {
@@ -1069,7 +1069,7 @@ b {
   width: 100%;
   min-width: 620px;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
 }
 .table-scroll th,
 .table-scroll td {
@@ -1086,7 +1086,7 @@ b {
 .table-scroll td button {
   min-height: 28px;
   padding: 4px 7px;
-  font-size: 12px;
+  font-size: 14px;
   margin-right: 6px;
 }
 .knowledge-dialog {
@@ -1107,7 +1107,7 @@ b {
   margin: 0;
 }
 .audience-body legend {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -1120,7 +1120,7 @@ b {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 15px;
   min-height: 32px;
 }
 .audience-body fieldset > label {
@@ -1144,14 +1144,14 @@ b {
   padding: 4px 10px;
   background: var(--accent-soft);
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .warning-confirm {
   display: flex;
   gap: 8px;
   align-items: center;
   padding: 14px 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #96612f;
 }
 .student-tutor-page {
@@ -1191,7 +1191,7 @@ b {
   border: 0;
   padding: 9px 0;
   background: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 .conversation-list {
   overflow: auto;
@@ -1218,10 +1218,10 @@ b {
   padding: 8px;
 }
 .conversation-open b {
-  font-size: 13px;
+  font-size: 15px;
 }
 .conversation-open small {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
@@ -1265,7 +1265,7 @@ b {
   gap: 6px;
   align-items: center;
   color: var(--accent);
-  font-size: 11px;
+  font-size: 13px;
 }
 .tutor-workspace-header b {
   font-size: 15px;
@@ -1278,7 +1278,7 @@ b {
 .tutor-workspace-header nav button {
   border: 0;
   background: transparent;
-  font-size: 12px;
+  font-size: 14px;
   padding: 7px 9px;
   color: var(--muted);
 }
@@ -1294,7 +1294,7 @@ b {
   border-bottom: 1px solid var(--line);
 }
 .tutor-strategy-bar button {
-  font-size: 12px;
+  font-size: 14px;
   padding: 6px 10px;
   min-height: 32px;
   color: var(--muted);
@@ -1328,7 +1328,7 @@ b {
 }
 .tutor-empty p {
   max-width: 440px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 .tutor-message {
@@ -1346,7 +1346,7 @@ b {
   color: var(--accent);
   background: var(--accent-soft);
   border-radius: 7px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .tutor-message > div {
   padding: 2px 0 10px;
@@ -1358,7 +1358,7 @@ b {
 }
 .tutor-message p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.9;
   white-space: pre-wrap;
 }
@@ -1376,7 +1376,7 @@ b {
 .tutor-message footer a {
   display: flex;
   gap: 4px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .tutor-visual {
   margin: 14px 0;
@@ -1392,7 +1392,7 @@ b {
 }
 .tutor-visual figcaption {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 12px;
 }
 .tutor-visual > div > div {
@@ -1401,10 +1401,10 @@ b {
   gap: 6px;
   padding: 8px;
   background: #f2f7fb;
-  font-size: 12px;
+  font-size: 14px;
 }
 .tutor-visual small {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .tutor-thinking {
@@ -1412,7 +1412,7 @@ b {
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
 }
 .tutor-composer {
   padding: 16px max(22px, 8%) 20px;
@@ -1424,7 +1424,7 @@ b {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 10px;
 }
@@ -1434,7 +1434,7 @@ b {
   align-items: center;
 }
 .tutor-permissions select {
-  font-size: 11px;
+  font-size: 13px;
   padding: 4px;
 }
 .tutor-composer textarea {
@@ -1443,7 +1443,7 @@ b {
   max-height: 180px;
   resize: vertical;
   padding: 13px;
-  font-size: 14px;
+  font-size: 16px;
   background: #fcfdff;
 }
 .tutor-composer footer {
@@ -1460,7 +1460,7 @@ b {
   min-width: 0;
 }
 .tutor-composer footer select {
-  font-size: 12px;
+  font-size: 14px;
   max-width: 200px;
   min-width: 0;
 }
@@ -1483,7 +1483,7 @@ b {
   border-color: var(--accent);
 }
 .model-unavailable {
-  font-size: 12px;
+  font-size: 14px;
   color: #9b6534;
   margin: 8px 0 0;
 }
@@ -1500,7 +1500,7 @@ b {
   padding: 4px 8px;
   border: 1px solid var(--line);
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .attachment-chips button {
   padding: 0;
@@ -1523,7 +1523,7 @@ b {
   font-size: 20px;
 }
 .tutor-library > header span {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .tutor-library article {
@@ -1533,11 +1533,11 @@ b {
 .tutor-library article > div {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .tutor-library article p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .tutor-library article footer {
   display: flex;
@@ -1550,7 +1550,7 @@ b {
   color: var(--muted);
 }
 .tutor-library article button {
-  font-size: 12px;
+  font-size: 14px;
 }
 .tutor-inline-practice {
   margin-top: 14px;
@@ -1561,6 +1561,28 @@ b {
 .tutor-inline-practice > div {
   display: flex;
   flex-direction: column;
-  font-size: 13px;
+  font-size: 15px;
   gap: 7px;
+}
+
+/* Reading rhythm and data surfaces share the same type scale. */
+:root { font-size:16px; --muted:#536a7d; }
+::selection { color:#fff; background:#326eae; }
+input,textarea { caret-color:var(--accent); }
+.sidebar { scrollbar-color:#bdccd9 #f9fcff; }
+.workspace-main { scrollbar-gutter:stable; }
+.page-intro h2 { font-size:30px; }
+.section-heading h3 { font-size:20px; }
+.table-scroll th,.table-scroll td { padding:15px 12px; }
+.tutor-message p { font-size:17px; line-height:1.9; }
+.tutor-message { max-width:900px; }
+.tutor-chat-stream { padding:28px max(22px,5%); }
+.tutor-composer { padding-inline:max(22px,5%); }
+.tutor-visual figcaption { font-size:16px; }
+.tutor-visual > div > div { font-size:15px; }
+.resource-hero,.teacher-graph-hero { box-shadow:none; }
+@media(min-width:1800px) {
+  .workspace-main { padding-top:32px; }
+  .page-intro { padding-bottom:28px; }
+  .insight-panel { padding:28px; }
 }

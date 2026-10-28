@@ -165,7 +165,7 @@ try{
   if(!(Test-Path -LiteralPath $envFile)){Copy-Item -LiteralPath (Join-Path $backend '.env.example') -Destination $envFile;Say '已创建 backend/.env，可在其中配置模型。'}
   Say '升级数据库，保留已有课程与学习记录。'
   New-Item -ItemType Directory -Force -Path (Join-Path $backend '.data') | Out-Null
-  RunChecked $venvPython @('-m','dotenv','-f','.env','run','--','alembic','upgrade','head') $backend (Join-Path $logs 'migration.log')
+  RunChecked $venvPython @('-m','dotenv','-f','.env','run','--',$venvPython,'-m','alembic','upgrade','head') $backend (Join-Path $logs 'migration.log')
   $apiPort=FreePort 8000;$frontPort=FreePort 5173
   SaveJson @{python=$venvPython;node=$node} (Join-Path $stateRoot 'runtime-paths.json')
   SaveJson @{backend=$apiPort;frontend=$frontPort} (Join-Path $stateRoot 'ports.json')

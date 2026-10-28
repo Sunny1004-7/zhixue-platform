@@ -1,20 +1,6 @@
 import BrandGlyph from "../BrandGlyph";
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
-import {
-  ArrowRight,
-  BookOpen,
-  Check,
-  Eye,
-  EyeOff,
-  GraduationCap,
-  KeyRound,
-  Layers3,
-  LoaderCircle,
-  MessageSquareText,
-  Network,
-  NotebookPen,
-  UserRound,
-} from "lucide-react";
+import { ArrowRight, Check, Eye, EyeOff, GraduationCap, KeyRound, LoaderCircle, NotebookPen, UserRound } from "lucide-react";
 import "./LoginView.css";
 
 export type LoginRole = "student" | "teacher";
@@ -29,90 +15,9 @@ type LoginViewProps = {
 };
 
 const roleContent = {
-  student: {
-    label: "学生",
-    title: ["看见知识的联系，", "找到学习的方向。"],
-    description:
-      "从课程知识图谱出发，用练习检验理解，在辅导中厘清思路。每次学习的反馈，都为下一步提供依据。",
-    entry: "继续你的课程学习",
-    tools: ["课程知识图谱", "个性化练习", "多策略辅导"],
-    action: "进入学生空间",
-    support: "练习与辅导",
-    Icon: GraduationCap,
-  },
-  teacher: {
-    label: "教师",
-    title: ["看清学习的进展，", "安排合适的教学。"],
-    description:
-      "连接课程材料、知识结构与学生学情，组织有针对性的习题、视频和教学支持，由你审核并发布。",
-    entry: "开始你的课程教学",
-    tools: ["班级与个人学情", "课程知识图谱", "教学资源发布"],
-    action: "进入教师空间",
-    support: "资源与辅导",
-    Icon: NotebookPen,
-  },
+  student: { label: "学生", action: "进入学生空间", Icon: GraduationCap },
+  teacher: { label: "教师", action: "进入教师空间", Icon: NotebookPen },
 };
-
-
-function KnowledgeScene({ role }: { role: LoginRole }) {
-  return (
-    <figure className="zx-knowledge">
-      <figcaption>
-        <Network size={17} aria-hidden="true" />
-        <span>课程学习的脉络</span>
-        <i />
-      </figcaption>
-      <div className="zx-network">
-        <svg
-          className="zx-connections"
-          viewBox="0 0 800 340"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M178 156C240 156 220 78 310 78M490 78C555 78 530 156 600 156M600 175C545 175 550 275 490 275M310 275C225 275 245 175 178 175" />
-          <path className="zx-connection-center" d="M402 118V235" />
-          <circle cx="230" cy="127" r="5" />
-          <circle cx="552" cy="127" r="5" />
-          <circle cx="402" cy="176" r="5" />
-        </svg>
-        <div className="zx-node zx-node--course">
-          <BookOpen size={27} aria-hidden="true" />
-          <b>课程知识</b>
-          <span>建立知识的联系</span>
-        </div>
-        <div className="zx-node zx-node--concept">
-          <span className="zx-node-icon">
-            <Layers3 size={20} aria-hidden="true" />
-          </span>
-          <div>
-            <b>理解关联</b>
-            <span>沿着先修关系学习</span>
-          </div>
-        </div>
-        <div className="zx-node zx-node--practice">
-          <MessageSquareText size={24} aria-hidden="true" />
-          <b>{roleContent[role].support}</b>
-          <span>围绕当前学习需要</span>
-        </div>
-        <div className="zx-node zx-node--feedback">
-          <span className="zx-node-icon">
-            <Check size={20} aria-hidden="true" />
-          </span>
-          <div>
-            <b>学习反馈</b>
-            <span>更新知识掌握情况</span>
-          </div>
-        </div>
-        <span className="zx-network-label">知识结构与学习过程相连接</span>
-      </div>
-      <div className="zx-capabilities" aria-label="主要功能">
-        {roleContent[role].tools.map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </div>
-    </figure>
-  );
-}
 
 /** Shared presentation. Authentication and navigation belong to each app's adapter. */
 export default function LoginView({
@@ -175,54 +80,29 @@ export default function LoginView({
 
   return (
     <div className={`zx-login zx-login--${role}`}>
-      <a
-        className="zx-skip"
-        href="#zx-login-form"
-        onClick={(event) => {
-          event.preventDefault();
-          document.getElementById("zx-login-form")?.focus();
-        }}
-      >
-        跳到登录表单
-      </a>
-      <div className="zx-wrap">
-        <header className="zx-header">
-          <div className="zx-brand">
-            <span className="zx-brand-glyph">
-              <BrandGlyph />
-            </span>
-            <div>
-              <b>知学智教</b>
-              <span>大模型驱动的个性化教学平台</span>
-            </div>
-          </div>
-          <span className="zx-header-note">
-            <BookOpen size={17} aria-hidden="true" />
-            连接课程、学习与教学
-          </span>
-        </header>
-        <main className="zx-content">
-          <section className="zx-story" aria-label="平台介绍">
-            <div className="zx-story-copy">
-              <span className="zx-entry">
-                <i />
-                {active.entry}
-              </span>
-              <h1>
-                {active.title.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p>{active.description}</p>
-            </div>
-            <KnowledgeScene role={role} />
-          </section>
-          <section className="zx-auth" aria-labelledby={`${id}-heading`}>
-            <div className="zx-form-heading">
-              <span>欢迎使用知学智教</span>
-              <h2 id={`${id}-heading`}>{active.label}登录</h2>
-              <p>选择身份，进入你的课程空间</p>
-            </div>
+      <a className="zx-skip" href="#zx-login-form" onClick={(event) => {
+        event.preventDefault(); document.getElementById("zx-login-form")?.focus();
+      }}>跳到登录表单</a>
+      <main className="zx-auth" aria-labelledby={`${id}-heading`}>
+        <section className="zx-identity" aria-label="知学智教">
+          <header className="zx-brand">
+            <span className="zx-brand-glyph"><BrandGlyph /></span>
+            <h1 id={`${id}-heading`}>知学智教</h1>
+            <p>大模型驱动的个性化教学平台</p>
+          </header>
+          <svg className="zx-book-art" viewBox="0 0 500 360" aria-hidden="true">
+            <ellipse cx="250" cy="304" rx="190" ry="20" fill="#dbe6f0" />
+            <path d="M62 117L244 165L438 117V278L251 329L62 279Z" fill="#bfd2e4" />
+            <path d="M52 105L242 155L448 105V264L251 316L52 265Z" fill="#2859c5" opacity=".84" />
+            <path d="M250 122C187 79 107 74 61 94V250C119 232 195 247 250 285C305 247 381 232 439 250V94C393 74 313 79 250 122Z" fill="#fff" stroke="#90aac6" strokeWidth="2" />
+            <path d="M250 122V285M83 119C139 105 190 121 224 140M83 145C139 131 190 147 224 166M83 171C139 157 190 173 224 192M83 197C139 183 190 199 224 218M277 140C319 116 372 108 415 119M277 166C319 142 372 134 415 145M277 192C319 168 372 160 415 171M277 218C319 194 372 186 415 197" fill="none" stroke="#d1dce8" strokeWidth="3" strokeLinecap="round" />
+            <path d="M341 91V183L364 164L387 172V82" fill="#16847f" />
+            <circle cx="112" cy="54" r="9" fill="#d4a84c" />
+            <path d="M416 40V66M403 53H429" stroke="#91b8c4" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+        </section>
+        <section className="zx-signin" aria-labelledby={`${id}-signin`}>
+          <h2 id={`${id}-signin`}>登录课程空间</h2>
             <form
               id="zx-login-form"
               className="zx-form"
@@ -384,15 +264,9 @@ export default function LoginView({
                   </>
                 )}
               </button>
-              <p className="zx-access-note">账号仅可访问对应身份的课程空间</p>
             </form>
-          </section>
-        </main>
-        <footer className="zx-footer">
-          <span>知学智教——大模型驱动的个性化教学平台</span>
-          <span>以课程为起点，让教与学相连接</span>
-        </footer>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }
