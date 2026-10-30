@@ -37,6 +37,8 @@ html:has(.zx-login), body:has(.zx-login) { min-width: 0; background: #edf3f8; }
 .zx-input-shell:focus-within { border-color:var(--zx-accent); box-shadow:0 0 0 1px var(--zx-accent); }
 .zx-input-shell:has(input[aria-invalid="true"]) { border-color:#b13e49; }
 .zx-input-shell input { width:100%; flex:1; min-width:0; height:54px; padding:0; border:0; border-radius:0; background:transparent; color:var(--zx-ink); font-size:18px; outline:none !important; }
+/* The labeled page button owns password visibility in every browser. */
+.zx-input-shell input[name="password"]::-ms-reveal { display:none; }
 .zx-input-shell input::placeholder { color:#65768a; font-size:16px; }
 .zx-password-toggle { width:36px; min-height:40px; padding:6px; border:0; background:transparent; color:var(--zx-muted); border-radius:5px; cursor:pointer; }
 .zx-login .zx-field-error { color:#a93643; min-height:20px; font-size:14px; line-height:20px; }
