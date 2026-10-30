@@ -106,7 +106,7 @@ function ChatMessage({ message }: { message: TutorMessage }) {
   const navigate = useNavigate();
   const { courseId } = useCourse();
   return (
-    <article className={`tutor-message tutor-message--${message.role}`}>
+    <article data-message-id={message.id} className={`tutor-message tutor-message--${message.role}`}>
       <span>
         {message.role === "assistant" ? <Sparkles size={16} /> : "我"}
       </span>
@@ -254,7 +254,7 @@ export default function StudentTutorPage() {
   const [listening, setListening] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
-  const endRef = useRef<HTMLDivElement>(null);
+  const streamRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     sessionStorage.setItem(
       draftKey,
@@ -301,8 +301,17 @@ export default function StudentTutorPage() {
     void loadList();
   }, [loadList]);
   useEffect(() => {
-    endRef.current?.scrollIntoView({ block: "end" });
-  }, [conversation?.messages.length, busy]);
+    const stream = streamRef.current;
+    const entries = stream?.querySelectorAll<HTMLElement>("[data-message-id]");
+    const latest = entries?.[entries.length - 1];
+    if (!stream || !latest) return;
+    const top =
+      stream.scrollTop +
+      latest.getBoundingClientRect().top -
+      stream.getBoundingClientRect().top -
+      16;
+    stream.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+  }, [conversation?.id, conversation?.messages.length]);
 
   const activeProfile = useMemo(
     () => profiles.find((item) => item.id === profileId) ?? null,
@@ -791,7 +800,7 @@ export default function StudentTutorPage() {
                 </button>
               ))}
             </div>
-            <div className="tutor-chat-stream">
+            <div className="tutor-chat-stream" ref={streamRef}>
               {!conversation?.messages.length && (
                 <div className="tutor-empty">
                   <Sparkles size={32} />
@@ -810,7 +819,6 @@ export default function StudentTutorPage() {
                   正在等待服务返回，请稍候…
                 </div>
               )}
-              <div ref={endRef} />
             </div>
             <div className="tutor-composer">
               <div className="tutor-permissions">

@@ -145,7 +145,10 @@ export default function KnowledgeGraphView({ graph, onNodeClick }: Props) {
               onClick={() => onNodeClick?.(node)}
             >
               <circle r="37" />
-              <text y="-2">
+              <text
+                className={node.label.length === 5 ? "graph-node-label--long" : undefined}
+                y="-2"
+              >
                 {node.label.length > 5 ? node.label.slice(0, 4) : node.label}
               </text>
               {node.mastery != null && (
