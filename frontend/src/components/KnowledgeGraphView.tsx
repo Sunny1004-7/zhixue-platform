@@ -3,6 +3,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { GraphNode, KnowledgeGraph } from "../types";
 import {
   filterGraph,
+  layoutNetwork,
   fitCamera,
   nodeBox,
   relationFrom,
@@ -32,10 +33,12 @@ const edgeColors = {
 
 export default function KnowledgeGraphView(props: Props) {
   const g = props.graph;
+  const displayGraph = useMemo(() => layoutNetwork(g), [g]);
   return (
     <Explorer
       key={`${g.course_id}/${g.id}/${g.revision_id}/${g.revision_no}`}
       {...props}
+      graph={displayGraph}
     />
   );
 }
@@ -496,6 +499,7 @@ function Explorer({
                       stroke={edgeColors[edge.relation]}
                       markerEnd={`url(#${marker})`}
                     />
+                    {(graph.nodes.length < 18 || (Boolean(selected) && active)) && <>
                     <rect
                       x={mx - 23}
                       y={my - 11}
@@ -506,6 +510,7 @@ function Explorer({
                     <text x={mx} y={my + 4}>
                       {relations[edge.relation]}
                     </text>
+                    </>}
                   </g>
                 );
               })}

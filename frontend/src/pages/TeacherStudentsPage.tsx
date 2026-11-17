@@ -1,3 +1,4 @@
+import { PagedList, WorkspaceViews } from "../components/WorkspaceViews";
 import {
   AlertTriangle,
   ArrowDownAZ,
@@ -271,7 +272,7 @@ export default function TeacherStudentsPage() {
             <ErrorState message={rosterError} retry={() => void loadRoster()} />
           )}
           {rosterLoading && <LoadingState label="正在读取学生名单…" />}
-          <div className="student-roster" role="list" aria-busy={rosterLoading}>
+          <PagedList className="student-roster" label="学生名单" resetKey={courseId + query + sort}>
             {(students ?? []).map((student) => (
               <button
                 key={student.student_id}
@@ -296,7 +297,7 @@ export default function TeacherStudentsPage() {
                 </em>
               </button>
             ))}
-          </div>
+          </PagedList>
         </Surface>
 
         <Surface className="student-detail-panel">
@@ -328,27 +329,9 @@ export default function TeacherStudentsPage() {
                 )}
               </header>
 
-              <div className="attention-formula" aria-label="重点关注得分构成">
-                {[
-                  ["练习量", detail.components.practice_score, "25%"],
-                  ["得分率", detail.components.accuracy_score, "30%"],
-                  ["资源完成", detail.components.resource_score, "25%"],
-                  ["有效辅导", detail.components.tutoring_score, "20%"],
-                ].map(([label, value, weight]) => (
-                  <div key={label as string}>
-                    <span>
-                      <b>{label}</b>
-                      <small>权重 {weight}</small>
-                    </span>
-                    <i>
-                      <em style={{ width: `${Number(value)}%` }} />
-                    </i>
-                    <strong>{Math.round(Number(value))}</strong>
-                  </div>
-                ))}
-              </div>
 
-              <section className="concept-state-section">
+
+<WorkspaceViews labels={["知识表现", "关注依据"]}>              <section className="concept-state-section">
                 <div className="section-heading">
                   <div>
                     <span>
@@ -374,6 +357,7 @@ export default function TeacherStudentsPage() {
                       <span>证据</span>
                       <span>30天变化（百分点）</span>
                     </div>
+<PagedList className="concept-state-body" label="知识表现" resetKey={courseId + selectedId}>
                     {detail.concepts.map((concept) => (
                       <div
                         className="concept-state-row"
@@ -414,9 +398,28 @@ export default function TeacherStudentsPage() {
                         </span>
                       </div>
                     ))}
+</PagedList>
                   </div>
                 </div>
-              </section>
+              </section>              <div className="attention-formula" aria-label="重点关注得分构成">
+                {[
+                  ["练习量", detail.components.practice_score, "25%"],
+                  ["得分率", detail.components.accuracy_score, "30%"],
+                  ["资源完成", detail.components.resource_score, "25%"],
+                  ["有效辅导", detail.components.tutoring_score, "20%"],
+                ].map(([label, value, weight]) => (
+                  <div key={label as string}>
+                    <span>
+                      <b>{label}</b>
+                      <small>权重 {weight}</small>
+                    </span>
+                    <i>
+                      <em style={{ width: `${Number(value)}%` }} />
+                    </i>
+                    <strong>{Math.round(Number(value))}</strong>
+                  </div>
+                ))}
+              </div></WorkspaceViews>
 
               <footer className="personalized-resource-actions">
                 <div>

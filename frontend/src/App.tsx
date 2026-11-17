@@ -23,14 +23,6 @@ export default function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
-            path="/student/courses"
-            element={
-              <ProtectedRoute role="student">
-                <StudentCourses />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/student"
             element={
               <ProtectedRoute role="student">
@@ -40,6 +32,7 @@ export default function App() {
           >
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<StudentOverview />} />
+            <Route path="courses" element={<StudentCourses />} />
             <Route path="resources" element={<StudentResources />} />
             <Route path="practice" element={<StudentPractice />} />
             <Route path="tutor" element={<StudentTutor />} />

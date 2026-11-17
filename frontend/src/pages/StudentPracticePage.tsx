@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import { useAuth } from "../AuthContext";
 import {
   AlertTriangle,
@@ -17,7 +18,7 @@ import {
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ApiError } from "../errors";
 import { useApi } from "../RuntimeContext";
 import { useCourse } from "../CourseContext";
@@ -360,6 +361,7 @@ export default function StudentPracticePage() {
   const api = useApi();
   const { courseId } = useCourse();
   const location = useLocation();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const setEpoch = useRef(0);
   const actionLock = useRef(false);
@@ -368,8 +370,8 @@ export default function StudentPracticePage() {
   const preferredTitle = (
     location.state as { questionSetTitle?: string } | null
   )?.questionSetTitle;
-  const preferredConceptId = (location.state as { conceptId?: string } | null)
-    ?.conceptId;
+  const stateScope = location.state as {conceptId?: string; courseId?: string} | null;
+  const preferredConceptId = stateScope?.courseId === courseId ? stateScope.conceptId : undefined;
   const preferredQuestionSetId = (
     location.state as { questionSetId?: string } | null
   )?.questionSetId;
@@ -697,16 +699,7 @@ export default function StudentPracticePage() {
   return (
     <div className="a3-student-page">
       <section className="a3-practice-hero">
-        <div>
-          <span>
-            <Brain size={16} />
-            学习证据驱动
-          </span>
-          <h2>智适练习</h2>
-          <p>
-            从已发布题组继续作答，按需逐级查看提示；查看评分依据，保留需要教师复核的结果。
-          </p>
-        </div>
+        {preferredConceptId && <span className="practice-range">知识范围：{activeSet?.concepts.find(c=>c.concept_id===preferredConceptId)?.label ?? "当前知识点"}<button onClick={()=>{navigate("/student/practice", {state:{courseId},replace:true});}}>全部练习</button></span>}
         <div className="a3-practice-hero-actions">
           <button onClick={() => setGenerationOpen(true)}>
             <Sparkles size={16} />
@@ -747,7 +740,7 @@ export default function StudentPracticePage() {
               <span>我的题组</span>
               <em>{sets.length} 组</em>
             </header>
-            <div>
+            <PagedList label="练习题组" resetKey={courseId}>
               {sets.map((item) => (
                 <button
                   key={item.id}
@@ -777,7 +770,7 @@ export default function StudentPracticePage() {
                   </div>
                 </button>
               ))}
-            </div>
+            </PagedList>
           </aside>
 
           <Surface className="a3-practice-workspace">

@@ -1,3 +1,4 @@
+import { PagedList, WorkspaceViews } from "../components/WorkspaceViews";
 import { useUnsavedChanges } from "../components/Dialogs";
 import AudienceDialog, {
   type PublishResource,
@@ -55,6 +56,7 @@ export default function TeacherVideosPage() {
   const [intent, setIntent] = useState(
     "面向当前学习阶段，优先选择概念完整、讲解清晰且可核验的教学视频",
   );
+  const [view, setView] = useState(0);
   const [job, setJob] = useState<VideoSearchJob | null>(null);
   const [candidates, setCandidates] = useState<VideoCandidate[]>([]);
   const [contentKind, setContentKind] = useState("");
@@ -151,6 +153,7 @@ export default function TeacherVideosPage() {
       );
       setDirty(false);
       setJob(nextJob);
+      setView(1);
       const rows = await api.videoCandidates(nextJob.id);
       setCandidates(rows);
       if (!rows.length)
@@ -257,6 +260,7 @@ export default function TeacherVideosPage() {
 
   return (
     <div className="teacher-videos-page">
+      <WorkspaceViews labels={["检索配置", "候选与发布"]} selected={view} onSelect={setView}>
       <Surface className="video-search-builder">
         <header>
           <div>
@@ -422,6 +426,7 @@ export default function TeacherVideosPage() {
         </div>
       </Surface>
 
+      <div className="video-result-view">
       {job && (
         <section className="video-job-status">
           <div>
@@ -497,7 +502,7 @@ export default function TeacherVideosPage() {
             </div>
             <span>{candidates.length} 条结果</span>
           </div>
-          <div className="video-candidate-list">
+          <PagedList className="video-candidate-list" label="候选视频" resetKey={courseId + duration + contentKind}>
             {candidates.map((candidate) => (
               <article key={candidate.id}>
                 <button
@@ -570,7 +575,7 @@ export default function TeacherVideosPage() {
                 </div>
               </article>
             ))}
-          </div>
+          </PagedList>
           {!candidates.length && (
             <div className="empty-result">
               <Globe2 size={28} />
@@ -580,6 +585,9 @@ export default function TeacherVideosPage() {
         </Surface>
       )}
 
+      {!job && <div className="empty-result"><h3>尚未开始检索</h3><p>在检索配置中选择知识点并搜索。</p></div>}
+      </div>
+      </WorkspaceViews>
       {notice && <div className="success-notice">{notice}</div>}
       {error && <div className="inline-error">{error}</div>}
 

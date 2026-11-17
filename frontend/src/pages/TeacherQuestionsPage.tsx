@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDialogs, useUnsavedChanges } from "../components/Dialogs";
 import AudienceDialog, {
@@ -486,6 +487,7 @@ function TeacherBlueprintDesigner({
         </section>
 
         <aside className="a3-blueprint-settings">
+          <div className="a3-settings-fields">
           <header>
             <span>2. 生成设置</span>
             <h3>蓝图与模型</h3>
@@ -569,6 +571,7 @@ function TeacherBlueprintDesigner({
                 {selectedConceptCount} 个知识点 · {total} 道题
               </b>
             </div>
+          </div>
           </div>
           <button
             className="a3-generate-action"
@@ -987,16 +990,6 @@ export default function TeacherQuestionsPage() {
   return (
     <div className="a3-teacher-page">
       <section className="a3-teacher-hero">
-        <div>
-          <span>
-            <ClipboardCheck size={16} />
-            教师复核与发布
-          </span>
-          <h2>智能习题生成</h2>
-          <p>
-            按课程知识点编译六题型蓝图，生成后由教师逐题复核、质量校验并发布。
-          </p>
-        </div>
         <div className="a3-teacher-stats">
           <span>
             <b>{sets.length}</b>题组
@@ -1077,7 +1070,7 @@ export default function TeacherQuestionsPage() {
               <span>课程题组</span>
               <em>{sets.length}</em>
             </header>
-            <div>
+            <PagedList label="课程题组" resetKey={courseId}>
               {sets.map((item) => (
                 <button
                   key={item.id}
@@ -1103,7 +1096,7 @@ export default function TeacherQuestionsPage() {
                   <ChevronRight size={15} />
                 </button>
               ))}
-            </div>
+            </PagedList>
             <button className="a3-new-set" onClick={() => setMode("generate")}>
               <Plus size={16} />
               生成新题组
@@ -1201,6 +1194,7 @@ export default function TeacherQuestionsPage() {
                     className="a3-teacher-question-list"
                     aria-label="题目列表"
                   >
+<PagedList className="teacher-question-rows" label="题目" resetKey={activeSet.id}>
                     {activeSet.questions.map((item, index) => (
                       <button
                         key={item.id}
@@ -1220,6 +1214,7 @@ export default function TeacherQuestionsPage() {
                         <em>{item.concepts[0]?.label ?? "综合"}</em>
                       </button>
                     ))}
+</PagedList>
                   </nav>
                   {activeQuestion ? (
                     <QuestionEditor

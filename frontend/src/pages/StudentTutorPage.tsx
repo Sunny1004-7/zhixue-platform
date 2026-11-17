@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import {
   BrainCircuit,
   Check,
@@ -702,7 +703,7 @@ export default function StudentTutorPage() {
             placeholder="搜索历史对话"
           />
         </label>
-        <div className="conversation-list">
+        <PagedList className="conversation-list" label="辅导历史" resetKey={courseId + search}>
           {conversations
             .filter((x) => !search || (x.title + x.preview).includes(search))
             .map((item) => (
@@ -741,7 +742,7 @@ export default function StudentTutorPage() {
                 </div>
               </div>
             ))}
-        </div>
+        </PagedList>
       </aside>
 
       <section className="tutor-workspace">

@@ -1,3 +1,4 @@
+import { PagedList, WorkspaceViews } from "../components/WorkspaceViews";
 import {
   ArrowRight,
   BookOpenCheck,
@@ -54,10 +55,8 @@ export default function StudentOverviewPage() {
     <div className="overview-page">
       <section className="page-intro">
         <div>
-          <span className="eyebrow">
-            {data.course.term} · {data.course.teacher}老师
-          </span>
-          <h2>{user?.name}，继续探索你的课程。</h2>
+
+          <h2>{data.course.goal || "继续当前学习任务"}</h2>
           <p>{data.focus_summary}</p>
         </div>
         <div className="intro-actions">
@@ -65,6 +64,7 @@ export default function StudentOverviewPage() {
             <BookOpenCheck size={17} />
             查看学习资源
           </button>
+          <button onClick={() => go("tutor", weak[0]?.concept_id)}><MessageSquareText size={17}/>向智伴提问</button>
           <button className="primary" onClick={() => go("practice")}>
             <Target size={17} />
             开始练习
@@ -81,6 +81,7 @@ export default function StudentOverviewPage() {
           />
         ))}
       </section>
+      <WorkspaceViews labels={["学习进展", "学习轨迹", "最近资源"]}>
       <div className="dashboard-columns">
         <section className="surface insight-panel">
           <div className="section-heading">
@@ -93,8 +94,8 @@ export default function StudentOverviewPage() {
               <ArrowRight size={15} />
             </button>
           </div>
-          <div className="knowledge-list">
-            {data.knowledge_states.slice(0, 6).map((x) => (
+          <PagedList className="knowledge-list" label="知识掌握" resetKey={courseId}>
+            {data.knowledge_states.map((x) => (
               <button
                 key={x.concept_id}
                 onClick={() => go("resources", x.concept_id)}
@@ -112,33 +113,13 @@ export default function StudentOverviewPage() {
                 <ArrowRight size={14} />
               </button>
             ))}
-          </div>
+          </PagedList>
           {!data.knowledge_states.length && (
             <EmptyState title="还没有知识点学习记录" />
           )}
-          <div className="next-step">
-            <div>
-              <span className="eyebrow">下一步</span>
-              <h3>
-                {weak.length
-                  ? "从需要巩固的知识点继续"
-                  : "选择资源，积累新的学习证据"}
-              </h3>
-              <p>
-                {weak.length
-                  ? weak
-                      .slice(0, 3)
-                      .map((x) => x.label)
-                      .join("、")
-                  : "学习后的变化会按证据更新。"}
-              </p>
-            </div>
-            <button onClick={() => go("tutor", weak[0]?.concept_id)}>
-              <MessageSquareText size={17} />
-              向智伴提问
-            </button>
-          </div>
         </section>
+
+      </div>
         <section className="surface insight-panel">
           <div className="section-heading">
             <div>
@@ -157,8 +138,8 @@ export default function StudentOverviewPage() {
             </span>
           </div>
           <h3 className="subsection-title">最近学习动态</h3>
-          <div className="activity-list">
-            {data.recent_activities.slice(0, 4).map((x) => (
+          <PagedList className="activity-list" label="学习轨迹" resetKey={courseId}>
+            {data.recent_activities.map((x) => (
               <div key={x.id}>
                 <span className="activity-dot" />
                 <p>
@@ -167,12 +148,11 @@ export default function StudentOverviewPage() {
                 </p>
               </div>
             ))}
-          </div>
+          </PagedList>
           {!data.recent_activities.length && (
             <p className="muted">暂无学习动态</p>
           )}
         </section>
-      </div>
       <section className="surface insight-panel">
         <div className="section-heading">
           <h3>最近学习资源</h3>
@@ -181,7 +161,7 @@ export default function StudentOverviewPage() {
             <ArrowRight size={15} />
           </button>
         </div>
-        <div className="recent-resource-list">
+        <PagedList className="recent-resource-list" label="最近资源" resetKey={courseId}>
           {data.recent_resources.map((x) => (
             <button
               key={x.id}
@@ -216,11 +196,12 @@ export default function StudentOverviewPage() {
               <ArrowRight size={16} />
             </button>
           ))}
-        </div>
+        </PagedList>
         {!data.recent_resources.length && (
           <EmptyState title="暂无最近学习资源" />
         )}
       </section>
+      </WorkspaceViews>
       {open && (
         <Modal
           title="完整知识掌握状态"

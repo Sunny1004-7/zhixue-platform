@@ -1,3 +1,4 @@
+import CourseSelector from "./CourseSelector";
 import BrandGlyph from "./BrandGlyph";
 import { useDialogs } from "./Dialogs";
 import {
@@ -149,48 +150,6 @@ export default function AppShell() {
               <X size={20} />
             </button>
           </div>
-          <div className="role-label">
-            {role === "student" ? "学生学习空间" : "教师教学空间"}
-          </div>
-          <label className="course-picker">
-            <span>当前课程</span>
-            <select
-              aria-label="当前课程"
-              value={course?.id ?? ""}
-              onChange={async (e) => {
-                const next = e.target.value;
-                if (await dialogs.canLeave()) selectCourse(next);
-              }}
-            >
-              {!courses.length && <option value="">暂无课程</option>}
-              {courses.map((x) => (
-                <option key={x.id} value={x.id}>
-                  {x.title}
-                </option>
-              ))}
-            </select>
-          </label>
-          {role === "student" && (
-            <NavLink
-              className="all-courses"
-              to="/student/courses"
-              onClick={async (e) => {
-                if (
-                  e.button !== 0 ||
-                  e.ctrlKey ||
-                  e.metaKey ||
-                  e.shiftKey ||
-                  e.altKey
-                )
-                  return;
-                e.preventDefault();
-                if (await dialogs.canLeave()) navigate("/student/courses");
-              }}
-            >
-              <BookOpenCheck size={16} />
-              全部课程
-            </NavLink>
-          )}
           <nav>
             {navByRole[role].map(([label, to, Icon]) => (
               <NavLink
@@ -215,20 +174,6 @@ export default function AppShell() {
               </NavLink>
             ))}
           </nav>
-          <div className="sidebar-foot">
-            <span className="identity-avatar">{user!.initials}</span>
-            <div>
-              <b>{user!.name}</b>
-              <small>{role === "student" ? "学生" : "教师"}</small>
-            </div>
-            <button
-              aria-label="退出当前账号"
-              title="退出当前账号"
-              onClick={() => void exit()}
-            >
-              <LogOut size={18} />
-            </button>
-          </div>
         </aside>
         <section className="workspace">
           <header className="topbar">
@@ -240,14 +185,8 @@ export default function AppShell() {
             >
               <Menu size={22} />
             </button>
-            <div className="page-location">
-              <span>
-                {course?.title ?? "课程空间"}
-                <ChevronDown size={12} />
-                {role === "student" ? "学习" : "教学"}
-              </span>
-              <h1>{active?.[0] ?? "课程空间"}</h1>
-            </div>
+            <div className="page-location"><h1>{active?.[0] ?? "课程总览"}</h1></div>
+            <CourseSelector courses={courses} value={courseId} onChange={selectCourse} student={role === "student"}/>
             <div className="topbar-actions">
               <span className="term-label">{course?.term}</span>
               <button
@@ -256,7 +195,7 @@ export default function AppShell() {
                 onClick={() => setMenu(!menu)}
               >
                 <span>{user!.initials}</span>
-                <b>{user!.name}</b>
+                <b>{user!.name}<small>{role === "student" ? "学生" : "教师"}</small></b>
                 <ChevronDown size={14} />
               </button>
               {menu && (

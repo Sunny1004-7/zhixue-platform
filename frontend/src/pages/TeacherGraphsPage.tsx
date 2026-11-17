@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import {
   AlertTriangle,
   ArrowRight,
@@ -507,16 +508,6 @@ export default function TeacherGraphsPage() {
   return (
     <div className="teacher-graph-page">
       <section className="teacher-graph-hero">
-        <div>
-          <span>
-            <GitBranch size={15} />
-            知识结构工作区
-          </span>
-          <h2>知识图谱构建</h2>
-          <p>
-            从教学材料识别知识点，保留来源证据，经教师编辑与结构校验后发布。
-          </p>
-        </div>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -557,6 +548,7 @@ export default function TeacherGraphsPage() {
             <h3>已有图谱</h3>
             <span>{items.length}</span>
           </header>
+<PagedList className="graph-version-rows" label="图谱版本" resetKey={courseId}>
           {items.map((item) => (
             <button
               disabled={busy}
@@ -590,6 +582,7 @@ export default function TeacherGraphsPage() {
               <em>{item.status === "published" ? "已发布" : "草稿"}</em>
             </button>
           ))}
+</PagedList>
         </Surface>
         <Surface className="teacher-graph-workspace">
           {!graph ? (

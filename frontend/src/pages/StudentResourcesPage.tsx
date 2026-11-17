@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import {
   ArrowRight,
   BookOpenCheck,
@@ -368,32 +369,7 @@ export default function StudentResourcesPage() {
   if (!items) return <LoadingState label="正在读取教师已发布资源…" />;
   return (
     <div className="graph-resource-page">
-      <section className="resource-hero">
-        <div>
-          <span>
-            <BookOpenCheck size={15} />
-            当前课程资源
-          </span>
-          <h2>学习资源</h2>
-          <p>
-            知识图谱、已审核习题、可核验教学视频与教师定向资源统一回流学习轨迹。
-          </p>
-        </div>
-        <div>
-          <b>
-            {
-              new Set([
-                ...items.map((x) => "graph:" + x.id),
-                ...videos.map((x) => "video:" + x.candidate_id),
-                ...inbox.map(
-                  (x) => x.resource_type + ":" + x.resource.resource_id,
-                ),
-              ]).size
-            }
-          </b>
-          <span>项可用资源</span>
-        </div>
-      </section>
+
       <Surface className="graph-library">
         <div className="resource-tabs">
           <button
@@ -401,7 +377,7 @@ export default function StudentResourcesPage() {
             onClick={() => setTab("graphs")}
           >
             <GitBranch size={16} />
-            知识图谱
+            知识图谱 <em>{items.length}</em>
           </button>
           <button
             className={tab === "videos" ? "active" : ""}
@@ -428,7 +404,7 @@ export default function StudentResourcesPage() {
         </div>
 
         {tab === "graphs" && (
-          <div className="graph-card-grid">
+          <PagedList className="graph-card-grid" label="知识图谱" resetKey={courseId + tab}>
             {!items.length && (
               <div className="empty-result">
                 <GitBranch size={28} />
@@ -453,11 +429,11 @@ export default function StudentResourcesPage() {
                 </button>
               </article>
             ))}
-          </div>
+          </PagedList>
         )}
 
         {tab === "videos" && (
-          <div className="student-video-grid">
+          <PagedList className="student-video-grid" label="教学视频" resetKey={courseId + tab}>
             {videos.length ? (
               videos.map((item) => (
                 <article key={item.id}>
@@ -520,11 +496,11 @@ export default function StudentResourcesPage() {
                 <p>当前课程尚无已审核发布的视频。</p>
               </div>
             )}
-          </div>
+          </PagedList>
         )}
 
         {tab === "inbox" && (
-          <div className="resource-inbox-list">
+          <PagedList className="resource-inbox-list" label="资源收件箱" resetKey={courseId + tab}>
             {inbox.length ? (
               inbox.map((item) => (
                 <article key={item.exposure_id}>
@@ -590,7 +566,7 @@ export default function StudentResourcesPage() {
                 <p>当前没有新的定向资源。</p>
               </div>
             )}
-          </div>
+          </PagedList>
         )}
       </Surface>
       {notice && <div className="success-notice">{notice}</div>}

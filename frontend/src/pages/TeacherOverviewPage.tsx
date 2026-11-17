@@ -1,3 +1,4 @@
+import { PagedList } from "../components/WorkspaceViews";
 import { ArrowRight, FileQuestion, GitBranch, Video } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -51,18 +52,7 @@ export default function TeacherOverviewPage() {
   ] as const;
   return (
     <div className="teacher-overview">
-      <section className="page-intro">
-        <div>
-          <span className="eyebrow">
-            {data.class_name} · {data.course.term}
-          </span>
-          <h2>从班级状态，找到下一步教学安排。</h2>
-          <p>综合练习、资源学习与有效辅导记录，查看需要关注的学生。</p>
-        </div>
-        <span className="snapshot-date">
-          更新于 {new Date(snapshot.as_of).toLocaleDateString("zh-CN")}
-        </span>
-      </section>
+
       <section className="metrics-row">
         <Metric
           label="课程学生"
@@ -145,7 +135,7 @@ export default function TeacherOverviewPage() {
           <p className="muted">
             关注得分综合练习、正确率、资源完成与辅导记录。
           </p>
-          <div className="attention-list">
+          <PagedList className="attention-list" label="教师关注" resetKey={courseId}>
             {snapshot.priority_students.map((s) => (
               <button
                 key={s.student_id}
@@ -166,7 +156,7 @@ export default function TeacherOverviewPage() {
                 <em>{number(s.score, 1)} 分</em>
               </button>
             ))}
-          </div>
+          </PagedList>
           {!snapshot.priority_students.length && (
             <EmptyState
               title="当前没有需要优先关注的学生"

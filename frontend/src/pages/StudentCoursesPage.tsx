@@ -1,3 +1,4 @@
+import { PagedList, WorkspaceViews } from "../components/WorkspaceViews";
 import { ArrowRight, BookOpenCheck, LogOut } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -38,36 +39,15 @@ export default function StudentCoursesPage() {
     void load();
   }, [load]);
   return (
-    <main className="course-hub">
-      <header className="hub-header">
-        <Brand />
-        <div className="hub-profile">
-          <span>{user?.name} · 学生</span>
-          <button
-            onClick={async () => {
-              await logout();
-              navigate("/login", { replace: true });
-            }}
-          >
-            <LogOut size={16} />
-            退出
-          </button>
-        </div>
-      </header>
+    <div className="course-hub">
+
       {error ? (
         <ErrorState message={error} retry={() => void load()} />
       ) : !courses || !summary ? (
         <LoadingState label="正在汇总课程…" />
       ) : (
         <>
-          <section className="hub-intro">
-            <div>
-              <span className="eyebrow">我的课程 / LEARNING SPACE</span>
-              <h1>{user?.name}，从一门课程开始。</h1>
-              <p>在知识结构中找到方向，用练习与辅导推进学习。</p>
-            </div>
-            <BookOpenCheck size={42} />
-          </section>
+
           <section className="metrics-row">
             <Metric label="已加入课程" value={courses.length + " 门"} />
             <Metric
@@ -84,6 +64,7 @@ export default function StudentCoursesPage() {
               note={delta(summary.mastery_delta)}
             />
           </section>
+          <WorkspaceViews labels={["课程", "跨课程学习汇总"]}>
           <section className="course-grid">
             {courses.map((c) => (
               <article
@@ -157,8 +138,9 @@ export default function StudentCoursesPage() {
               </div>
             </div>
           </section>
+          </WorkspaceViews>
         </>
       )}
-    </main>
+    </div>
   );
 }

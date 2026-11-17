@@ -27,7 +27,7 @@ export function nodeBox(node: GraphNode) {
   return {
     x: node.position_x * 1.6,
     y: node.position_y * 1.6,
-    width: 156,
+    width: Math.max(116, Math.min(156, Math.max(...lines.map(s => Array.from(s).length)) * 16 + 24)),
     height: Math.max(64, lines.length * 21 + (node.mastery == null ? 20 : 39)),
     lines,
   };
@@ -107,3 +107,16 @@ export function relationFrom(edge: GraphEdge, id: string): string {
     return edge.from_node_id === id ? "应用到" : "应用来源";
   return "对照知识";
 }
+
+/** A deterministic display-only packing. Source coordinates, relations and mastery remain unchanged. */
+export function layoutNetwork(graph: KnowledgeGraph): KnowledgeGraph {
+  if (graph.nodes.length < 18) return graph;
+  const columns = Math.ceil(Math.sqrt(graph.nodes.length * 2));
+  const nodes = graph.nodes.map((node, i) => ({
+    ...node,
+    position_x: 58 + (i % columns) * 113,
+    position_y: 43 + Math.floor(i / columns) * 72,
+  }));
+  return {...graph, nodes};
+}
+
