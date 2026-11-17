@@ -56,6 +56,6 @@ def seed_model_catalog(session: Session) -> None:
             ))
     # Preserve task schemas and selection rules, with enough time for either model.
     for policy in session.scalars(select(TaskPolicy).where(TaskPolicy.enabled.is_(True))):
-        if policy.timeout_seconds <= 45:
+        if policy.timeout_seconds <= 60:
             policy.timeout_seconds = 180
     session.flush()
