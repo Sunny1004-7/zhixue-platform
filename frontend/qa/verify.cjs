@@ -98,12 +98,12 @@ async function inspect(page, name) {
       .click();
     const graphDialog = student.getByRole("dialog");
     await graphDialog.waitFor();
-    if ((await graphDialog.locator(".graph-node").count()) !== 11)
+    if ((await graphDialog.locator(".kg-node").count()) !== 11)
       throw new Error("学生图谱应展示11个知识点");
     if ((await graphDialog.locator(".graph-edge").count()) !== 14)
       throw new Error("学生图谱应展示14条关系");
-    await graphDialog.locator(".graph-node").first().click();
-    await graphDialog.locator(".knowledge-card").waitFor();
+    await graphDialog.locator(".kg-node").first().click();
+    await graphDialog.locator(".kg-detail").waitFor();
     report.push(await inspect(student, "student-graph-card"));
     await graphDialog.getByRole("button", { name: "全屏查看" }).click();
     if (
@@ -152,7 +152,7 @@ async function inspect(page, name) {
     if ((await teacherGraphs.count()) !== 2)
       throw new Error("教师端机器学习课程应展示2份图谱");
     await teacherGraphs.first().click();
-    await teacher.locator(".teacher-graph-workspace .graph-view").waitFor();
+    await teacher.locator(".teacher-graph-workspace .knowledge-workspace").waitFor();
     report.push(await inspect(teacher, "teacher-graphs"));
     const updateGraph = teacher.getByRole("button", {
       name: "更新图谱",

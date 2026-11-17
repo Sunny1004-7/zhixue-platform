@@ -13,7 +13,8 @@
     "typecheck": "tsc -b --pretty false",
     "preview": "vite preview",
     "qa:interactions": "node qa/verify-interactions.cjs",
-    "qa:navigation": "node qa/verify-navigation.cjs"
+    "qa:navigation": "node qa/verify-navigation.cjs",
+    "qa:graph": "node --test qa/verify-graph-state.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

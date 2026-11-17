@@ -260,9 +260,9 @@ function eventPayload(key, graphId, node, dwellSeconds, occurredAt) {
     await graphCard.getByRole('button', { name: /进入图谱/ }).click();
     const graphDialog = student.getByRole('dialog');
     await graphDialog.waitFor();
-    const novelGraphNode = graphDialog.locator('.graph-node').filter({ hasText: '量子引力' }).first();
+    const novelGraphNode = graphDialog.locator('.kg-node').filter({ hasText: '量子引力' }).first();
     await novelGraphNode.click();
-    const knowledgeCard = graphDialog.locator('.knowledge-card');
+    const knowledgeCard = graphDialog.locator('.kg-detail');
     await knowledgeCard.waitFor();
     assert(await knowledgeCard.getByRole('heading', { name: '量子引力导论', exact: true }).count() === 1,
       '学生端知识卡未读取到教师发布的开放概念');
