@@ -109,6 +109,7 @@ body {
   background: var(--accent-soft);
 }
 .zx-login {
+  --zx-field: #fffefa;
   --zx-accent: #286966;
   --zx-soft: #e3eee7;
   --zx-ink: #293c3a;

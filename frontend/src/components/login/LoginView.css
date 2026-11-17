@@ -1,7 +1,7 @@
 /* The login is one stable task surface for both identities. */
 html:has(.zx-login), body:has(.zx-login) { min-width: 0; background: #edf3f8; }
 .zx-login {
-  --zx-ink: #183349; --zx-muted: #536578; --zx-accent: #2859c5; --zx-soft: #eaf0fc;
+  --zx-field: #fff; --zx-ink: #183349; --zx-muted: #536578; --zx-accent: #2859c5; --zx-soft: #eaf0fc;
   min-height: 100vh; min-height: 100svh; padding: 48px 24px; position: relative;
   display: grid; place-items: center; overflow: clip; isolation: isolate;
   background: #edf3f8; color: var(--zx-ink); font-family: "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
@@ -38,7 +38,7 @@ html:has(.zx-login), body:has(.zx-login) { min-width: 0; background: #edf3f8; }
 .zx-input-shell:has(input[aria-invalid="true"]) { border-color:#b13e49; }
 .zx-input-shell input { width:100%; flex:1; min-width:0; height:54px; padding:0; border:0; border-radius:0; background:transparent; color:var(--zx-ink); font-size:18px; outline:none !important; }
 .zx-input-shell input:autofill {
-  background-color:#fff;
+  background-color:var(--zx-field);
   color:var(--zx-ink);
   caret-color:var(--zx-accent);
 }
@@ -46,7 +46,7 @@ html:has(.zx-login), body:has(.zx-login) { min-width: 0; background: #edf3f8; }
 .zx-input-shell input:-webkit-autofill:hover,
 .zx-input-shell input:-webkit-autofill:focus,
 .zx-input-shell input:-webkit-autofill:active {
-  -webkit-box-shadow:0 0 0 1000px #fff inset;
+  -webkit-box-shadow:0 0 0 1000px var(--zx-field) inset;
   -webkit-text-fill-color:var(--zx-ink);
   caret-color:var(--zx-accent);
 }
