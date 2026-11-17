@@ -1,0 +1,166 @@
+:root {
+  --page-bg: #f2f1eb;
+  --surface: #fffefa;
+  --ink: #293c3a;
+  --muted: #5f716b;
+  --line: #d8ded5;
+  --accent: #286966;
+  --accent-soft: #e3eee7;
+  --shadow: 0 5px 22px #293c3a08;
+  --focus-ring: #286966;
+  --chart-primary: #377e78;
+  --chart-secondary: #728cab;
+  --warning: #9a6a32;
+  --danger: #ab4651;
+  --positive: #357364;
+  color: var(--ink);
+  background: var(--page-bg);
+}
+body {
+  background: var(--page-bg);
+}
+.app-shell {
+  --accent: #286966;
+  --accent-soft: #e3eee7;
+  background: var(--page-bg);
+}
+.app-shell--teacher {
+  --accent: #886447;
+  --accent-soft: #f0e4d4;
+  --page-bg: #f4f0e8;
+  --line: #e0d7ca;
+  --focus-ring: #886447;
+  --chart-primary: #947352;
+}
+.app-shell .sidebar {
+  background: var(--surface);
+  border-right-color: var(--line);
+}
+.app-shell .sidebar nav a {
+  color: var(--muted);
+  border-radius: 9px;
+}
+.app-shell .sidebar nav a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent), transparent 76%);
+  box-shadow: inset 3px 0 var(--accent);
+}
+.app-shell .sidebar nav a:hover {
+  background: var(--accent-soft);
+}
+.app-shell .product-brand b {
+  color: var(--ink);
+}
+.app-shell .topbar {
+  background: color-mix(in srgb, var(--surface), transparent 5%);
+}
+.app-shell .workspace-main {
+  max-width: 1900px;
+  margin-inline: auto;
+}
+.app-shell
+  :is(
+    .surface,
+    .metric-card,
+    .stat-card,
+    .teacher-source-dialog,
+    .graph-resource-dialog,
+    .tutor-layout,
+    .tutor-chat-stream,
+    .tutor-composer
+  ) {
+  background: var(--surface);
+}
+.app-shell :is(button, input, textarea, select) {
+  border-color: var(--line);
+}
+.app-shell :is(input, textarea, select) {
+  color: var(--ink);
+}
+.app-shell button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.app-shell button.primary:hover:enabled {
+  background: color-mix(in srgb, var(--accent), #162f2b 17%);
+}
+.app-shell :is(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+.app-shell h1,
+.app-shell h2,
+.app-shell h3 {
+  letter-spacing: 0.015em;
+  color: var(--ink);
+}
+.app-shell :is(.surface, .metrics-row > *) {
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+}
+.app-shell .tutor-message--assistant {
+  line-height: 1.9;
+}
+.app-shell .a3-hint-panel {
+  background: #f7f1e5;
+}
+.app-shell .extraction-run-strip {
+  background: var(--accent-soft);
+}
+.zx-login {
+  --zx-accent: #286966;
+  --zx-soft: #e3eee7;
+  --zx-ink: #293c3a;
+  --zx-muted: #5f716b;
+  background:
+    radial-gradient(ellipse at 15% 10%, #dce9df, transparent 48%),
+    radial-gradient(ellipse at 90% 90%, #e9dfcf, transparent 46%), #f2f1eb;
+}
+.zx-login--teacher {
+  --zx-accent: #886447;
+  --zx-soft: #f0e4d4;
+  background:
+    radial-gradient(ellipse at 10% 15%, #eadbc8, transparent 48%),
+    radial-gradient(ellipse at 95% 95%, #e1e8dc, transparent 45%), #f4f0e8;
+}
+.zx-login .zx-auth {
+  background: #fffefa;
+  border-color: #d6ddd2;
+  box-shadow: 0 25px 85px #293c3a13;
+  border-radius: 22px;
+}
+.zx-login .zx-signin {
+  border-color: #d8ded5;
+}
+.zx-login .zx-roles {
+  background: #f0f2eb;
+  border-color: #d8ded5;
+}
+.zx-login .zx-role--selected {
+  border-color: var(--zx-accent);
+  background: var(--zx-soft);
+}
+.zx-login .zx-input-shell {
+  border-color: #a8b7aa;
+  background: #fffefa;
+}
+.zx-login .zx-book-art {
+  filter: hue-rotate(312deg) saturate(0.48);
+}
+.zx-login--teacher .zx-book-art {
+  filter: hue-rotate(170deg) saturate(0.38);
+}
+.zx-login .zx-page-art {
+  stroke: #c7d2c4;
+}
+@media (min-width: 1800px) {
+  .app-shell .workspace-main {
+    padding: 30px 42px 42px;
+  }
+}
+@media (max-width: 680px) {
+  .app-shell .workspace-main {
+    padding: 18px 12px;
+  }
+}
