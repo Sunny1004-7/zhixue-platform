@@ -188,7 +188,7 @@ GitHub Actions在推送和Pull Request时执行前端`npm ci`、类型检查、�
 
 ## 团队与研发基础
 
-作品名称：**知学智教——大模型驱动的个性化教学平台**。本次参赛团队为“码力全开”（39139），参赛成员刘嘉程，西安交通大学研究生组，指导教师庞善民。
+作品名称：**知学智教——大模型驱动的个性化教学平台**。本次参赛团队为“码力全开”（39139），参赛成员刘嘉程、张清源、孙京原，西安交通大学研究生组，指导教师庞善民、刘帅。
 
 项目结合智慧教学研究和课程应用开展研发。“AI驱动下的课程考核与质量评价”智课专题研究项目面向机器学习相关课程开展教学应用，于2026年通过结题验收。相关研究形成NeurIPS 2025论文“Knowledge Starts with Practice: Knowledge-Aware Exercise Generative Recommendation with Adaptive Multi-Agent Cooperation”，为知识状态分析和多智能体协作提供研究基础。
 

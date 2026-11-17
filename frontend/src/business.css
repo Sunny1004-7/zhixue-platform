@@ -463,13 +463,13 @@
   background: #e7f7f3;
   font-size: 14px;
 }
-.teacher-graph-list > button {
+.graph-version-row {
   width: 100%;
   min-height: 66px;
   margin-top: 7px;
   padding: 10px;
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) auto;
+  grid-template-columns: 20px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
   border: 1px solid transparent;
@@ -478,24 +478,36 @@
   text-align: left;
   background: #f7f9f9;
 }
-.teacher-graph-list > button.active {
+.graph-version-row.active {
   color: #147c75;
   border-color: #bfe8e1;
   background: #eaf8f5;
 }
-.teacher-graph-list > button > div {
+.graph-version-row > div {
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.teacher-graph-list b {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.graph-version-title {
+  display:block;
+  min-width:0;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  line-height:1.5;
 }
-.teacher-graph-list small,
-.teacher-graph-list em {
+.graph-version-status {
+  grid-column:2;
+  justify-self:start;
+  white-space:nowrap;
+  padding:2px 7px;
+  border-radius:5px;
+  background:var(--surface);
+}
+.graph-version-row:hover:enabled { border-color:var(--line); }
+.graph-version-row:disabled { opacity:.65; cursor:wait; }
+.graph-version-meta,
+.graph-version-status {
   color: #7b8393;
   font-size: 14px;
   font-style: normal;
@@ -2422,30 +2434,8 @@
   margin: 5px 0 0;
   font-size: 16px;
 }
-.a3-workspace-header > div:last-child {
-  width: 190px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 5px;
-  text-align: right;
-  color: #798290;
-  font-size: 14px;
-}
-.a3-workspace-header > div:last-child b {
-  color: var(--accent);
-  font-size: 15px;
-}
-.a3-workspace-header > div:last-child i {
-  height: 5px;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #e8e9ef;
-}
-.a3-workspace-header > div:last-child i em {
-  height: 100%;
-  display: block;
-  background: var(--accent);
-}
+.practice-workspace-actions { display:flex; width:auto; justify-content:flex-end; align-items:center; gap:8px; flex-wrap:wrap; }
+.practice-workspace-actions b { color:var(--accent); }
 .a3-question-layout {
   min-height: 0;
   flex: 1;
@@ -4858,3 +4848,4 @@
   background: #fff;
   font-size: 14px;
 }
+

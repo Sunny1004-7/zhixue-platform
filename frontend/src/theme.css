@@ -250,10 +250,11 @@ b {
   box-shadow: var(--shadow);
 }
 .app-shell {
+  --sidebar-width: 216px;
   --accent: #326eae;
   --accent-soft: #eaf2fb;
   display: grid;
-  grid-template-columns: 248px minmax(0, 1fr);
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
   min-height: 100vh;
 }
 .app-shell--teacher {
@@ -263,7 +264,7 @@ b {
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
-  width: 248px;
+  width: var(--sidebar-width);
   z-index: 30;
   display: flex;
   flex-direction: column;

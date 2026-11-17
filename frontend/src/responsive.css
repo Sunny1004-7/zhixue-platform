@@ -150,13 +150,13 @@
 .teacher-graph-list {
   padding: 19px;
 }
-.teacher-graph-list b {
+.graph-version-title {
   font-size: 13px;
 }
-.teacher-graph-list small {
+.graph-version-meta {
   font-size: 12px;
 }
-.teacher-graph-list > button {
+.graph-version-row {
   min-height: 82px;
 }
 .teacher-graph-workspace > header {
@@ -420,10 +420,10 @@
 }
 @media (max-width: 1500px) {
   .app-shell {
-    grid-template-columns: 224px minmax(0, 1fr);
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
   }
   .sidebar {
-    width: 224px;
+    width: var(--sidebar-width);
     padding: 24px 14px 16px;
   }
   .workspace-main {
@@ -539,8 +539,8 @@
   .teacher-graph-list > header {
     width: 100%;
   }
-  .teacher-graph-list > button {
-    width: calc(50% - 4px);
+  .graph-version-row {
+    width: 100%;
     margin: 0;
   }
   .a3-teacher-set-list > div {
@@ -903,7 +903,7 @@
   .teacher-graph-hero input {
     width: 100%;
   }
-  .teacher-graph-list > button {
+  .graph-version-row {
     width: 100%;
   }
   .teacher-graph-workspace > header {

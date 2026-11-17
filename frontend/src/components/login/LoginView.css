@@ -37,6 +37,19 @@ html:has(.zx-login), body:has(.zx-login) { min-width: 0; background: #edf3f8; }
 .zx-input-shell:focus-within { border-color:var(--zx-accent); box-shadow:0 0 0 1px var(--zx-accent); }
 .zx-input-shell:has(input[aria-invalid="true"]) { border-color:#b13e49; }
 .zx-input-shell input { width:100%; flex:1; min-width:0; height:54px; padding:0; border:0; border-radius:0; background:transparent; color:var(--zx-ink); font-size:18px; outline:none !important; }
+.zx-input-shell input:autofill {
+  background-color:#fff;
+  color:var(--zx-ink);
+  caret-color:var(--zx-accent);
+}
+.zx-input-shell input:-webkit-autofill,
+.zx-input-shell input:-webkit-autofill:hover,
+.zx-input-shell input:-webkit-autofill:focus,
+.zx-input-shell input:-webkit-autofill:active {
+  -webkit-box-shadow:0 0 0 1000px #fff inset;
+  -webkit-text-fill-color:var(--zx-ink);
+  caret-color:var(--zx-accent);
+}
 /* The labeled page button owns password visibility in every browser. */
 .zx-input-shell input[name="password"]::-ms-reveal { display:none; }
 .zx-input-shell input::placeholder { color:#65768a; font-size:16px; }

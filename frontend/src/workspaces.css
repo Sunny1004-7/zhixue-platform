@@ -55,6 +55,12 @@
 .a3-practice-hero, .a3-teacher-hero { padding:0; margin:0; min-height:0; background:none; border:0; justify-content:flex-end; }
 .a3-teacher-stats { margin-left:auto; }
 .a3-practice-footer > span { font-size:13px; }
+.practice-workspace-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.practice-workspace-actions button { min-height:36px; padding:7px 10px; font-size:14px; }
+.practice-workspace-actions > span { font-size:13px; color:var(--muted); white-space:nowrap; }
+.app-shell .a3-workspace-header > .practice-workspace-actions { min-width:0; flex-direction:row; }
+.graph-version-row { flex:none; margin:0; }
+.graph-version-meta { white-space:normal; line-height:1.5; }
 .graph-card-grid.paged-items { display:flex; }
 .graph-card-grid article { padding:18px; }
 .student-video-grid.paged-items { display:flex; }
@@ -97,8 +103,8 @@
   .app-shell .course-card .course-goal { padding:12px; }
   .app-shell .course-card .course-meta { padding:12px 0; }
   .app-shell .course-card .course-card-top { min-height:0; }
-  .app-shell { height:100dvh; min-height:0; grid-template-columns:216px minmax(0,1fr); overflow:visible; }
-  .app-shell .sidebar { position:relative; top:auto; height:100%; min-height:0; padding:28px 18px; }
+  .app-shell { height:100dvh; min-height:0; grid-template-columns:var(--sidebar-width) minmax(0,1fr); overflow:visible; }
+  .app-shell .sidebar { width:100%; min-width:0; position:relative; top:auto; height:100%; min-height:0; padding:28px 18px; }
   .app-shell .sidebar nav { margin-top:32px; }
   .app-shell .workspace { display:flex; flex-direction:column; min-width:0; min-height:0; height:100%; }
   .app-shell .topbar { flex:none; height:76px; min-height:76px; padding:0 26px; gap:22px; z-index:50; }
@@ -218,7 +224,7 @@
 }
 @media (min-width:821px) and (max-height:780px) {
   .app-shell .topbar { height:66px; min-height:66px; }
-  .app-shell .workspace-main { padding:12px 20px 14px; }
+  .app-shell .workspace-main { padding:16px 20px; }
   .workspace-main > :is(.overview-page,.teacher-overview,.teacher-students-page,.teacher-graph-page,.a3-student-page,.a3-teacher-page,.graph-resource-page,.teacher-videos-page,.course-hub) { gap:10px; }
   .app-shell .metric { padding:10px 16px; }
   .app-shell .metric strong { font-size:25px; margin:3px 0; }

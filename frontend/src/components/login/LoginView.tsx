@@ -14,6 +14,11 @@ type LoginViewProps = {
   restoringSession?: boolean;
 };
 
+const defaultForms = {
+  student: { account: "student@zhixing.edu.cn", password: "zhixing2026" },
+  teacher: { account: "teacher@zhixing.edu.cn", password: "zhixing2026" },
+};
+
 const roleContent = {
   student: { label: "学生", action: "进入学生空间", Icon: GraduationCap },
   teacher: { label: "教师", action: "进入教师空间", Icon: NotebookPen },
@@ -25,8 +30,9 @@ export default function LoginView({
   restoringSession = false,
 }: LoginViewProps) {
   const [role, setRole] = useState<LoginRole>("student");
-  const [account, setAccount] = useState("");
-  const [password, setPassword] = useState("");
+  const [account, setAccount] = useState(defaultForms.student.account);
+  const [password, setPassword] = useState(defaultForms.student.password);
+  const roleForms = useRef({ ...defaultForms });
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<{
@@ -46,7 +52,13 @@ export default function LoginView({
   }, [errors.form]);
 
   const chooseRole = (next: LoginRole) => {
+    if (next === role) return;
+    roleForms.current[role] = { account, password };
+    const form = roleForms.current[next];
     setRole(next);
+    setAccount(form.account);
+    setPassword(form.password);
+    setShowPassword(false);
     setErrors({});
   };
   const submit = async (event: FormEvent<HTMLFormElement>) => {

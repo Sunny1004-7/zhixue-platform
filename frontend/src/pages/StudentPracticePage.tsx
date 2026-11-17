@@ -698,22 +698,7 @@ export default function StudentPracticePage() {
 
   return (
     <div className="a3-student-page">
-      <section className="a3-practice-hero">
-        {preferredConceptId && <span className="practice-range">知识范围：{activeSet?.concepts.find(c=>c.concept_id===preferredConceptId)?.label ?? "当前知识点"}<button onClick={()=>{navigate("/student/practice", {state:{courseId},replace:true});}}>全部练习</button></span>}
-        <div className="a3-practice-hero-actions">
-          <button onClick={() => setGenerationOpen(true)}>
-            <Sparkles size={16} />
-            生成个性化练习
-          </button>
-          <button
-            aria-label="刷新题组"
-            title="刷新题组"
-            onClick={() => void load()}
-          >
-            <RefreshCw size={17} />
-          </button>
-        </div>
-      </section>
+      {preferredConceptId && <span className="practice-range">知识范围：{activeSet?.concepts.find(c=>c.concept_id===preferredConceptId)?.label ?? "当前知识点"}<button onClick={()=>{navigate("/student/practice", {state:{courseId},replace:true});}}>全部练习</button></span>}
 
       {error && (
         <div className="a3-action-error">
@@ -788,17 +773,14 @@ export default function StudentPracticePage() {
                     </span>
                     <h3>{activeSet.title}</h3>
                   </div>
-                  <div>
-                    <span>
-                      <b>{answered}</b> / {activeSet.total} 已完成
-                    </span>
-                    <i>
-                      <em
-                        style={{
-                          width: `${activeSet.total ? (answered / activeSet.total) * 100 : 0}%`,
-                        }}
-                      />
-                    </i>
+                  <div className="practice-workspace-actions">
+                    <span><b>{answered}</b> / {activeSet.total} 已完成</span>
+                    <button onClick={() => setGenerationOpen(true)}>
+                      <Sparkles size={16} />生成个性化练习
+                    </button>
+                    <button aria-label="刷新题组" title="刷新题组" onClick={() => void load()}>
+                      <RefreshCw size={17} />
+                    </button>
                   </div>
                 </header>
                 <div className="a3-question-layout">

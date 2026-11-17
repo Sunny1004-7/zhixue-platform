@@ -59,13 +59,23 @@ async function verifyLogin(
       await page.locator(".zx-submit:not(:disabled)").waitFor();
       await page.locator(".zx-role").filter({ hasText: label }).click();
       check(
-        `${role}:initial-empty-fields`,
+        `${role}:initial-example-fields`,
         (await page
           .getByLabel(`${label}账号`, { exact: true })
-          .inputValue()) === "" &&
+          .inputValue()) === `${role}@zhixing.edu.cn` &&
           (await page.getByLabel("登录密码", { exact: true }).inputValue()) ===
-            "",
+            "zhixing2026",
       );
+      await page.getByLabel(`${label}账号`, { exact: true }).fill("edited-account");
+      await page.getByLabel("登录密码", { exact: true }).fill("edited-password");
+      const otherLabel = role === "student" ? "教师" : "学生";
+      await page.locator(".zx-role").filter({hasText:otherLabel}).click();
+      await page.locator(".zx-role").filter({hasText:label}).click();
+      check(`${role}:edits-survive-role-switch`,
+        await page.getByLabel(`${label}账号`, {exact:true}).inputValue() === "edited-account" &&
+        await page.getByLabel("登录密码", {exact:true}).inputValue() === "edited-password");
+      await page.getByLabel(`${label}账号`, {exact:true}).fill("");
+      await page.getByLabel("登录密码", {exact:true}).fill("");
       await page.getByLabel(`${label}账号`, { exact: true }).focus();
       await cleanShot(`${role}-focus-2560x1440`);
       await page.getByRole("button", { name: `进入${label}空间` }).click();

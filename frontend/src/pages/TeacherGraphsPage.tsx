@@ -552,7 +552,8 @@ export default function TeacherGraphsPage() {
           {items.map((item) => (
             <button
               disabled={busy}
-              className={graph?.id === item.id ? "active" : ""}
+              className={`graph-version-row${graph?.id === item.id ? " active" : ""}`}
+              title={item.title}
               key={item.id}
               onClick={async () => {
                 const epoch = ++graphEpoch.current;
@@ -574,12 +575,12 @@ export default function TeacherGraphsPage() {
             >
               <GitBranch size={16} />
               <div>
-                <b>{item.title}</b>
-                <small>
+                <b className="graph-version-title">{item.title}</b>
+                <small className="graph-version-meta">
                   {item.node_count}个知识点 · {item.edge_count}条关系
                 </small>
               </div>
-              <em>{item.status === "published" ? "已发布" : "草稿"}</em>
+              <em className="graph-version-status">{item.status === "published" ? "已发布" : "草稿"}</em>
             </button>
           ))}
 </PagedList>
