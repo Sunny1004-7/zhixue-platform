@@ -4,11 +4,12 @@ import { Children, useEffect, useLayoutEffect, useRef, useState, type ReactNode 
 export function WorkspaceViews({ labels, children, selected, onSelect }: { labels: string[]; children: ReactNode; selected?: number; onSelect?: (index: number) => void }) {
   const [active, setActive] = useState(0);
   const current = selected ?? active;
+  const panels = Children.toArray(children).filter(child => typeof child !== "string" || child.trim().length > 0);
   return <div className="work-views">
     <div className="work-view-tabs" role="tablist" aria-label="工作视图">
       {labels.map((label, i) => <button key={label} role="tab" aria-selected={current === i} onClick={() => { setActive(i); onSelect?.(i); }}>{label}</button>)}
     </div>
-    {Children.toArray(children).map((child, i) => <div key={labels[i]} className="work-view-panel" role="tabpanel" hidden={i !== current}>{child}</div>)}
+    {panels.map((child, i) => <div key={labels[i]} className="work-view-panel" role="tabpanel" hidden={i !== current}>{child}</div>)}
   </div>;
 }
 
