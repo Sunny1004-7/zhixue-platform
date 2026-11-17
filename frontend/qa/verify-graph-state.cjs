@@ -15,6 +15,20 @@ const exportsObject = {};
 vm.runInNewContext(compiled, { exports: exportsObject });
 const { zoomAt, fitCamera, nodeBox, filterGraph, relationFrom, relationTypes } =
   exportsObject;
+
+test("large-course packing separates node boxes and preserves every source value", () => {
+  const course = {nodes: Array.from({length: 30}, (_, i) => ({id: String(i), label: "课程知识点" + i, position_x: 0, position_y: 0, mastery: i})), edges: [{id:"e",from_node_id:"0",to_node_id:"1",relation:"prerequisite"}]};
+  const before = JSON.stringify(course);
+  const view = exportsObject.layoutNetwork(course);
+  const boxes = view.nodes.map(nodeBox);
+  for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
+    const a=boxes[i],b=boxes[j];
+    assert(Math.abs(a.x-b.x) >= (a.width+b.width)/2 || Math.abs(a.y-b.y) >= (a.height+b.height)/2);
+  }
+  assert.equal(JSON.stringify(course), before);
+  assert.deepEqual(view.edges, course.edges);
+  assert.deepEqual(view.nodes.map(n=>n.mastery), course.nodes.map(n=>n.mastery));
+});
 const nodes = [
   {
     id: "a",
