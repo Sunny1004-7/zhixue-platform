@@ -187,7 +187,8 @@ async function verifyLogin(
           status: denied.status(),
         });
       }
-      await page.getByRole("button", { name: /^退出(当前账号)?$/ }).click();
+      await page.locator(".profile-button").click();
+      await page.getByRole("button", { name: "退出登录", exact: true }).click();
       await page.waitForURL((url) =>
         (url.hash || url.pathname).includes("/login"),
       );
@@ -243,7 +244,8 @@ async function verifyLogin(
       (url.hash || url.pathname).includes("/student/courses"),
     );
     check("keyboard-enter-submits", true);
-    await page.getByRole("button", { name: /^退出$/ }).click();
+    await page.locator(".profile-button").click();
+    await page.getByRole("button", { name: "退出登录", exact: true }).click();
     await page.waitForURL((url) =>
       (url.hash || url.pathname).includes("/login"),
     );
@@ -304,3 +306,4 @@ if (require.main === module) {
     process.exitCode = 1;
   });
 }
+
