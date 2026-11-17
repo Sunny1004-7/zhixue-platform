@@ -727,7 +727,7 @@ export default function TeacherGraphsPage() {
               </header>
               <KnowledgeGraphView
                 graph={graph}
-                onNodeClick={
+                onEditNode={
                   graph.revision_status === "draft"
                     ? (node) => {
                         setEditorNodeId(node.id);

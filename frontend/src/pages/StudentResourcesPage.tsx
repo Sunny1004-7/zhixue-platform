@@ -626,91 +626,19 @@ export default function StudentResourcesPage() {
             <div className="graph-dialog-body">
               <KnowledgeGraphView
                 graph={graph}
+                selectedNodeId={node?.id ?? null}
+                expanded={expanded}
                 onNodeClick={openKnowledgeCard}
+                onDeselect={closeKnowledgeCard}
+                onPractice={(next) => {
+                  void finishCardReading();
+                  navigate("/student/practice", { state: { conceptId: next.concept_id, courseId } });
+                }}
+                onTutor={(next) => {
+                  void finishCardReading();
+                  navigate("/student/tutor", { state: { conceptId: next.concept_id, courseId } });
+                }}
               />
-              {node && (
-                <aside className="knowledge-card">
-                  <button
-                    aria-label="关闭知识卡片"
-                    onClick={closeKnowledgeCard}
-                  >
-                    <X size={15} />
-                  </button>
-                  <small>
-                    {node.node_type === "foundation"
-                      ? "基础知识点"
-                      : node.node_type === "core"
-                        ? "核心知识点"
-                        : "应用知识点"}
-                  </small>
-                  <h3>{node.label}</h3>
-                  {node.mastery != null && (
-                    <em>当前掌握度 {Math.round(node.mastery)}%</em>
-                  )}
-                  <p>{node.definition}</p>
-                  <div>
-                    <b>学习要点</b>
-                    <span>{node.key_point}</span>
-                  </div>
-                  <div>
-                    <b>常见误区</b>
-                    <span>{node.misconception}</span>
-                  </div>
-                  <div>
-                    <b>知识关系</b>
-                    <span>
-                      {graph.edges
-                        .filter(
-                          (edge) =>
-                            edge.from_node_id === node.id ||
-                            edge.to_node_id === node.id,
-                        )
-                        .slice(0, 4)
-                        .map((edge) => {
-                          const otherId =
-                            edge.from_node_id === node.id
-                              ? edge.to_node_id
-                              : edge.from_node_id;
-                          const other = graph.nodes.find(
-                            (item) => item.id === otherId,
-                          );
-                          const label = {
-                            prerequisite: "先修",
-                            contains: "包含",
-                            application: "应用",
-                            contrast: "对比",
-                          }[edge.relation];
-                          return `${label} · ${other?.label ?? "关联知识点"}`;
-                        })
-                        .join("；") || "暂无已发布关系"}
-                    </span>
-                  </div>
-                  <footer>
-                    <button
-                      onClick={() => {
-                        void finishCardReading();
-                        navigate("/student/practice", {
-                          state: { conceptId: node.concept_id },
-                        });
-                      }}
-                    >
-                      <Target size={15} />
-                      进入智适练习
-                    </button>
-                    <button
-                      onClick={() => {
-                        void finishCardReading();
-                        navigate("/student/tutor", {
-                          state: { conceptId: node.concept_id },
-                        });
-                      }}
-                    >
-                      <MessageSquareText size={15} />
-                      进入智伴辅导
-                    </button>
-                  </footer>
-                </aside>
-              )}
             </div>
           </section>
         </div>
