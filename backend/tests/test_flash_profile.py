@@ -26,5 +26,5 @@ def test_flash_availability_requires_runtime_and_policy_authorization(client,stu
     monkeypatch.setenv('ZHIXING_MODEL_ALLOWED_DATA_REGIONS','deployment_configured')
     monkeypatch.setenv('ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES','provider_account_policy')
     for task in ['a2.graph_extract','a2.graph_semantic_review','a3.question_generation','a5.tutor_reply','a5.experience_generation']:
-        p=profile(task);assert p['available'] and p['display_name']=='DeepSeek-V4.1-Flash-1017'
-        assert p['config_revision']=='deepseek-flash-2026-10-26'
+        p=profile(task);assert p['available'] and p['display_name']=='DeepSeek Flash'
+        assert p['config_revision']=='deepseek-catalog-2026-11-17'

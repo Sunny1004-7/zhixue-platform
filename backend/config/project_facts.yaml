@@ -61,10 +61,8 @@ courses:
       - {name: "结果诊断", correct_rate: 62}
 
 models:
-  - "GPT-5"
-  - "DeepSeek-V4.1-Flash-1017"
-  - "Qwen3-235B-A22B"
-  - "GLM-4.5"
+  - "DeepSeek Flash"
+  - "DeepSeek Pro"
 
 tutor_strategies:
   - {id: "adaptive", label: "自适应选择"}

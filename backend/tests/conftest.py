@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import os
 from pathlib import Path
 
 import pytest
@@ -9,6 +10,8 @@ from fastapi.testclient import TestClient
 BACKEND_ROOT = Path(__file__).resolve().parents[1]
 if str(BACKEND_ROOT) not in sys.path:
     sys.path.insert(0, str(BACKEND_ROOT))
+
+os.environ["ZHIXING_ENV_FILE"] = str(BACKEND_ROOT / "tests/.nonexistent-env")
 
 from app.config import DEFAULT_FACT_SOURCE, Settings  # noqa: E402
 from app.main import create_app  # noqa: E402
@@ -76,3 +79,11 @@ def ingest_trusted_event(client: TestClient, url: str, *, headers: dict, json: d
             return Response(200, json=asdict(result))
         except HTTPException as exc:
             return Response(exc.status_code, json={'detail': exc.detail})
+
+
+@pytest.fixture(autouse=True)
+def isolate_model_credentials(monkeypatch):
+    for name in ("DEEPSEEK_API_KEY", "DEEPSEEK_API_BASE", "DEEPSEEK_FLASH_MODEL_ID",
+                 "DEEPSEEK_MODEL_ID", "DEEPSEEK_PRO_MODEL_ID",
+                 "ZHIXING_MODEL_ALLOWED_DATA_REGIONS", "ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES"):
+        monkeypatch.delenv(name, raising=False)

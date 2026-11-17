@@ -291,7 +291,7 @@ def test_all_four_source_modes_use_one_validated_real_provider_contract(a4_clien
         headers={**teacher, "Idempotency-Key": "model-required"},
         json={
             "source_mode": "records", "topic_ids": [TOPIC_ID],
-            "requested_profile_id": "gpt-5", "allow_deterministic_degrade": False,
+            "requested_profile_id": "deepseek-flash", "allow_deterministic_degrade": False,
         },
     )
     assert unavailable_model.status_code == 503
@@ -302,7 +302,7 @@ def test_all_four_source_modes_use_one_validated_real_provider_contract(a4_clien
         headers={**teacher, "Idempotency-Key": "model-degraded"},
         json={
             "source_mode": "records", "topic_ids": [TOPIC_ID],
-            "requested_profile_id": "gpt-5", "allow_deterministic_degrade": True,
+            "requested_profile_id": "deepseek-flash", "allow_deterministic_degrade": True,
         },
     )
     assert degraded.status_code == 201

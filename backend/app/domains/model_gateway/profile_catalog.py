@@ -76,6 +76,8 @@ def resolve_profile(db: Session, profile: ModelProfile, task_kind: str | None) -
     api_key = os.getenv(revision.credential_ref)
     endpoint = os.getenv(revision.endpoint_ref)
     provider_model_id = os.getenv(revision.model_id_ref)
+    if revision.model_id_ref == "DEEPSEEK_FLASH_MODEL_ID" and not provider_model_id:
+        provider_model_id = os.getenv("DEEPSEEK_MODEL_ID")
     missing = [
         label for label, value in (
             ("访问凭证", api_key), ("API地址", endpoint), ("供应商模型ID", provider_model_id)

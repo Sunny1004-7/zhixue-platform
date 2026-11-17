@@ -9,10 +9,10 @@ from app.domains.model_gateway.contracts import ProviderError, ProviderResponse
 COURSE_ID = "machine-learning"
 
 
-def configure_gpt(monkeypatch, client) -> None:
-    monkeypatch.setenv("OPENAI_API_KEY", "test-key-never-sent")
-    monkeypatch.setenv("OPENAI_API_BASE", "https://model.test.invalid/v1")
-    monkeypatch.setenv("OPENAI_MODEL_ID", "provider/test-model")
+def configure_flash(monkeypatch, client) -> None:
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key-never-sent")
+    monkeypatch.setenv("DEEPSEEK_API_BASE", "https://model.test.invalid/v1")
+    monkeypatch.setenv("DEEPSEEK_FLASH_MODEL_ID", "provider/test-model")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_DATA_REGIONS", "deployment_configured")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES", "provider_account_policy")
 
@@ -205,20 +205,20 @@ def test_profile_feasibility_is_explicit_and_never_exposes_provider_identity(
     assert unavailable.status_code == 200
     assert all(not item["available"] for item in unavailable.json())
     assert all("provider_model_id" not in item for item in unavailable.json())
-    monkeypatch.setenv("OPENAI_API_KEY", "test-key-never-sent")
-    monkeypatch.setenv("OPENAI_API_BASE", "https://model.test.invalid/v1")
-    monkeypatch.setenv("OPENAI_MODEL_ID", "provider/test-model")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key-never-sent")
+    monkeypatch.setenv("DEEPSEEK_API_BASE", "https://model.test.invalid/v1")
+    monkeypatch.setenv("DEEPSEEK_FLASH_MODEL_ID", "provider/test-model")
     policy_blocked = client.get(
         "/api/v1/model-profiles?task_kind=a2.graph_extract", headers=student_headers
     ).json()
-    blocked_gpt = next(item for item in policy_blocked if item["id"] == "gpt-5")
+    blocked_gpt = next(item for item in policy_blocked if item["id"] == "deepseek-flash")
     assert blocked_gpt["available"] is False
     assert "数据区域" in blocked_gpt["unavailable_reason"]
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     available = client.get(
         "/api/v1/model-profiles?task_kind=a2.graph_extract", headers=student_headers
     ).json()
-    gpt = next(item for item in available if item["id"] == "gpt-5")
+    gpt = next(item for item in available if item["id"] == "deepseek-flash")
     assert gpt["available"] is True
     assert gpt["unavailable_reason"] is None
     assert "graph_extract" in gpt["capabilities"]
@@ -226,22 +226,22 @@ def test_profile_feasibility_is_explicit_and_never_exposes_provider_identity(
         "/api/v1/model-profiles?task_kind=a2.graph_semantic_review",
         headers=student_headers,
     ).json()
-    semantic_gpt = next(item for item in semantic_profiles if item["id"] == "gpt-5")
+    semantic_gpt = next(item for item in semantic_profiles if item["id"] == "deepseek-flash")
     assert semantic_gpt["available"] is True
     assert "graph_semantic_review" in semantic_gpt["capabilities"]
-    assert next(item for item in available if item["id"] == "qwen3-235b-a22b")["available"] is False
+    assert next(item for item in available if item["id"] == "deepseek-pro")["available"] is False
 
 
 def test_graph_extract_validates_reviews_and_applies_once(
     client, teacher_headers, monkeypatch
 ):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     adapter = EvidenceAwareAdapter()
-    client.app.state.model_adapter_registry["openai"] = adapter
+    client.app.state.model_adapter_registry["deepseek"] = adapter
     alignment, graph = prepare_evidence_and_graph(client, teacher_headers)
     payload = {
         "alignment_run_id": alignment["id"],
-        "requested_profile_id": "gpt-5",
+        "requested_profile_id": "deepseek-flash",
         "idempotency_key": "graph-extract-success-001",
         "expected_revision_version": graph["version"],
     }
@@ -254,13 +254,13 @@ def test_graph_extract_validates_reviews_and_applies_once(
     artifact = created.json()
     assert artifact["status"] == "awaiting_review"
     assert len(artifact["proposals"]) == 3
-    assert artifact["model_run"]["requested_profile_id"] == "gpt-5"
-    assert artifact["model_run"]["actual_profile_id"] == "gpt-5"
+    assert artifact["model_run"]["requested_profile_id"] == "deepseek-flash"
+    assert artifact["model_run"]["actual_profile_id"] == "deepseek-flash"
     assert artifact["model_run"]["provider_model_id"] == "provider/test-model"
     assert artifact["model_run"]["attempt_count"] == 1
     assert artifact["model_run"]["usage"]["input_tokens"] == 420
     assert artifact["model_run"]["usage"]["output_tokens"] == 128
-    assert artifact["model_run"]["usage"]["profile_revision_id"] == "gpt-5:rev:1"
+    assert artifact["model_run"]["usage"]["profile_revision_id"] == "deepseek-flash:rev:1"
     assert artifact["model_run"]["audit_hash"]
 
     repeated = client.post(
@@ -274,7 +274,7 @@ def test_graph_extract_validates_reviews_and_applies_once(
     conflicting = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/extract-candidates",
         headers=teacher_headers,
-        json={**payload, "requested_profile_id": "qwen3-235b-a22b"},
+        json={**payload, "requested_profile_id": "deepseek-pro"},
     )
     assert conflicting.status_code == 409
     assert conflicting.json()["detail"]["code"] == "MODEL_REQUEST_IDEMPOTENCY_CONFLICT"
@@ -358,16 +358,16 @@ def test_graph_extract_validates_reviews_and_applies_once(
 
 
 def test_retry_is_bounded_and_does_not_switch_profile(client, teacher_headers, monkeypatch):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     adapter = EvidenceAwareAdapter(fail_once=True)
-    client.app.state.model_adapter_registry["openai"] = adapter
+    client.app.state.model_adapter_registry["deepseek"] = adapter
     alignment, graph = prepare_evidence_and_graph(client, teacher_headers)
     created = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/extract-candidates",
         headers=teacher_headers,
         json={
             "alignment_run_id": alignment["id"],
-                "requested_profile_id": "gpt-5",
+                "requested_profile_id": "deepseek-flash",
                 "idempotency_key": "graph-extract-retry-001",
                 "expected_revision_version": graph["version"],
         },
@@ -376,22 +376,22 @@ def test_retry_is_bounded_and_does_not_switch_profile(client, teacher_headers, m
     run = created.json()["model_run"]
     assert adapter.calls == 2
     assert run["attempt_count"] == 2
-    assert run["requested_profile_id"] == run["actual_profile_id"] == "gpt-5"
+    assert run["requested_profile_id"] == run["actual_profile_id"] == "deepseek-flash"
     assert run["fallback_reason"] is None
 
 
 def test_schema_and_reference_hard_gates_reject_without_artifact(
     client, teacher_headers, student_headers, monkeypatch
 ):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     alignment, graph = prepare_evidence_and_graph(client, teacher_headers)
-    client.app.state.model_adapter_registry["openai"] = EvidenceAwareAdapter(invalid_json=True)
+    client.app.state.model_adapter_registry["deepseek"] = EvidenceAwareAdapter(invalid_json=True)
     invalid = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/extract-candidates",
         headers=teacher_headers,
         json={
             "alignment_run_id": alignment["id"],
-                "requested_profile_id": "gpt-5",
+                "requested_profile_id": "deepseek-flash",
                 "idempotency_key": "graph-extract-invalid-json",
                 "expected_revision_version": graph["version"],
         },
@@ -405,13 +405,13 @@ def test_schema_and_reference_hard_gates_reject_without_artifact(
     hidden_from_student = client.get(f"/api/v1/model-runs/{run_id}", headers=student_headers)
     assert hidden_from_student.status_code == 404
 
-    client.app.state.model_adapter_registry["openai"] = EvidenceAwareAdapter(outside_scope=True)
+    client.app.state.model_adapter_registry["deepseek"] = EvidenceAwareAdapter(outside_scope=True)
     outside = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/extract-candidates",
         headers=teacher_headers,
         json={
             "alignment_run_id": alignment["id"],
-                "requested_profile_id": "gpt-5",
+                "requested_profile_id": "deepseek-flash",
                 "idempotency_key": "graph-extract-outside-scope",
                 "expected_revision_version": graph["version"],
         },
@@ -419,13 +419,13 @@ def test_schema_and_reference_hard_gates_reject_without_artifact(
     assert outside.status_code == 422
     assert outside.json()["detail"]["code"] == "MODEL_OUTPUT_HARD_GATE_FAILED"
 
-    client.app.state.model_adapter_registry["openai"] = EvidenceAwareAdapter(outside_evidence=True)
+    client.app.state.model_adapter_registry["deepseek"] = EvidenceAwareAdapter(outside_evidence=True)
     outside_evidence = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/extract-candidates",
         headers=teacher_headers,
         json={
             "alignment_run_id": alignment["id"],
-                "requested_profile_id": "gpt-5",
+                "requested_profile_id": "deepseek-flash",
                 "idempotency_key": "graph-extract-outside-evidence",
                 "expected_revision_version": graph["version"],
         },
@@ -440,7 +440,7 @@ def test_missing_selected_profile_config_is_explicit_and_student_cannot_extract(
     alignment, graph = prepare_evidence_and_graph(client, teacher_headers)
     payload = {
         "alignment_run_id": alignment["id"],
-        "requested_profile_id": "qwen3-235b-a22b",
+        "requested_profile_id": "deepseek-pro",
         "idempotency_key": "graph-extract-qwen-unavailable",
         "expected_revision_version": graph["version"],
     }
@@ -453,7 +453,7 @@ def test_missing_selected_profile_config_is_explicit_and_student_cannot_extract(
     assert unavailable.json()["detail"]["code"] == "MODEL_PROFILE_NOT_FEASIBLE"
     run_id = unavailable.json()["detail"]["model_run_id"]
     run = client.get(f"/api/v1/model-runs/{run_id}", headers=teacher_headers).json()
-    assert run["requested_profile_id"] == "qwen3-235b-a22b"
+    assert run["requested_profile_id"] == "deepseek-pro"
     assert run["actual_profile_id"] is None
     assert run["fallback_reason"] is None
 
@@ -468,12 +468,12 @@ def test_missing_selected_profile_config_is_explicit_and_student_cannot_extract(
 def test_graph_semantic_review_creates_advisory_issues_and_teacher_decides(
     client, teacher_headers, student_headers, monkeypatch
 ):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     adapter = SemanticReviewAdapter()
-    client.app.state.model_adapter_registry["openai"] = adapter
+    client.app.state.model_adapter_registry["deepseek"] = adapter
     graph = prepare_semantic_review_graph(client, teacher_headers)
     payload = {
-        "requested_profile_id": "gpt-5",
+        "requested_profile_id": "deepseek-flash",
         "idempotency_key": "graph-semantic-review-success-001",
         "expected_revision_version": graph["version"],
     }
@@ -486,8 +486,8 @@ def test_graph_semantic_review_creates_advisory_issues_and_teacher_decides(
     artifact = created.json()
     assert artifact["status"] == "awaiting_review"
     assert artifact["model_run"]["task_kind"] == "a2.graph_semantic_review"
-    assert artifact["model_run"]["requested_profile_id"] == "gpt-5"
-    assert artifact["model_run"]["actual_profile_id"] == "gpt-5"
+    assert artifact["model_run"]["requested_profile_id"] == "deepseek-flash"
+    assert artifact["model_run"]["actual_profile_id"] == "deepseek-flash"
     assert artifact["summary"]["issue_count"] == 1
     assert artifact["issues"][0]["target_label"] in {"线性回归", "损失函数"}
     assert artifact["issues"][0]["status"] == "pending"
@@ -526,14 +526,14 @@ def test_graph_semantic_review_creates_advisory_issues_and_teacher_decides(
 def test_graph_semantic_review_hard_gate_rejects_outside_target_and_supersedes_on_edit(
     client, teacher_headers, monkeypatch
 ):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     graph = prepare_semantic_review_graph(client, teacher_headers, "SENTRY语义预审硬门测试")
-    client.app.state.model_adapter_registry["openai"] = SemanticReviewAdapter(outside_scope=True)
+    client.app.state.model_adapter_registry["deepseek"] = SemanticReviewAdapter(outside_scope=True)
     rejected = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/semantic-review",
         headers=teacher_headers,
         json={
-            "requested_profile_id": "gpt-5",
+            "requested_profile_id": "deepseek-flash",
             "idempotency_key": "graph-semantic-review-outside-target",
             "expected_revision_version": graph["version"],
         },
@@ -541,12 +541,12 @@ def test_graph_semantic_review_hard_gate_rejects_outside_target_and_supersedes_o
     assert rejected.status_code == 422
     assert rejected.json()["detail"]["code"] == "MODEL_OUTPUT_HARD_GATE_FAILED"
 
-    client.app.state.model_adapter_registry["openai"] = SemanticReviewAdapter()
+    client.app.state.model_adapter_registry["deepseek"] = SemanticReviewAdapter()
     created = client.post(
         f"/api/v1/teacher/graphs/{graph['id']}/semantic-review",
         headers=teacher_headers,
         json={
-            "requested_profile_id": "gpt-5",
+            "requested_profile_id": "deepseek-flash",
             "idempotency_key": "graph-semantic-review-supersede",
             "expected_revision_version": graph["version"],
         },
@@ -585,7 +585,7 @@ def test_graph_semantic_review_hard_gate_rejects_outside_target_and_supersedes_o
 def test_manual_alignment_cannot_be_misrepresented_as_evidence_backed_extraction(
     client, teacher_headers, monkeypatch
 ):
-    configure_gpt(monkeypatch, client)
+    configure_flash(monkeypatch, client)
     aligned = client.post(
         f"/api/v1/teacher/courses/{COURSE_ID}/alignment-runs",
         headers=teacher_headers,
@@ -601,7 +601,7 @@ def test_manual_alignment_cannot_be_misrepresented_as_evidence_backed_extraction
         headers=teacher_headers,
         json={
             "alignment_run_id": aligned.json()["id"],
-                "requested_profile_id": "gpt-5",
+                "requested_profile_id": "deepseek-flash",
                 "idempotency_key": "manual-alignment-no-evidence",
                 "expected_revision_version": graph.json()["version"],
         },

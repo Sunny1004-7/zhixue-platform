@@ -93,7 +93,7 @@ def _question_set_handler(*, settings: Any, adapter_registry: dict[str, Any], **
     concept_ids = list(kwargs["concept_ids"])
     payload = dict(kwargs.get("request_payload") or {})
     teacher = _teacher(db, teacher_id)
-    profile_id = str(payload.get("requested_profile_id") or "gpt-5")
+    profile_id = str(payload.get("requested_profile_id") or "deepseek-flash")
     concepts = [BlueprintConceptRequest(
         concept_id=concept_id,
         counts=QuestionTypeCounts(single=1, judgment=1),

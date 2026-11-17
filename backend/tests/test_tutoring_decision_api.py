@@ -91,18 +91,18 @@ def login(client: TestClient, role: str) -> dict[str, str]:
 
 
 def configure_tutoring(monkeypatch, client: TestClient, adapter: QueueAdapter) -> None:
-    monkeypatch.setenv("OPENAI_API_KEY", "test-key-never-sent")
-    monkeypatch.setenv("OPENAI_API_BASE", "https://model.test.invalid/v1")
-    monkeypatch.setenv("OPENAI_MODEL_ID", "provider/test-model")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key-never-sent")
+    monkeypatch.setenv("DEEPSEEK_API_BASE", "https://model.test.invalid/v1")
+    monkeypatch.setenv("DEEPSEEK_FLASH_MODEL_ID", "provider/test-model")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_DATA_REGIONS", "deployment_configured")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES", "provider_account_policy")
-    client.app.state.model_adapter_registry = {"openai": adapter}
+    client.app.state.model_adapter_registry = {"deepseek": adapter}
     with client.app.state.db.session_factory() as db:
-        profile = db.get(ModelProfile, "gpt-5")
+        profile = db.get(ModelProfile, "deepseek-flash")
         profile.task_kinds = sorted(set(profile.task_kinds) | {
             "a5.tutor_reply", "a5.experience_generation",
         })
-        revision = db.get(ModelProfileRevision, "gpt-5:rev:1")
+        revision = db.get(ModelProfileRevision, "deepseek-flash:rev:1")
         revision.capabilities_json = sorted(set(revision.capabilities_json) | {
             "tutoring", "structured_json", "chinese",
         })
@@ -170,7 +170,7 @@ def create_conversation(client: TestClient, headers: dict[str, str], mode: str =
         headers=headers,
         json={
             "selected_mode": mode,
-            "requested_profile_id": "gpt-5",
+            "requested_profile_id": "deepseek-flash",
             "experience_mode": "manual",
         },
     )
@@ -327,7 +327,7 @@ def test_tutor_visual_hard_gate_and_manual_experience(support_client, monkeypatc
         headers=student_headers,
         json={
             "idempotency_key": "manual-experience-1",
-            "requested_profile_id": "gpt-5",
+            "requested_profile_id": "deepseek-flash",
             "conversation_version": 3,
         },
     )

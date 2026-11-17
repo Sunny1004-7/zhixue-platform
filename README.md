@@ -82,7 +82,7 @@ python -m venv .venv
 python -m pip install --index-url https://pypi.org/simple -r requirements-complete.lock.txt
 python -m pip install --index-url https://pypi.org/simple -e ".[dev]" --no-deps
 Copy-Item .env.example .env
-python -m dotenv -f .env run -- alembic upgrade head
+python -m dotenv -f .env run --no-override -- alembic upgrade head
 python -m uvicorn app.main:app --env-file .env --port 8000
 ```
 
@@ -141,19 +141,21 @@ npm run qa:navigation
 ```dotenv
 DEEPSEEK_API_KEY=replace-with-your-own-server-key
 DEEPSEEK_API_BASE=https://api.deepseek.com
-DEEPSEEK_MODEL_ID=deepseek-flash
+DEEPSEEK_FLASH_MODEL_ID=deepseek-flash
+DEEPSEEK_PRO_MODEL_ID=deepseek-v4-pro
+ZHIXING_MODEL_READ_TIMEOUT_SECONDS=180
 DEEPSEEK_THINKING_MODE=disabled
 ZHIXING_MODEL_ALLOWED_DATA_REGIONS=deployment_configured
 ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES=provider_account_policy
 ```
 
-数据区域与保留策略由部署者依据所选服务和账号规则核验，再登记上述应用策略标签。当前官方文档将`deepseek-flash`映射到DeepSeek-V4.1-Flash-1017；请求使用别名，版本映射以[官方说明](https://api-docs.deepseek.com/)为准。
+数据区域与保留策略由部署者依据所选服务和账号规则核验，再登记上述应用策略标签。可选模型为DeepSeek Flash和DeepSeek Pro，分别请求`deepseek-flash`和`deepseek-v4-pro`。两者共用服务端凭据，各自解析独立模型标识。旧配置`DEEPSEEK_MODEL_ID`仍可作为Flash的备用值。模型标识以[官方说明](https://api-docs.deepseek.com/quick_start/pricing/)为准。
 
 平台的短结构化文本任务默认显式关闭思考模式，保留JSON结构、知识引用、答案和提示质量检查。DeepSeek专属参数在适配器中处理，其他供应商沿用自己的参数。`enabled`可用于经过验证的思考模式任务，使用前应结合输出额度和超时设置重新检查结果。
 
-重新启动后端后，学生或教师登录，访问`/api/v1/model-profiles?task_kind=a5.tutor_reply`，携带当前会话的Bearer令牌即可检查任务配置的可用性。未提供模型凭据、服务地址、模型ID或策略授权时，生成入口显示服务不可用；已有课程资源和常规业务仍可使用。前端环境变量只保存API地址，模型密钥始终保留在后端运行环境。
+普通后端启动和一键启动都会读取`backend/.env`，显式进程环境变量优先。相对数据库及材料路径以`backend`为起点，修改配置后通过“停止系统.cmd”再“一键启动.cmd”重启。默认读取`backend/.data/zhixing.db`并保留课程与学习记录。重新启动后端后，学生或教师登录，访问`/api/v1/model-profiles?task_kind=a5.tutor_reply`，携带当前会话的Bearer令牌即可检查任务配置的可用性。未提供模型凭据、服务地址、模型ID或策略授权时，生成入口显示服务不可用；已有课程资源和常规业务仍可使用。前端环境变量只保存API地址，模型密钥始终保留在后端运行环境。
 
-初始化会建立独立的Flash Profile及配置修订，既有模型运行记录继续保留。任务记录包括所选Profile、实际请求model、配置与提示词版本，以及供应商返回的model和可获得的token用量。空内容、截断、限流、超时、供应商拒绝和结构/质量不合格结果分别反馈。图谱与题组等教学资源由教师复核并确认发布，辅导答复保留依据与继续提问入口。
+初始化会建立Flash与Pro的独立配置。已有数据库启动时自动升级模型目录，其他模型停止接收新任务，历史运行记录与原配置修订继续保留。任务记录包括所选Profile、实际请求model、配置与提示词版本，以及供应商返回的model和可获得的token用量。空内容、截断、限流、超时、供应商拒绝和结构/质量不合格结果分别反馈。图谱与题组等教学资源由教师复核并确认发布，辅导答复保留依据与继续提问入口。
 
 ### 自动检查
 
@@ -169,15 +171,15 @@ GitHub Actions在推送和Pull Request时执行前端`npm ci`、类型检查、�
 - 单个材料文件默认不超过20MB，可通过 `ZHIXING_ASSET_MAX_BYTES` 调整。
 - 项目随包提供的示例课程配置位于 `backend/config/project_facts.yaml`。如需使用其他课程配置，可通过 `ZHIXING_FACT_SOURCE` 指定文件。
 
-已有数据库升级前先备份数据库及教学材料，在后端目录执行`python -m dotenv -f .env run -- alembic upgrade head`。第12个迁移将两处模型版本字段从40字符扩展至128字符，保留原有学习状态、证据及其关联关系。升级后的检查命令为`python -m dotenv -f .env run -- alembic check`。若数据库已保存超过40字符的组合版本标识，回退至第11个迁移会被阻止，以保护完整版本记录。
+已有数据库升级前先备份数据库及教学材料，在后端目录执行`python -m dotenv -f .env run --no-override -- alembic upgrade head`。第12个迁移将两处模型版本字段从40字符扩展至128字符，保留原有学习状态、证据及其关联关系。升级后的检查命令为`python -m dotenv -f .env run --no-override -- alembic check`。若数据库已保存超过40字符的组合版本标识，回退至第11个迁移会被阻止，以保护完整版本记录。
 
 ## 账号与模型配置
 
 - 密码使用PBKDF2-HMAC-SHA256加盐保存。会话令牌只在后端保存摘要，在线退出后会话立即失效。网络中断时，客户端仍清理本地身份、课程与草稿，并提示服务器撤销尚未确认。
 - 模型访问密钥只从运行环境读取，不写入源码。
-- 四组预置模型配置分别通过 `*_API_KEY`、`*_API_BASE` 和 `*_MODEL_ID` 配置。
+- Flash与Pro通过 `DEEPSEEK_API_KEY`、`DEEPSEEK_API_BASE` 及各自的 `DEEPSEEK_FLASH_MODEL_ID`、`DEEPSEEK_PRO_MODEL_ID` 配置。
 - 部署时还需设置 `ZHIXING_MODEL_ALLOWED_DATA_REGIONS` 和 `ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES`，用于说明所选服务的数据存放区域和保留方式。
-- DeepSeek Flash Profile使用官方OpenAI兼容接口`https://api.deepseek.com`，请求模型为`deepseek-flash`，访问凭证由后端运行环境提供。
+- Flash与Pro使用官方OpenAI兼容接口`https://api.deepseek.com`，默认Flash，可在具体教学任务中切换Pro。
 - 模型服务需要支持 `response_format=json_object`。返回结果仍会经过JSON结构检查。
 
 

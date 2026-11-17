@@ -6,10 +6,10 @@ def test_profile_catalog_keeps_display_and_provider_identity_separate(client, st
     assert response.status_code == 200
     profiles = response.json()
     assert {item["display_name"] for item in profiles} == {
-        "GPT-5", "DeepSeek-V4.1-Flash-1017", "Qwen3-235B-A22B", "GLM-4.5",
+        "DeepSeek Flash", "DeepSeek Pro",
     }
     assert all("provider_model_id" not in item for item in profiles)
-    assert all(item["config_revision"] == ("deepseek-flash-2026-10-26" if item["id"] == "deepseek-flash" else "profile-catalog-2026-08-02") for item in profiles)
+    assert all(item["config_revision"] == "deepseek-catalog-2026-11-17" for item in profiles)
 
 
 def test_deepseek_profile_is_explicitly_unavailable_without_runtime_authorization(
@@ -49,7 +49,7 @@ class DeterministicTestAdapter:
 
 
 def test_deterministic_adapter_preserves_requested_and_actual_fields():
-    result = DeterministicTestAdapter().run("gpt-5", "question_generation")
-    assert result["requested_profile_id"] == "gpt-5"
-    assert result["actual_profile_id"] == "gpt-5"
+    result = DeterministicTestAdapter().run("deepseek-flash", "question_generation")
+    assert result["requested_profile_id"] == "deepseek-flash"
+    assert result["actual_profile_id"] == "deepseek-flash"
     assert result["provider_model_id"].startswith("test/")

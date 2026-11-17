@@ -130,6 +130,7 @@ class OpenAICompatibleAdapter:
             provider_request_id=(
                 response.headers.get("x-request-id")
                 or response.headers.get("x-oneapi-request-id")
+                or (payload.get("id") if isinstance(payload.get("id"), str) else None)
             ),
             input_tokens=usage.get("prompt_tokens"),
             output_tokens=usage.get("completion_tokens"),

@@ -72,10 +72,10 @@ def _compile(
     )
 
 
-def _configure_gpt(monkeypatch) -> None:
-    monkeypatch.setenv("OPENAI_API_KEY", "test-key-never-sent")
-    monkeypatch.setenv("OPENAI_API_BASE", "https://model.test.invalid/v1")
-    monkeypatch.setenv("OPENAI_MODEL_ID", "provider/test-practice-model")
+def _configure_flash(monkeypatch) -> None:
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key-never-sent")
+    monkeypatch.setenv("DEEPSEEK_API_BASE", "https://model.test.invalid/v1")
+    monkeypatch.setenv("DEEPSEEK_FLASH_MODEL_ID", "provider/test-practice-model")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_DATA_REGIONS", "deployment_configured")
     monkeypatch.setenv("ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES", "provider_account_policy")
 
@@ -585,7 +585,7 @@ def test_model_unavailable_is_explicit_and_audited(
     client, teacher_headers, monkeypatch
 ):
     for key in (
-        "OPENAI_API_KEY", "OPENAI_API_BASE", "OPENAI_MODEL_ID",
+        "DEEPSEEK_API_KEY", "DEEPSEEK_API_BASE", "DEEPSEEK_FLASH_MODEL_ID",
         "ZHIXING_MODEL_ALLOWED_DATA_REGIONS", "ZHIXING_MODEL_ALLOWED_RETENTION_POLICIES",
     ):
         monkeypatch.delenv(key, raising=False)
@@ -594,14 +594,14 @@ def test_model_unavailable_is_explicit_and_audited(
         headers=teacher_headers,
     )
     assert profiles.status_code == 200
-    gpt = next(item for item in profiles.json() if item["id"] == "gpt-5")
+    gpt = next(item for item in profiles.json() if item["id"] == "deepseek-flash")
     assert gpt["available"] is False
     assert "question_generation" in gpt["capabilities"]
 
     blueprint = _compile(
         client,
         teacher_headers,
-        requested_profile_id="gpt-5",
+        requested_profile_id="deepseek-flash",
     )
     assert blueprint.status_code == 201
     generated = client.post(
@@ -610,7 +610,7 @@ def test_model_unavailable_is_explicit_and_audited(
         json={
             "blueprint_id": blueprint.json()["id"],
             "title": "模型不可用边界测试",
-            "requested_profile_id": "gpt-5",
+            "requested_profile_id": "deepseek-flash",
             "idempotency_key": "practice-unavailable-0001",
         },
     )
@@ -635,8 +635,8 @@ def test_seed_configures_a3_and_a5_structured_model_tasks(client):
         "a5.experience_generation": "tutoring",
     }
     with client.app.state.db.session_factory() as db:
-        profile = db.get(ModelProfile, "gpt-5")
-        revision = db.get(ModelProfileRevision, "gpt-5:rev:1")
+        profile = db.get(ModelProfile, "deepseek-flash")
+        revision = db.get(ModelProfileRevision, "deepseek-flash:rev:1")
         assert set(expected).issubset(set(profile.task_kinds))
         assert set(expected.values()).issubset(set(revision.capabilities_json))
         for task_kind, capability in expected.items():
@@ -658,9 +658,9 @@ def test_seed_configures_a3_and_a5_structured_model_tasks(client):
 def test_model_gateway_generation_teacher_review_publish_and_idempotency(
     client, teacher_headers, student_headers, monkeypatch
 ):
-    _configure_gpt(monkeypatch)
+    _configure_flash(monkeypatch)
     adapter = PracticeGenerationAdapter()
-    client.app.state.model_adapter_registry["openai"] = adapter
+    client.app.state.model_adapter_registry["deepseek"] = adapter
     concepts = [
         {
             "concept_id": f"{COURSE_ID}:concept:{index:02d}",
@@ -673,13 +673,13 @@ def test_model_gateway_generation_teacher_review_publish_and_idempotency(
         teacher_headers,
         concepts=concepts,
         difficulty_mode="balanced",
-        requested_profile_id="gpt-5",
+        requested_profile_id="deepseek-flash",
     )
     assert blueprint.status_code == 201, blueprint.text
     payload = {
         "blueprint_id": blueprint.json()["id"],
         "title": "六题型模型生成审核组",
-        "requested_profile_id": "gpt-5",
+        "requested_profile_id": "deepseek-flash",
         "idempotency_key": "practice-generate-0001",
     }
     generated = client.post(
@@ -799,7 +799,7 @@ def test_model_gateway_generation_teacher_review_publish_and_idempotency(
         assert run.output_hash and run.audit_hash and run.prompt_hash
         assert run.usage_json["input_tokens"] == 640
         assert run.usage_json["output_tokens"] == 420
-        assert run.usage_json["profile_revision_id"] == "gpt-5:rev:1"
+        assert run.usage_json["profile_revision_id"] == "deepseek-flash:rev:1"
         assert db.scalar(select(func.count()).select_from(ModelAttempt).where(
             ModelAttempt.run_id == run.id
         )) == 1
