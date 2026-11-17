@@ -21,11 +21,16 @@ from .domains.trajectory.evidence import classify_state
 from .domains.trajectory.client_events import client_observation_command
 from .domains.model_gateway.profile_catalog import resolve_profile
 from .domains.teaching_decision.service import create_snapshot
+from .domains.practice.service import list_question_sets
+from .domains.video_search.service import VideoSearchService
 from .learning_support_models import DecisionSnapshot
 from .models import (
     AuditEvent,
     AuthSession,
     CourseEnrollment,
+    GraphEdge,
+    GraphNode,
+    KnowledgeGraph,
     LearningEvent,
     LearningResource,
     MasteryEvidence,
@@ -53,6 +58,46 @@ from .security import create_session_token, hash_token, verify_password
 
 
 router = APIRouter(prefix="/api/v1")
+
+
+def _current_resources(db: DbSession, student: User, course_id: str) -> list[ResourceView]:
+    resources: list[ResourceView] = []
+    graphs = db.scalars(select(KnowledgeGraph).where(
+        KnowledgeGraph.course_id == course_id,
+        KnowledgeGraph.status == "published",
+        KnowledgeGraph.published_revision_id.is_not(None),
+    ).order_by(KnowledgeGraph.updated_at.desc(), KnowledgeGraph.id).limit(2))
+    for graph in graphs:
+        nodes = db.scalar(select(func.count()).select_from(GraphNode).where(
+            GraphNode.revision_id == graph.published_revision_id)) or 0
+        edges = db.scalar(select(func.count()).select_from(GraphEdge).where(
+            GraphEdge.revision_id == graph.published_revision_id)) or 0
+        resources.append(ResourceView(
+            id=graph.id, resource_type="knowledge_graph", title=graph.title,
+            detail=f"{nodes}个知识点 · {edges}条关系", progress_completed=None,
+            progress_total=None, accuracy=None,
+        ))
+    for item in list_question_sets(db, actor=student, course_id=course_id).items[:2]:
+        resources.append(ResourceView(
+            id=item.id, resource_type="question_set", title=item.title,
+            detail=f"已完成 {item.completed} / {item.total} 题",
+            progress_completed=item.completed, progress_total=item.total,
+            accuracy=round(item.average_score * 100, 2) if item.average_score is not None else None,
+        ))
+    videos = VideoSearchService(db)
+    for publication in videos.student_resources(student, course_id)[:2]:
+        view = videos.publication_view(publication)
+        duration = view.resource.get("duration_seconds")
+        detail = "课程教学视频"
+        if isinstance(duration, (int, float)):
+            seconds = int(duration)
+            detail = f"课程教学视频 · 共 {seconds // 60}:{seconds % 60:02d}"
+        resources.append(ResourceView(
+            id=publication.id, resource_type="learning_video",
+            title=str(view.resource.get("title") or "课程教学视频"), detail=detail,
+            progress_completed=None, progress_total=None, accuracy=None,
+        ))
+    return resources
 
 
 def audit(
@@ -260,10 +305,7 @@ def student_overview(course_id: str, user: StudentUser, db: DbSession) -> Studen
     course, enrollment, teacher = row
     completion = resource_completion(db, user.id, course_id)
     states = [knowledge_state_view(db, concept, state) for concept, state in repository.knowledge_states(user.id, course_id)]
-    resources = [ResourceView(
-        id=item.id, resource_type=item.resource_type, title=item.title, detail=item.detail,
-        progress_completed=item.progress_completed, progress_total=item.progress_total, accuracy=item.accuracy,
-    ) for item in repository.resources(course_id)]
+    resources = _current_resources(db, user, course_id)
     activities = [ActivityView(
         id=item.id, title=item.title, detail=item.detail,
         activity_type=item.activity_type, occurred_at=item.occurred_at,
