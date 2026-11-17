@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npm run qa:graph && vite build",
     "qa:login": "node qa/verify-login.cjs",
     "qa:a1-a2": "node qa/verify-a1-a2.cjs",
     "qa:a3": "node qa/verify-a3.cjs",
