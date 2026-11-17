@@ -616,7 +616,14 @@ function Explorer({
                 <button onClick={() => onTutor(node)}>进入智伴辅导</button>
               )}
               {onEditNode && (
-                <button onClick={() => onEditNode(node)}>编辑所选知识点</button>
+                <button
+                  onClick={() => {
+                    setFull(false);
+                    onEditNode(node);
+                  }}
+                >
+                  编辑所选知识点
+                </button>
               )}
               <button
                 onClick={() => {
